@@ -47,6 +47,17 @@ angular.module('steamWorks', ['ionic'])
         controllerAs: 'welcomeCtrl'
       }
     }
+  })
+
+  .state('app.auto', {
+    url: '/auto',
+    views: {
+      'app-auto': {
+        templateUrl: 'app/auto/auto.template.html',
+        controller: 'autoCtrl',
+        controllerAs: 'autoCtrl'
+      }
+    }
   });
   // Each tab has its own nav history stack:
 
