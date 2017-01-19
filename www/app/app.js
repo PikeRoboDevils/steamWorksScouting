@@ -58,6 +58,17 @@ angular.module('steamWorks', ['ionic'])
         controllerAs: 'autoCtrl'
       }
     }
+  })
+
+  .state('app.teleOp', {
+    url: '/teleOp',
+    views: {
+      'app-teleOp' : {
+        templateUrl: 'app/teleOp/teleOp.template.html',
+        controller: 'teleOpCtrl',
+        controllerAs: 'teleOpCtrl'
+      }
+    }
   });
   // Each tab has its own nav history stack:
 
