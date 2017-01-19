@@ -19,19 +19,31 @@
 				baseLine: false
 			}
 
-			vm.increaseProp = increaseProp;
-			vm.decreaseProp = decreaseProp;
+			vm.increaseHighFuel = increaseHighFuel;
+			vm.decreaseHighFuel = decreaseHighFuel;
+			vm.increaseLowFuel = increaseLowFuel;
+			vm.decreaseLowFuel = decreaseLowFuel;
 			vm.submit = submit;
 			vm.toggleBaseline = toggleBaseline;
 
-			function decreaseProp(prop) {
-				if(vm.matchProperties[prop] - 1 >= 0) {
-					vm.matchProperties[prop] -= 1;
+			function decreaseHighFuel() {
+				if(vm.matchProperties.highFuel - 1 >= 0) {
+					vm.matchProperties.highFuel -= 1;
 				}
 			}
 
-			function increaseProp(prop) {
-				vm.matchProperties[prop] += 1;
+			function increaseHighFuel() {
+				vm.matchProperties.highFuel += 1;
+			}
+
+			function decreaseLowFuel() {
+				if(vm.matchProperties.lowFuel - 1 >= 0) {
+					vm.matchProperties.lowFuel -= 1;
+				}
+			}
+
+			function increaseLowFuel() {
+				vm.matchProperties.lowFuel += 1;
 			}
 
 			function submit() {
