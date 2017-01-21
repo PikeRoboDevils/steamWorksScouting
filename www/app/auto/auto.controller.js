@@ -25,12 +25,8 @@
 			vm.decreaseLowFuel = decreaseLowFuel;
 			vm.submit = submit;
 			vm.toggleBaseline = toggleBaseline;
-<<<<<<< Updated upstream
-=======
             vm.increaseGears= increaseGears;
             vm.decreaseGears = decreaseGears;
-            
->>>>>>> Stashed changes
 
 			function decreaseHighFuel() {
 				if(vm.matchProperties.highFuel - 1 >= 0) {
@@ -51,8 +47,7 @@
 			function increaseLowFuel() {
 				vm.matchProperties.lowFuel += 1;
 			}
-<<<<<<< Updated upstream
-=======
+
             function increaseGears(){
                 vm.matchProperties.gears += 1;
             }
@@ -61,7 +56,6 @@
                 if(vm.matchProperties.gears)
                 vm.matchProperties.gears-=1;
             }
->>>>>>> Stashed changes
 
 			function submit() {
 				var results = {
@@ -81,7 +75,5 @@
 			function toggleBaseline(){
 				vm.matchProperties.baseLine = !vm.matchProperties.baseLine;
 			}
-		}
-    
-            
+		}     
 })();
