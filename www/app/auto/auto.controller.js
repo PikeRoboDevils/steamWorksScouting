@@ -4,13 +4,15 @@
 		.module('steamWorks')
 		.controller('autoCtrl', autoCtrl);
 
-		autoCtrl.$inject = [];
+		autoCtrl.$inject = ['MatchSvc'];
 
 		var LOW_FUEL_CONSTANT = (1/3),
 			BASELINE_CONSTANT = 5;
 
-		function autoCtrl() {
+		function autoCtrl(MatchSvc) {
 			var vm = this;
+
+			vm.match = MatchSvc.getMatch();
 
 			vm.matchProperties = {
 				highFuel: 0,
@@ -27,6 +29,14 @@
 			vm.toggleBaseline = toggleBaseline;
             vm.increaseGears= increaseGears;
             vm.decreaseGears = decreaseGears;
+
+            init();
+
+			function init() {
+				// console.log(MatchSvc.getMatch());
+				// vm.match.autonomousEnabled = false;
+				console.log(vm.match);
+			}
 
 			function decreaseHighFuel() {
 				if(vm.matchProperties.highFuel - 1 >= 0) {
