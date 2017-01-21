@@ -4,15 +4,18 @@
 		.module('steamWorks')
 		.controller('autoCtrl', autoCtrl);
 
-		autoCtrl.$inject = ['MatchSvc'];
+		autoCtrl.$inject = ['MatchSvc', '$state'];
 
 		var LOW_FUEL_CONSTANT = (1/3),
 			BASELINE_CONSTANT = 5;
 
-		function autoCtrl(MatchSvc) {
+		function autoCtrl(MatchSvc, $state) {
 			var vm = this;
 
+        
 			vm.match = MatchSvc.getMatch();
+            vm.submit = submit;
+           
 
 			vm.matchProperties = {
 				highFuel: 0,
@@ -80,10 +83,13 @@
 				results.total = results.fuelPoints + results.basePoints;
 
 				console.log(results);
+                
+                 $state.go('app.teleOp');
 			}
 
 			function toggleBaseline(){
 				vm.matchProperties.baseLine = !vm.matchProperties.baseLine;
 			}
+         	
 		}     
 })();

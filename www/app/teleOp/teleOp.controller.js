@@ -2,11 +2,15 @@
 	'use strict';
 	angular
 	.module('steamWorks')
-	.controller('teleOpCtrl', teleOpCtrl);
+	.controller('teleOpCtrl', teleOpCtrl, '$state');
 
-	teleOpCtrl.$inject = [];
+	teleOpCtrl.$inject = ['$state'];
+    
+    	var LOW_FUEL_CONSTANT = (1/3),
+			BASELINE_CONSTANT = 5;
 
-	function teleOpCtrl(){
+
+	function teleOpCtrl($state){
 		var vm = this;
 		vm.matchParts	=	{
 			highFuel: 0,
@@ -54,7 +58,11 @@
 				results.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
 				results.total = results.fuelPoints + results.basePoints;
 				console.log(results);
+                
+                $state.go('app.final');
 			}
+            
+            
 
 			function toggleBaseline(){
 				vm.matchParts.baseLine = !vm.matchParts.baseLine;
