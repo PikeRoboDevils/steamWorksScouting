@@ -71,20 +71,20 @@
             }
 
 			function submit() {
-				var results = {
+				var autoScore = {
 					fuelPoints: 0,
 					gearPoints: 0,
 					basePoints: 0,
 					total: 0
 				};
 
-				results.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * LOW_FUEL_CONSTANT);
-				results.basePoints += vm.matchProperties.baseLine ? BASELINE_CONSTANT : 0;
-				results.total = results.fuelPoints + results.basePoints;
+				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * LOW_FUEL_CONSTANT);
+				autoScore.basePoints += vm.matchProperties.baseLine ? BASELINE_CONSTANT : 0;
+				autoScore.total = autoScore.fuelPoints + autoScore.basePoints;
 
-				console.log(results);
-                
-                 $state.go('app.teleOp');
+				vm.match.autoScore = autoScore;
+				MatchSvc.updateMatch(vm.match);
+				$state.go('app.teleOp');
 			}
 
 			function toggleBaseline(){

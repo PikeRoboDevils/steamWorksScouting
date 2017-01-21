@@ -28,7 +28,7 @@
 		function isFormValid() {
 			var matchNumber = _.toString(vm.matchProperties.matchNumber),
 				teamNumber = _.toString(vm.matchProperties.teamNumber),
-                scoutName = _.toString(vm.matchProperties.teamScoutName);
+                scoutName = _.toString(vm.matchProperties.scoutName);
                 
 			return !((matchNumber.length >= 2) && (teamNumber.length >= 2) && (scoutName.length >= 3));
 		}
