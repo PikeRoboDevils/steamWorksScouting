@@ -2,11 +2,11 @@
 	'use strict';
 	angular
 	.module('steamWorks')
-	.controller('teleOpCtrl', teleOpCtrl);
+	.controller('finalCtrl', finalCtrl);
 
-	teleOpCtrl.$inject = [];
+	finalCtrl.$inject = [];
 
-	function teleOpCtrl(){
+	function finalCtrl(){
 		var vm = this;
 		vm.matchParts	=	{
 			// highFuel: 0,
