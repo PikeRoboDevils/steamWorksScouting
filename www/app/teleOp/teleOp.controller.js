@@ -4,14 +4,16 @@
 	.module('steamWorks')
 	.controller('teleOpCtrl', teleOpCtrl, '$state');
 
-	teleOpCtrl.$inject = ['$state'];
-    
-    	var LOW_FUEL_CONSTANT = (1/3),
+	teleOpCtrl.$inject = ['MatchSvc', '$state'];
+
+	var LOW_FUEL_CONSTANT = (1/3),
 			BASELINE_CONSTANT = 5;
 
-
-	function teleOpCtrl($state){
+	function teleOpCtrl(MatchSvc, $state){
 		var vm = this;
+
+		vm.match = MatchSvc.getMatch();
+
 		vm.matchParts	=	{
 			highFuel: 0,
 			lowFuel: 0,
@@ -25,6 +27,14 @@
 			vm.decreaseLowFuel = decreaseLowFuel;
 			vm.submit = submit;
 			vm.toggleBaseline = toggleBaseline;
+
+			init();
+
+			function init() {
+				// console.log(MatchSvc.getMatch());
+				// vm.match.autonomousEnabled = false;
+				console.log(vm.match);
+			}
 
 			function decreaseHighFuel() {
 				if(vm.matchParts.highFuel - 1 >= 0) {
@@ -47,19 +57,20 @@
 			}
 
 			function submit() {
-				var results = {
+				var teleScore = {
 					fuelPoints: 0,
 					gearPoints: 0,
 					basePoints: 0,
 					total: 0
 				};
 
-				results.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
-				results.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
-				results.total = results.fuelPoints + results.basePoints;
-				console.log(results);
-                
-                $state.go('app.final');
+				teleScore.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
+				teleScore.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
+				teleScore.total = teleScore.fuelPoints + teleScore.basePoints;
+				
+				vm.match.teleScore = teleScore;
+				MatchSvc.updateMatch(vm.match);
+				$state.go('app.final');
 			}
             
             
