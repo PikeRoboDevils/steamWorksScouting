@@ -1,109 +1,60 @@
 <ion-view view-title="Steamworks">
-	<ion-content class="padding">
+  <ion-content class="padding">
     <div class="row">
       <div class="col col-top col-100 text-center">
-        <h1>FINAL</h1>
+        <h1>TELEOP</h1>
       </div>
     </div>
     <div class="row">
       <div class="col col-100 text-center">
-        <h4>Outcome</h4>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col col-100">
-      <ion-radio>
-      Win
-      </ion-radio>
-      <ion-radio>
-      Lose
-      </ion-radio>
-      <ion-radio>
-      Tie
-      </ion-radio>
-       <!--  <ul class="list">
-        <li class="item item-toggle">
-             Win
-             <label class="toggle toggle-balanced">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.win">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-          <li class="item item-toggle">
-             Tie
-             <label class="toggle toggle-assertive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.lose">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-          <li class="item item-toggle">
-             Lose
-             <label class="toggle toggle-positive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.tie">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-
-        </ul> -->
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col col-100 text-center">
-        <h4>Penalties</h4>
+        <h4>Fuel</h4>
       </div>
     </div>
     <div class="row">
       <div class="col col-100">
         <ul class="list">
+          <li class="item">
+            <div class="row">
+              <div class="col col-20 text-left">
+                Fuel High
+              </div>
+              <div class="col col-80 text-right">
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.decreaseHighFuel()">
+                  <i class="icon ion-arrow-down-a"></i>
+                </button>
+                <span ng-bind="teleOpCtrl.matchParts.highFuel"></span>
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.increaseHighFuel()">
+                  <i class="icon ion-arrow-up-a"></i>
+                </button>
+              </div>
+            </div>
+          </li>
 
-          <!-- <li class="item item-toggle">
+          <li class="item">
+            <div class="row">
+              <div class="col col-20 text-left">
+                Fuel Low
+              </div>
+              <div class="col col-80 text-right">
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.decreaseLowFuel()">
+                  <i class="icon ion-arrow-down-a"></i>
+                </button>
+                <span ng-bind="teleOpCtrl.matchParts.lowFuel"></span>
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.increaseLowFuel()">
+                  <i class="icon ion-arrow-up-a"></i>
+                </button>
+              </div>
+            </div>
+          </li>
+          
+          <li class="item item-toggle">
              Baseline
              <label class="toggle toggle-energized">
                <input type="checkbox" ng-model="teleOpCtrl.matchParts.baseLine">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li> -->
-          <li class="item item-toggle">
-             Red Card
-             <label class="toggle toggle-assertive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.red">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-          <li class="item item-toggle">
-             Yellow Card
-             <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.yellow">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-          <li class="item item-toggle">
-             Foul
-             <label class="toggle toggle-balanced">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.foul">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-          <li class="item item-toggle">
-             Tech Foul
-             <label class="toggle toggle-positive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.tech">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -112,5 +63,5 @@
         </ul>
       </div>
     </div>
-	</ion-content>
+  </ion-content>
 </ion-view>

@@ -26,7 +26,7 @@
         <li class="item item-toggle">
              Win
              <label class="toggle toggle-balanced">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.win">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.win">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -35,7 +35,7 @@
           <li class="item item-toggle">
              Tie
              <label class="toggle toggle-assertive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.lose">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.lose">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -44,7 +44,7 @@
           <li class="item item-toggle">
              Lose
              <label class="toggle toggle-positive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.tie">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.tie">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -67,7 +67,7 @@
           <!-- <li class="item item-toggle">
              Baseline
              <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.baseLine">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.baseLine">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -76,7 +76,7 @@
           <li class="item item-toggle">
              Red Card
              <label class="toggle toggle-assertive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.red">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.red">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -85,7 +85,7 @@
           <li class="item item-toggle">
              Yellow Card
              <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.yellow">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.yellow">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -94,7 +94,7 @@
           <li class="item item-toggle">
              Foul
              <label class="toggle toggle-balanced">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.foul">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.foul">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -103,7 +103,7 @@
           <li class="item item-toggle">
              Tech Foul
              <label class="toggle toggle-positive">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.tech">
+               <input type="checkbox" ng-model="finalCtrl.matchParts.tech">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -112,5 +112,6 @@
         </ul>
       </div>
     </div>
+    <pre>{{ finalCtrl | json }}</pre>
 	</ion-content>
 </ion-view>
