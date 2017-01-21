@@ -20,7 +20,7 @@
 			</label>
             <label class="item item-input">
 				<input ng-model="welcomeCtrl.matchProperties.teamScoutName"
-					type="tel"
+					type="text"
 					maxlength="12"
 					placeholder="Scout Person">
 			</label>
@@ -30,6 +30,14 @@
 							ng-click="welcomeCtrl.submit()"
 							ng-disabled="welcomeCtrl.isFormValid()">
 					Start Scouting!
+				</button>
+				</div>
+			</div>
+			<div class="item item-button">
+				<div class="text-center">
+					<button class="button button-positive"
+							ng-click="welcomeCtrl.foobar()">
+					¡Hola!
 				</button>
 				</div>
 			</div>
