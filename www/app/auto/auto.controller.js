@@ -25,6 +25,8 @@
 			vm.decreaseLowFuel = decreaseLowFuel;
 			vm.submit = submit;
 			vm.toggleBaseline = toggleBaseline;
+            vm.increaseGears= increaseGears;
+            vm.decreaseGears = decreaseGears;
 
 			function decreaseHighFuel() {
 				if(vm.matchProperties.highFuel - 1 >= 0) {
@@ -46,6 +48,15 @@
 				vm.matchProperties.lowFuel += 1;
 			}
 
+            function increaseGears(){
+                vm.matchProperties.gears += 1;
+            }
+    
+            function decreaseGears(){
+                if(vm.matchProperties.gears)
+                vm.matchProperties.gears-=1;
+            }
+
 			function submit() {
 				var results = {
 					fuelPoints: 0,
@@ -64,5 +75,5 @@
 			function toggleBaseline(){
 				vm.matchProperties.baseLine = !vm.matchProperties.baseLine;
 			}
-		}
+		}     
 })();
