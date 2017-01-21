@@ -11,7 +11,8 @@
 
 		vm.matchProperties = {
 			matchNumber: null,
-			teamNumber: null
+			teamNumber: null,
+            scoutName: null
 		};
 
 		vm.isFormValid = isFormValid;
@@ -19,8 +20,10 @@
 
 		function isFormValid() {
 			var matchNumber = _.toString(vm.matchProperties.matchNumber),
-				teamNumber = _.toString(vm.matchProperties.teamNumber);
-			return !((matchNumber.length >= 2) && (teamNumber.length >= 2));
+				teamNumber = _.toString(vm.matchProperties.teamNumber),
+                scoutName = (vm.matchProperties.teamScoutName);
+                
+			return !((matchNumber.length >= 2) && (teamNumber.length >= 2) && (scoutName.length >= 3));
 		}
 
 		function submit() {
