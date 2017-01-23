@@ -9,10 +9,6 @@
 	function finalCtrl(){
 		var vm = this;
 		vm.matchParts	=	{
-			// highFuel: 0,
-			// lowFuel: 0,
-			// gears: 0,
-			// baseLine: false,
 			red: false,
 			yellow: false,
 			tech: false,
@@ -21,13 +17,6 @@
 			lose: false,
 			tie: false
 		}
-
-			// vm.increaseHighFuel = increaseHighFuel;
-			// vm.decreaseHighFuel = decreaseHighFuel;
-			// vm.increaseLowFuel = increaseLowFuel;
-			// vm.decreaseLowFuel = decreaseLowFuel;
-			// vm.submit = submit;
-			// vm.toggleBaseline = toggleBaseline;
 			vm.toggleRed = toggleRed;
 			vm.toggleYellow = toggleYellow;
 			vm.toggleTech = toggleTech;
@@ -55,20 +44,6 @@
 			function increaseLowFuel() {
 				vm.matchParts.lowFuel += 1;
 			}
-
-			// function submit() {
-			// 	var results = {
-			// 		fuelPoints: 0,
-			// 		gearPoints: 0,
-			// 		basePoints: 0,
-			// 		total: 0
-			// 	};
-
-			// 	results.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
-			// 	results.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
-			// 	results.total = results.fuelPoints + results.basePoints;
-			// 	console.log(results);
-			// }
 
 			function toggleYellow(){
 				vm.matchParts.yellow = !vm.matchParts.yellow;

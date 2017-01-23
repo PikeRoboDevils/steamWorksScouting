@@ -39,7 +39,6 @@
 
 		function updateMatch(newProperties) {
 			match = _.merge(match, newProperties);
-			// matchCache.clearAll();
 			matchCache.put(cacheKey, match);
 		}
 

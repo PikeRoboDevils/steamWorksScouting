@@ -36,8 +36,6 @@
             init();
 
 			function init() {
-				// console.log(MatchSvc.getMatch());
-				// vm.match.autonomousEnabled = false;
 				console.log(vm.match);
 			}
 
