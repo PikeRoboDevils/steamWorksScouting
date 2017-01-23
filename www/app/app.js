@@ -48,7 +48,7 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
     .state('app', {
     url: '/steamWorks',
     abstract: true,
-    templateUrl: 'tabs.template.html'
+    templateUrl: 'app/tabs.template.html'
   })
 
   .state('app.welcome', {
