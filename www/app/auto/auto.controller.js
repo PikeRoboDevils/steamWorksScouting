@@ -21,6 +21,7 @@
 				highFuel: 0,
 				lowFuel: 0,
 				gears: 0,
+				rotors: 0,
 				baseLine: false
 			}
 
@@ -32,6 +33,8 @@
 			vm.toggleBaseline = toggleBaseline;
             vm.increaseGears= increaseGears;
             vm.decreaseGears = decreaseGears;
+            vm.increaseRotors = increaseRotors;
+            vm.decreaseRotors = decreaseRotors;
 
             init();
 
@@ -60,12 +63,27 @@
 			}
 
             function increaseGears(){
-                vm.matchProperties.gears += 1;
+                if(vm.matchProperties.gears < 12){
+                	vm.matchProperties.gears++;
+                }
             }
     
             function decreaseGears(){
-                if(vm.matchProperties.gears)
-                vm.matchProperties.gears-=1;
+                if(vm.matchProperties.gears > 0){
+                vm.matchProperties.gears--;
+            	}
+            }
+
+            function increaseRotors(){
+                if(vm.matchProperties.rotors < 4){
+                	vm.matchProperties.rotors++;
+                }
+            }
+    
+            function decreaseRotors(){
+                if(vm.matchProperties.rotors > 0){
+                	vm.matchProperties.rotors--;
+                }
             }
 
 			function submit() {
