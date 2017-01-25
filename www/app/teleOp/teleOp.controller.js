@@ -18,6 +18,7 @@
 			highFuel: 0,
 			lowFuel: 0,
 			gears: 0,
+			rotors: 0,
 			baseLine: false
 		}
 
@@ -27,6 +28,10 @@
 			vm.decreaseLowFuel = decreaseLowFuel;
 			vm.submit = submit;
 			vm.toggleBaseline = toggleBaseline;
+			vm.increaseGears = increaseGears;
+			vm.decreaseGears = decreaseGears;
+			vm.increaseRotors = increaseRotors;
+            vm.decreaseRotors = decreaseRotors;
 
 			init();
 
@@ -53,6 +58,30 @@
 			function increaseLowFuel() {
 				vm.matchParts.lowFuel += 1;
 			}
+
+			function increaseGears(){
+                if(vm.matchParts.gears < 12){
+                	vm.matchParts.gears++;
+                }
+            }
+    
+            function decreaseGears(){
+                if(vm.matchParts.gears > 0){
+                	vm.matchParts.gears--;
+                }
+            }
+
+			function increaseRotors(){
+                if(vm.matchParts.rotors < 4){
+                	vm.matchParts.rotors++;
+                }
+            }
+    
+            function decreaseRotors(){
+                if(vm.matchParts.rotors > 0){
+                	vm.matchParts.rotors--;
+                }
+            }
 
 			function submit() {
 				var teleScore = {

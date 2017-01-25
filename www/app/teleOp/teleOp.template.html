@@ -52,13 +52,51 @@
           </li>
           
           <li class="item item-toggle">
-             Baseline
+             Climb
              <label class="toggle toggle-energized">
                <input type="checkbox" ng-model="teleOpCtrl.matchParts.baseLine">
                <div class="track">
                  <div class="handle"></div>
                </div>
              </label>
+          </li>
+
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-left">
+                Gears
+              </div>
+              <div class="col col-30 text-right">
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.decreaseGears()">
+                  <i class="icon ion-arrow-down-a"></i>
+                </button>
+                <span ng-bind="teleOpCtrl.matchParts.gears"></span>
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.increaseGears()">
+                  <i class="icon ion-arrow-up-a"></i>
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-left">
+                Rotors
+              </div>
+              <div class="col col-30 text-right">
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.decreaseRotors()">
+                  <i class="icon ion-arrow-down-a"></i>
+                </button>
+                <span ng-bind="teleOpCtrl.matchParts.rotors"></span>
+                <button class="button button-positive"
+                  ng-click="teleOpCtrl.increaseRotors()">
+                  <i class="icon ion-arrow-up-a"></i>
+                </button>
+              </div>
+            </div>
           </li>
             
              <li>
