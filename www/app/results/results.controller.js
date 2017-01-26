@@ -7,6 +7,8 @@
 	resultsCtrl.$inject = [];
 
 	function resultsCtrl() {
-		
+		var vm = this;
+
+		vm.foo='ONE BILLION POINTS FOR GRIFFINDOR';
 	}
 })();

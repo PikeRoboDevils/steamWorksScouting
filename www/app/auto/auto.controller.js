@@ -91,7 +91,8 @@
 					fuelPoints: 0,
 					gearPoints: 0,
 					basePoints: 0,
-					total: 0
+					total: 0,
+					baseLine: vm.matchProperties.baseLine
 				};
 
 				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * LOW_FUEL_CONSTANT);
