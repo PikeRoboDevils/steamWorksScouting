@@ -13,6 +13,7 @@
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
+		vm.submit = submit;
 
 		vm.matchParts	=	{
 			highFuel: 0,
@@ -88,7 +89,8 @@
 					fuelPoints: 0,
 					gearPoints: 0,
 					basePoints: 0,
-					total: 0
+					total: 0,
+					baseLine: vm.matchParts.baseLine
 				};
 
 				teleScore.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);

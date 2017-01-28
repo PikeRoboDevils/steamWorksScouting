@@ -4,26 +4,38 @@
 	.module('steamWorks')
 	.controller('finalCtrl', finalCtrl);
 
-	finalCtrl.$inject = [];
+	finalCtrl.$inject = ['MatchSvc', '$state'];
 
-	function finalCtrl(){
+	var LOW_FUEL_CONSTANT = (1/3),
+			BASELINE_CONSTANT = 5;
+
+	function finalCtrl(MatchSvc, $state){
+
 		var vm = this;
+
+		vm.match = MatchSvc.getMatch();
+        vm.submit = submit;
+
 		vm.matchParts	=	{
 			red: false,
 			yellow: false,
 			tech: false,
 			foul: false,
-			win: false,
-			lose: false,
-			tie: false
+			outcome: {
+				value: null
+			}
 		}
 			vm.toggleRed = toggleRed;
 			vm.toggleYellow = toggleYellow;
 			vm.toggleTech = toggleTech;
 			vm.toggleFoul = toggleFoul;
-			vm.toggleWin = toggleWin;
-			vm.toggleLose = toggleLose;
-			vm.toggleTie = toggleTie;
+			vm.submit = submit;
+
+			init();
+
+			function init() {
+				console.log(vm.match);
+			}
 
 			function decreaseHighFuel() {
 				if(vm.matchParts.highFuel - 1 >= 0) {
@@ -61,16 +73,22 @@
 				vm.matchParts.foul = !vm.matchParts.foul;
 			}
 
-			function toggleWin(){
-				vm.matchParts.win = !vm.matchParts.win;
-			}
+			function submit() {
+				var finalScore = {
+					red: vm.matchParts.red,
+					yellow: vm.matchParts.yellow,
+					tech: vm.matchParts.tech,
+					foul: vm.matchParts.foul,
+					outcome: vm.matchParts.outcome.value
+				};
 
-			function toggleLose(){
-				vm.matchParts.lose = !vm.matchParts.lose;
-			}
+				// finalScore.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
+				// finalScore.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
+				// finalScore.total = finalScore.fuelPoints + finalScore.basePoints;
 
-			function toggleTie(){
-				vm.matchParts.tie = !vm.matchParts.tie;
+				vm.match.finalScore = finalScore;
+				MatchSvc.updateMatch(vm.match);
+				$state.go('app.results');
 			}
 
 	}
