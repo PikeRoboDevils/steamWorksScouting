@@ -93,7 +93,19 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
         controllerAs: 'finalCtrl'
       }
     }
+  })
+
+  .state('app.results',{
+    url: '/results',
+    views: {
+      'app-results': {
+        templateUrl: 'app/results/results.template.html',
+        controller: 'resultsCtrl',
+        controllerAs: 'resultsCtrl'
+      }
+    }
   });
+  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/steamWorks/welcome');
 
