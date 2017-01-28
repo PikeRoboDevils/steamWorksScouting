@@ -36,7 +36,7 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($ionicConfigProvider, $stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -109,4 +109,7 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/steamWorks/welcome');
 
+    // Begin platform config
+  $ionicConfigProvider.platform.android.tabs.position('bottom');
+  // End platform config
 });

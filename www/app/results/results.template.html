@@ -10,17 +10,13 @@
   <div class="item item-icon-left">
     <i class="icon ion-clipboard"></i>
     Total Points
-    <span class="badge badge-royal">
-      0
-    </span>
+    <span class="badge badge-royal" ng-bind="resultsCtrl.total()"></span>
   </div>
 
   <div class="item item-icon-left">
     <i class="icon ion-social-dribbble-outline"></i>
     kPa
-    <span class="badge badge-positive">
-      0
-    </span>
+    <span class="badge badge-positive" ng-bind="resultsCtrl.kpa()"></span>
   </div>
 
   <div class="item item-icon-left">
@@ -34,8 +30,10 @@
   <div class="item item-icon-left">
     <i class="icon ion-ios-wineglass-outline"></i>
     Ranking Points
-    <span class="badge badge-assertive">0</span>
+    <span class="badge badge-assertive" ng-bind="resultsCtrl.rankPoints()"></span>
   </div>
+
+  <pre>{{ resultsCtrl.matchResults | json }}</pre>
 
 </div>
 	</ion-content>
