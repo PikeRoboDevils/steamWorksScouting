@@ -37,32 +37,32 @@
     <span class="badge badge-assertive" ng-bind="resultsCtrl.rankPoints()"></span>
   </div>
 
-  <div class="item item-icon-left">
-    <i class="icon ion-flag"></i>
-    Penalties
-    <span class="badge badge-balanced" ng-bind="resultsCtrl.rotor()"></span>
-  </div>
-
-<!--   <div class="item item-icon-left">
-    <div class="row">
-      <div class="col col-20">
-        <i class="icon ion-ios-speedometer-outline"></i>
-        Penalties
-      </div>
-      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.yellow">
-        <span class="badge badge-energized">YELLOW</span>
-      </div>
-      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.red">
-        <span class="badge badge-assertive">RED</span>
-      </div>
-      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.tech">
-        <span class="badge badge-balanced">TECH</span>
-      </div>
-      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.foul">
-        <span class="badge badge-positive">FOUL</span>
-      </div>
+  <div class="row">
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-energized': resultsCtrl.match.finalScore.yellow, 'badge-dark': !resultsCtrl.match.finalScore.yellow}">
+            YELLOW
+      </span>
     </div>
-  </div> -->
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-assertive': resultsCtrl.match.finalScore.red, 'badge-dark': !resultsCtrl.match.finalScore.red}">
+            RED
+      </span>
+    </div>
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-balanced': resultsCtrl.match.finalScore.foul, 'badge-dark': !resultsCtrl.match.finalScore.foul}">
+            FOUL
+      </span>
+    </div>
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-positive': resultsCtrl.match.finalScore.tech, 'badge-dark': !resultsCtrl.match.finalScore.tech}">
+            TECH
+      </span>
+    </div>
+  </div>
 
 
 
