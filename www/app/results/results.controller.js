@@ -18,26 +18,10 @@
 		vm.rankPoints = rankPoints;
 		vm.rotor = rotor;
 		vm.gears = gears;
-		vm.penalty = penalty;
 		
 
 		function kpa(){
-			return vm.match.autoScore.fuelPoints + vm.match.teleScore.fuelPoints;
-		}
-
-		function penalty(){
-			if(vm.match.finalScore.red == true){
-				return 'red';
-			}
-			else if(vm.match.finalScore.yellow == true){
-				return 'yellow';
-			}
-			else if(vm.match.finalScore.tech == true){
-				return 'tech';
-			}
-			else if(vm.match.finalScore.foul == true){
-				return 'foul';
-			} 
+			return (vm.match.autoScore.fuelPoints + vm.match.teleScore.fuelPoints).toFixed(2);
 		}
 
 		function gears(){
@@ -45,7 +29,7 @@
 		}
 
 		function total(){
-			return vm.match.autoScore.total + vm.match.teleScore.total;
+			return (vm.match.autoScore.total + vm.match.teleScore.total).toFixed(2);
 		}
 
 		function rotor(){
