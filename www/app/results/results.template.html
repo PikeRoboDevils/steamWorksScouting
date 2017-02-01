@@ -10,31 +10,58 @@
   <div class="item item-icon-left">
     <i class="icon ion-clipboard"></i>
     Total Points
-    <span class="badge badge-royal">
-      0
-    </span>
+    <span class="badge badge-royal" ng-bind="resultsCtrl.total()"></span>
   </div>
 
   <div class="item item-icon-left">
-    <i class="icon ion-social-dribbble-outline"></i>
+    <i class="icon ion-ios-speedometer-outline"></i>
     kPa
-    <span class="badge badge-positive">
-      0
-    </span>
+    <span class="badge badge-positive" ng-bind="resultsCtrl.kpa()"></span>
+  </div>
+
+  <div class="item item-icon-left">
+    <i class="icon ion-ios-gear-outline"></i>
+    Gears
+    <span class="badge badge-energized" ng-bind="resultsCtrl.gears()"></span>
   </div>
 
   <div class="item item-icon-left">
     <i class="icon ion-flag"></i>
     Rotors
-    <span class="badge badge-balanced">
-      0
-    </span>
+    <span class="badge badge-balanced" ng-bind="resultsCtrl.rotor()"></span>
   </div>
 
   <div class="item item-icon-left">
-    <i class="icon ion-ios-wineglass-outline"></i>
+    <i class="icon ion-ios-speedometer-outline"></i>
     Ranking Points
-    <span class="badge badge-assertive">0</span>
+    <span class="badge badge-assertive" ng-bind="resultsCtrl.rankPoints()"></span>
+  </div>
+
+  <div class="row">
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-energized': resultsCtrl.match.finalScore.yellow, 'badge-dark': !resultsCtrl.match.finalScore.yellow}">
+            YELLOW
+      </span>
+    </div>
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-assertive': resultsCtrl.match.finalScore.red, 'badge-dark': !resultsCtrl.match.finalScore.red}">
+            RED
+      </span>
+    </div>
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-balanced': resultsCtrl.match.finalScore.foul, 'badge-dark': !resultsCtrl.match.finalScore.foul}">
+            FOUL
+      </span>
+    </div>
+    <div class="col col-25 text-center">
+      <span class="badge"
+            ng-class="{'badge-positive': resultsCtrl.match.finalScore.tech, 'badge-dark': !resultsCtrl.match.finalScore.tech}">
+            TECH
+      </span>
+    </div>
   </div>
 
 </div>

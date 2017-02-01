@@ -6,8 +6,11 @@
 
 	teleOpCtrl.$inject = ['MatchSvc', '$state'];
 
-	var LOW_FUEL_CONSTANT = (1/3),
-			BASELINE_CONSTANT = 5;
+	var LOW_FUEL_CONSTANT = (1/9),
+		HIGH_FUEL_CONSTANT = (1/3),
+		CLIMB_CONSTANT = 50,
+		CLIMB = 50,
+		ROTORS = 40;
 
 	function teleOpCtrl(MatchSvc, $state){
 		var vm = this;
@@ -19,8 +22,8 @@
 			highFuel: 0,
 			lowFuel: 0,
 			gears: 0,
-			rotors: 0,
-			baseLine: false
+			rotors: vm.match.autoScore.rotorTotal,
+			climb: false
 		}
 
 			vm.increaseHighFuel = increaseHighFuel;
@@ -28,7 +31,7 @@
 			vm.increaseLowFuel = increaseLowFuel;
 			vm.decreaseLowFuel = decreaseLowFuel;
 			vm.submit = submit;
-			vm.toggleBaseline = toggleBaseline;
+			vm.toggleClimb = toggleClimb;
 			vm.increaseGears = increaseGears;
 			vm.decreaseGears = decreaseGears;
 			vm.increaseRotors = increaseRotors;
@@ -79,7 +82,7 @@
             }
     
             function decreaseRotors(){
-                if(vm.matchParts.rotors > 0){
+                if(vm.matchParts.rotors > vm.match.autoScore.rotorTotal){
                 	vm.matchParts.rotors--;
                 }
             }
@@ -87,14 +90,19 @@
 			function submit() {
 				var teleScore = {
 					fuelPoints: 0,
-					gearPoints: 0,
+					rotorPoints: 0,
+					gearTotal: 0,
+					rotorTotal: 0,
 					basePoints: 0,
 					total: 0,
-					baseLine: vm.matchParts.baseLine
+					climb: vm.matchParts.climb
 				};
 
-				teleScore.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
-				teleScore.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
+				teleScore.fuelPoints = (vm.matchParts.highFuel * HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
+				teleScore.basePoints += vm.matchParts.climb ? CLIMB_CONSTANT : 0;
+				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * ROTORS;
+				teleScore.gearTotal = vm.matchParts.gears;
+				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
 				teleScore.total = teleScore.fuelPoints + teleScore.basePoints;
 				
 				vm.match.teleScore = teleScore;
@@ -104,8 +112,8 @@
             
             
 
-			function toggleBaseline(){
-				vm.matchParts.baseLine = !vm.matchParts.baseLine;
+			function toggleClimb(){
+				vm.matchParts.climb = !vm.matchParts.climb;
 			}
 
 	}

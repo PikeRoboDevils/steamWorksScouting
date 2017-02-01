@@ -7,7 +7,8 @@
 		autoCtrl.$inject = ['MatchSvc', '$state'];
 
 		var LOW_FUEL_CONSTANT = (1/3),
-			BASELINE_CONSTANT = 5;
+			BASELINE_CONSTANT = 5,
+			ROTORS = 60;
 
 		function autoCtrl(MatchSvc, $state) {
 			var vm = this;
@@ -89,8 +90,10 @@
 			function submit() {
 				var autoScore = {
 					fuelPoints: 0,
-					gearPoints: 0,
+					rotorPoints: 0,
 					basePoints: 0,
+					gearTotal: 0,
+					rotorTotal: 0,
 					total: 0,
 					baseLine: vm.matchProperties.baseLine
 				};
@@ -98,6 +101,9 @@
 				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * LOW_FUEL_CONSTANT);
 				autoScore.basePoints += vm.matchProperties.baseLine ? BASELINE_CONSTANT : 0;
 				autoScore.total = autoScore.fuelPoints + autoScore.basePoints;
+				autoScore.rotorPoints = vm.matchProperties.rotors * ROTORS;
+				autoScore.rotorTotal = vm.matchProperties.rotors;
+				autoScore.gearTotal = vm.matchProperties.gears;
 
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
