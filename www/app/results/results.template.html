@@ -14,24 +14,57 @@
   </div>
 
   <div class="item item-icon-left">
-    <i class="icon ion-social-dribbble-outline"></i>
+    <i class="icon ion-ios-speedometer-outline"></i>
     kPa
     <span class="badge badge-positive" ng-bind="resultsCtrl.kpa()"></span>
   </div>
 
   <div class="item item-icon-left">
-    <i class="icon ion-flag"></i>
-    Rotors
-    <span class="badge badge-balanced">
-      0
-    </span>
+    <i class="icon ion-ios-gear-outline"></i>
+    Gears
+    <span class="badge badge-energized" ng-bind="resultsCtrl.gears()"></span>
   </div>
 
   <div class="item item-icon-left">
-    <i class="icon ion-ios-wineglass-outline"></i>
+    <i class="icon ion-flag"></i>
+    Rotors
+    <span class="badge badge-balanced" ng-bind="resultsCtrl.rotor()"></span>
+  </div>
+
+  <div class="item item-icon-left">
+    <i class="icon ion-ios-speedometer-outline"></i>
     Ranking Points
     <span class="badge badge-assertive" ng-bind="resultsCtrl.rankPoints()"></span>
   </div>
+
+  <div class="item item-icon-left">
+    <i class="icon ion-flag"></i>
+    Penalties
+    <span class="badge badge-balanced" ng-bind="resultsCtrl.rotor()"></span>
+  </div>
+
+<!--   <div class="item item-icon-left">
+    <div class="row">
+      <div class="col col-20">
+        <i class="icon ion-ios-speedometer-outline"></i>
+        Penalties
+      </div>
+      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.yellow">
+        <span class="badge badge-energized">YELLOW</span>
+      </div>
+      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.red">
+        <span class="badge badge-assertive">RED</span>
+      </div>
+      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.tech">
+        <span class="badge badge-balanced">TECH</span>
+      </div>
+      <div class="col col-20" ng-show="resultsCtrl.match.finalScore.foul">
+        <span class="badge badge-positive">FOUL</span>
+      </div>
+    </div>
+  </div> -->
+
+
 
   <pre>{{ resultsCtrl.matchResults | json }}</pre>
 

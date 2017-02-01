@@ -16,14 +16,40 @@
 		vm.kpa = kpa;
 		vm.total = total;
 		vm.rankPoints = rankPoints;
+		vm.rotor = rotor;
+		vm.gears = gears;
+		vm.penalty = penalty;
 		
 
 		function kpa(){
 			return vm.match.autoScore.fuelPoints + vm.match.teleScore.fuelPoints;
 		}
 
+		function penalty(){
+			if(vm.match.finalScore.red == true){
+				return 'red';
+			}
+			else if(vm.match.finalScore.yellow == true){
+				return 'yellow';
+			}
+			else if(vm.match.finalScore.tech == true){
+				return 'tech';
+			}
+			else if(vm.match.finalScore.foul == true){
+				return 'foul';
+			} 
+		}
+
+		function gears(){
+			return vm.match.autoScore.gearTotal + vm.match.teleScore.gearTotal;
+		}
+
 		function total(){
 			return vm.match.autoScore.total + vm.match.teleScore.total;
+		}
+
+		function rotor(){
+			return vm.match.autoScore.rotorTotal + vm.match.teleScore.rotorTotal;
 		}
 
 		function rankPoints(){

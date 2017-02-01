@@ -35,6 +35,7 @@
 
 		function beginMatch() {
 			matchCache.remove(cacheKey);
+			match = {};
 		}
 
 		function updateMatch(newProperties) {

@@ -22,7 +22,7 @@
 			highFuel: 0,
 			lowFuel: 0,
 			gears: 0,
-			rotors: 0,
+			rotors: vm.match.autoScore.rotorTotal,
 			climb: false
 		}
 
@@ -82,7 +82,7 @@
             }
     
             function decreaseRotors(){
-                if(vm.matchParts.rotors > 0){
+                if(vm.matchParts.rotors > vm.match.autoScore.rotorTotal){
                 	vm.matchParts.rotors--;
                 }
             }
@@ -100,9 +100,9 @@
 
 				teleScore.fuelPoints = (vm.matchParts.highFuel * HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
 				teleScore.basePoints += vm.matchParts.climb ? CLIMB_CONSTANT : 0;
-				teleScore.rotorPoints = vm.matchParts.rotors * ROTORS;
+				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * ROTORS;
 				teleScore.gearTotal = vm.matchParts.gears;
-				teleScore.rotorTotal = vm.matchParts.rotors;
+				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
 				teleScore.total = teleScore.fuelPoints + teleScore.basePoints;
 				
 				vm.match.teleScore = teleScore;
