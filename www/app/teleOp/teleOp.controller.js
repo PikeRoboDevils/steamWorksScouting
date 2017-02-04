@@ -4,7 +4,7 @@
 	.module('steamWorks')
 	.controller('teleOpCtrl', teleOpCtrl, '$state');
 
-	teleOpCtrl.$inject = ['MatchSvc', '$state'];
+	teleOpCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
 	var LOW_FUEL_CONSTANT = (1/9),
 		HIGH_FUEL_CONSTANT = (1/3),
@@ -12,7 +12,11 @@
 		CLIMB = 50,
 		ROTORS = 40;
 
-	function teleOpCtrl(MatchSvc, $state){
+	function teleOpCtrl(MatchSvc, $scope, $state){
+		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+		    viewData.enableBack = true;
+		});
+		
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
