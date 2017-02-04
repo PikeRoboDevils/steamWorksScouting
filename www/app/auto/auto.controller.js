@@ -4,14 +4,17 @@
 		.module('steamWorks')
 		.controller('autoCtrl', autoCtrl);
 
-		autoCtrl.$inject = ['MatchSvc', '$state'];
+		autoCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
 		var LOW_FUEL_CONSTANT = (1/3),
 			BASELINE_CONSTANT = 5,
 			ROTORS = 60;
 
-		function autoCtrl(MatchSvc, $state) {
+		function autoCtrl(MatchSvc, $scope, $state) {
 			var vm = this;
+			$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+			    viewData.enableBack = true;
+			});
 
         
 			vm.match = MatchSvc.getMatch();
