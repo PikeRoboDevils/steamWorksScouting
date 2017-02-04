@@ -4,9 +4,13 @@
 		.module('steamWorks')
 		.controller('resultsCtrl', resultsCtrl);
 
-	resultsCtrl.$inject = ['MatchSvc', '$state'];
+	resultsCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
-	function resultsCtrl(MatchSvc, $state) {
+	function resultsCtrl(MatchSvc, $scope, $state) {
+		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+		    viewData.enableBack = true;
+		});
+
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();

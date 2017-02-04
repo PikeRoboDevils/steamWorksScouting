@@ -11,11 +11,11 @@
 			ROTORS = 60;
 
 		function autoCtrl(MatchSvc, $scope, $state) {
-			var vm = this;
 			$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 			    viewData.enableBack = true;
 			});
-
+			
+			var vm = this;
         
 			vm.match = MatchSvc.getMatch();
             vm.submit = submit;

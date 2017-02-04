@@ -4,12 +4,15 @@
 	.module('steamWorks')
 	.controller('finalCtrl', finalCtrl);
 
-	finalCtrl.$inject = ['MatchSvc', '$state'];
+	finalCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
 	var LOW_FUEL_CONSTANT = (1/3),
 			BASELINE_CONSTANT = 5;
 
-	function finalCtrl(MatchSvc, $state){
+	function finalCtrl(MatchSvc, $scope, $state){
+		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+		    viewData.enableBack = true;
+		});
 
 		var vm = this;
 

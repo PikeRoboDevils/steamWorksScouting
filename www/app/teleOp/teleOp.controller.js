@@ -16,6 +16,7 @@
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
+		
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
