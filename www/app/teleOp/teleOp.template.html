@@ -1,13 +1,8 @@
 <ion-view view-title="Steamworks">
   <ion-content class="padding">
-    <div class="row">
-      <div class="col col-top col-100 text-center">
-        <h1>TELEOP</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col col-100 text-center">
-        <h4>Fuel</h4>
+  <div class="row">
+      <div class="col text-center">
+        <h1>Teleop</h1>
       </div>
     </div>
     <div class="row">
@@ -15,51 +10,68 @@
         <ul class="list">
           <li class="item">
             <div class="row">
-              <div class="col col-20 text-left">
-                Fuel High
+              <div class="col col-100 text-center">
+                <h2>Fuel High</h2>
               </div>
-              <div class="col col-80 text-right">
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.decreaseHighFuel()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <span ng-bind="teleOpCtrl.matchParts.highFuel"></span>
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.increaseHighFuel()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
+            </div>
+          </li>
+        <li class="item">
+            <div class="row">
+              <div class="col col-90 text-right">
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.decreaseHighFuel5()">
+                    -5
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.decreaseHighFuel1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.highFuel"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseHighFuel1()">
+                    1
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseHighFuel5()">
+                    5
+                  </button>
               </div>
             </div>
           </li>
           <li class="item">
             <div class="row">
-              <div class="col col-20 text-left">
-                Fuel Low
+              <div class="col col-100 text-center">
+                <h2>Fuel Low</h2>
               </div>
-              <div class="col col-80 text-right">
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-90 text-right">
                 <button class="button button-positive"
-                  ng-click="teleOpCtrl.decreaseLowFuel()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <span ng-bind="teleOpCtrl.matchParts.lowFuel"></span>
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.increaseLowFuel()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
+                    ng-click="teleOpCtrl.decreaseLowFuel5()">
+                    -5
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.decreaseLowFuel1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.lowFuel"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseLowFuel1()">
+                    1
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseLowFuel5()">
+                    5
+                  </button>
               </div>
             </div>
           </li>
-          
-          <li class="item item-toggle">
-             Climb
-             <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.climb">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-
           <li class="item">
             <div class="row">
               <div class="col col-70 text-left">
@@ -70,7 +82,9 @@
                   ng-click="teleOpCtrl.decreaseGears()">
                   <i class="icon ion-arrow-down-a"></i>
                 </button>
-                <span ng-bind="teleOpCtrl.matchParts.gears"></span>
+                <button class="button button-light">
+                  <span ng-bind="teleOpCtrl.matchParts.gears"></span>
+                </button>
                 <button class="button button-positive"
                   ng-click="teleOpCtrl.increaseGears()">
                   <i class="icon ion-arrow-up-a"></i>
@@ -89,13 +103,25 @@
                   ng-click="teleOpCtrl.decreaseRotors()">
                   <i class="icon ion-arrow-down-a"></i>
                 </button>
-                <span ng-bind="teleOpCtrl.matchParts.rotors"></span>
+                <button class="button button-light">
+                  <span ng-bind="teleOpCtrl.matchParts.rotors"></span>
+                </button>
                 <button class="button button-positive"
                   ng-click="teleOpCtrl.increaseRotors()">
                   <i class="icon ion-arrow-up-a"></i>
                 </button>
               </div>
             </div>
+          </li>
+
+          <li class="item item-toggle">
+             Climb
+             <label class="toggle toggle-energized">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.climb">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
           </li>
             
              <li>

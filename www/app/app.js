@@ -24,14 +24,14 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
   // Caches
     // CacheFactory.destroyAll();
     // CacheFactory.clearAll();
-    var matchCache;
-    if (!CacheFactory.get('matchCache')) {
-      matchCache = CacheFactory('matchCache', {
-        storageMode: 'localStorage',
-        maxAge: 60 * 60 * 1000, // 1hr
-        deleteOnExpire: 'aggressive'
-      });
-    }
+    // var matchCache;
+    // if (!CacheFactory.get('matchCache')) {
+    //   matchCache = CacheFactory('matchCache', {
+    //     storageMode: 'localStorage',
+    //     maxAge: 60 * 60 * 1000, // 1hr
+    //     deleteOnExpire: 'aggressive'
+    //   });
+    // }
 
   });
 })
@@ -102,6 +102,17 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
         templateUrl: 'app/results/results.template.html',
         controller: 'resultsCtrl',
         controllerAs: 'resultsCtrl'
+      }
+    }
+  })
+
+  .state('app.end', {
+    url: '/end',
+    views: {
+      'app-end': {
+        templateUrl: 'app/end/end.template.html',
+        controller: 'endCtrl',
+        controllerAs: 'endCtrl'
       }
     }
   });

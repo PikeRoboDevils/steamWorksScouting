@@ -1,8 +1,8 @@
 (function() {
 	'use strict';
 	angular
-	.module('steamWorks')
-	.controller('welcomeCtrl', welcomeCtrl);
+		.module('steamWorks')
+		.controller('welcomeCtrl', welcomeCtrl);
 
 	welcomeCtrl.$inject = ['MatchSvc', '$state'];
 
@@ -34,7 +34,7 @@
 		}
 
 		function foobar() {
-			MatchSvc.hello();
+			alert('foobar');
 		}
 
 		function submit() {
