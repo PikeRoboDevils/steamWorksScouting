@@ -8,11 +8,18 @@
 	MatchSvc.$inject = ['CacheFactory'];
 
 	function MatchSvc(CacheFactory) {
-		var match = {},
-			matchCache = CacheFactory.get('matchCache'),
-			cacheKey = 'match',
-			matchData = matchCache.get(cacheKey),
-			matchSvc = {
+		var matchCache;
+	    if (!CacheFactory.get('matchCache')) {
+	      matchCache = CacheFactory('matchCache', {
+	        storageMode: 'localStorage',
+	        maxAge: 60 * 60 * 1000, // 1hr
+	        deleteOnExpire: 'aggressive'
+	      });
+	    }
+		var match = {};
+		var cacheKey = 'match';
+		var matchData = matchCache.get(cacheKey);
+		var matchSvc = {
 				beginMatch: beginMatch,
 				getMatch: getMatch,
 				updateMatch: updateMatch,

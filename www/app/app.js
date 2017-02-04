@@ -24,14 +24,14 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
   // Caches
     // CacheFactory.destroyAll();
     // CacheFactory.clearAll();
-    var matchCache;
-    if (!CacheFactory.get('matchCache')) {
-      matchCache = CacheFactory('matchCache', {
-        storageMode: 'localStorage',
-        maxAge: 60 * 60 * 1000, // 1hr
-        deleteOnExpire: 'aggressive'
-      });
-    }
+    // var matchCache;
+    // if (!CacheFactory.get('matchCache')) {
+    //   matchCache = CacheFactory('matchCache', {
+    //     storageMode: 'localStorage',
+    //     maxAge: 60 * 60 * 1000, // 1hr
+    //     deleteOnExpire: 'aggressive'
+    //   });
+    // }
 
   });
 })
