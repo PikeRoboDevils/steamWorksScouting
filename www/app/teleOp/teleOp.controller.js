@@ -26,11 +26,15 @@
 			climb: false
 		}
 
-			vm.increaseHighFuel = increaseHighFuel;
-			vm.decreaseHighFuel = decreaseHighFuel;
-			vm.increaseLowFuel = increaseLowFuel;
-			vm.decreaseLowFuel = decreaseLowFuel;
-			vm.submit = submit;
+			vm.increaseHighFuel1 = increaseHighFuel1;
+			vm.increaseHighFuel5 = increaseHighFuel5;
+			vm.decreaseHighFuel1 = decreaseHighFuel1;
+			vm.decreaseHighFuel5 = decreaseHighFuel5;
+			vm.increaseLowFuel1 = increaseLowFuel1;
+			vm.increaseLowFuel5 = increaseLowFuel5;
+			vm.increaseLowFuel20 = increaseLowFuel20;
+			vm.decreaseLowFuel1 = decreaseLowFuel1;
+			vm.decreaseLowFuel5 = decreaseLowFuel5;
 			vm.toggleClimb = toggleClimb;
 			vm.increaseGears = increaseGears;
 			vm.decreaseGears = decreaseGears;
@@ -43,24 +47,48 @@
 				console.log(vm.match);
 			}
 
-			function decreaseHighFuel() {
+			function decreaseHighFuel1() {
 				if(vm.matchParts.highFuel - 1 >= 0) {
 					vm.matchParts.highFuel -= 1;
 				}
 			}
 
-			function increaseHighFuel() {
+			function decreaseHighFuel5() {
+				if(vm.matchParts.highFuel - 5 >= 0) {
+					vm.matchParts.highFuel -= 5;
+				}
+			}
+
+			function increaseHighFuel1() {
 				vm.matchParts.highFuel += 1;
 			}
 
-			function decreaseLowFuel() {
+			function increaseHighFuel5() {
+				vm.matchParts.highFuel += 5;
+			}
+
+			function decreaseLowFuel1() {
 				if(vm.matchParts.lowFuel - 1 >= 0) {
 					vm.matchParts.lowFuel -= 1;
 				}
 			}
 
-			function increaseLowFuel() {
+			function decreaseLowFuel5() {
+				if(vm.matchParts.lowFuel - 5 >= 0) {
+					vm.matchParts.lowFuel -= 5;
+				}
+			}
+
+			function increaseLowFuel1() {
 				vm.matchParts.lowFuel += 1;
+			}
+
+			function increaseLowFuel5() {
+				vm.matchParts.lowFuel += 5;
+			}
+
+			function increaseLowFuel20() {
+				vm.matchParts.lowFuel += 20;
 			}
 
 			function increaseGears(){
@@ -109,8 +137,6 @@
 				MatchSvc.updateMatch(vm.match);
 				$state.go('app.final');
 			}
-            
-            
 
 			function toggleClimb(){
 				vm.matchParts.climb = !vm.matchParts.climb;

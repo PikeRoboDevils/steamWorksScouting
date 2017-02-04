@@ -1,11 +1,11 @@
 <ion-view view-title="Steamworks">
 	<ion-content class="padding">
-		<div class="row">
-      		<div class="col col-top col-100 text-center">
-       		 	<h1>RESULTS</h1>
-      		</div>
-    	</div>
-    	<div class="list">
+  <div class="row">
+      <div class="col text-center">
+        <h1>Results</h1>
+      </div>
+    </div>
+    <div class="list">
 
   <div class="item item-icon-left">
     <i class="icon ion-clipboard"></i>
@@ -63,7 +63,11 @@
       </span>
     </div>
   </div>
-
-</div>
+           <div class="text-center">
+             <button class="button button-positive" ng-click="resultsCtrl.submit()">
+               Submit
+             </button>
+            </div>
+    </div>
 	</ion-content>
 </ion-view>

@@ -10,6 +10,7 @@
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
+		vm.submit = submit;
 
 		// vm.foo='ONE BILLION POINTS FOR GRIFFINDOR';
 
@@ -50,11 +51,14 @@
 		}
 
 		function rank2(){
-			if(vm.match.finalScore.outcome = "win"){
+			if(vm.match.finalScore.outcome == "win"){
 				return 2;
 			}
-			else if(vm.match.finalScore.outcome = "tie"){
+			else if(vm.match.finalScore.outcome == "tie"){
 				return 1;
+			}
+			else if(vm.match.finalScore.outcome == "lose"){
+				return 0;
 			}
 			else {
 				return 0;
@@ -72,6 +76,11 @@
 			else {
 				return 0;
 			}
+		}
+
+		function submit(){
+			MatchSvc.updateMatch(vm.match);
+			$state.go('app.end');
 		}
 	}
 })();

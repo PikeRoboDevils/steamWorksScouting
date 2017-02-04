@@ -104,6 +104,17 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
         controllerAs: 'resultsCtrl'
       }
     }
+  })
+
+  .state('app.end', {
+    url: '/end',
+    views: {
+      'app-end': {
+        templateUrl: 'app/end/end.template.html',
+        controller: 'endCtrl',
+        controllerAs: 'endCtrl'
+      }
+    }
   });
   
   // if none of the above states are matched, use this as the fallback

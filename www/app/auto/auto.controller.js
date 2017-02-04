@@ -26,11 +26,14 @@
 				baseLine: false
 			}
 
-			vm.increaseHighFuel = increaseHighFuel;
-			vm.decreaseHighFuel = decreaseHighFuel;
-			vm.increaseLowFuel = increaseLowFuel;
-			vm.decreaseLowFuel = decreaseLowFuel;
-			vm.submit = submit;
+			vm.increaseHighFuel1 = increaseHighFuel1;
+			vm.increaseHighFuel5 = increaseHighFuel5;
+			vm.decreaseHighFuel1 = decreaseHighFuel1;
+			vm.decreaseHighFuel5 = decreaseHighFuel5;
+			vm.increaseLowFuel1 = increaseLowFuel1;
+			vm.increaseLowFuel5 = increaseLowFuel5;
+			vm.decreaseLowFuel1 = decreaseLowFuel1;
+			vm.decreaseLowFuel5 = decreaseLowFuel5;
 			vm.toggleBaseline = toggleBaseline;
             vm.increaseGears= increaseGears;
             vm.decreaseGears = decreaseGears;
@@ -43,24 +46,44 @@
 				console.log(vm.match);
 			}
 
-			function decreaseHighFuel() {
+			function decreaseHighFuel1() {
 				if(vm.matchProperties.highFuel - 1 >= 0) {
 					vm.matchProperties.highFuel -= 1;
 				}
 			}
 
-			function increaseHighFuel() {
+			function decreaseHighFuel5() {
+				if(vm.matchProperties.highFuel - 5 >= 0) {
+					vm.matchProperties.highFuel -= 5;
+				}
+			}
+
+			function increaseHighFuel1() {
 				vm.matchProperties.highFuel += 1;
 			}
 
-			function decreaseLowFuel() {
+			function increaseHighFuel5() {
+				vm.matchProperties.highFuel += 5;
+			}
+
+			function decreaseLowFuel1() {
 				if(vm.matchProperties.lowFuel - 1 >= 0) {
 					vm.matchProperties.lowFuel -= 1;
 				}
 			}
 
-			function increaseLowFuel() {
+			function decreaseLowFuel5() {
+				if(vm.matchProperties.lowFuel - 5 >= 0) {
+					vm.matchProperties.lowFuel -= 5;
+				}
+			}
+
+			function increaseLowFuel1() {
 				vm.matchProperties.lowFuel += 1;
+			}
+
+			function increaseLowFuel5() {
+				vm.matchProperties.lowFuel += 5;
 			}
 
             function increaseGears(){
