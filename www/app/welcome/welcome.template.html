@@ -1,10 +1,11 @@
-<ion-view view-title="SteamWorks">
+<ion-view>
   <ion-content class="padding">
 	<div class="row">
-			<div class="col text-center">
-				<h1>Welcome</h1>
-			</div>
+		<div class="col text-center">
+			<h1>Welcome</h1>
 		</div>
+	</div>
+	<form name="scoutingForm" ng-submit="welcomeCtrl.submit()">
 		<div class="list list-inset">
 			<label class="item item-input">
 				<input ng-model="welcomeCtrl.matchProperties.matchNumber"
@@ -18,21 +19,21 @@
 					maxlength="6"
 					placeholder="Team Number">
 			</label>
-            <label class="item item-input">
+	        <label class="item item-input">
 				<input ng-model="welcomeCtrl.matchProperties.scoutName"
 					type="text"
 					maxlength="12"
 					placeholder="Scout Person">
 			</label>
-			<div class="item item-button">
+			<label class="item item-button">
 				<div class="text-center">
 					<button class="button button-positive"
-							ng-click="welcomeCtrl.submit()"
-							ng-disabled="welcomeCtrl.isFormValid()">
-					Start Scouting!
-				</button>
+							type="submit">
+						Start Scouting!
+					</button>
 				</div>
-			</div>
-			</div>
+			</label>
+		</div>
+	</form>
   </ion-content>
 </ion-view>

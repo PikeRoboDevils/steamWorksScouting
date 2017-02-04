@@ -1,66 +1,82 @@
 <ion-view view-title="Steamworks">
 	<ion-content class="padding">
-    <div class="row">
-      <div class="col col-top col-100 text-center">
-        <h1>AUTO</h1>
+  <div class="row">
+      <div class="col text-center">
+        <h1>Auto</h1>
       </div>
     </div>
-    <div class="row">
+<!--     <div class="row">
       <div class="col col-100 text-center">
         <h4 >Fuel</h4>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col col-100">
         <ul class="list">
+        <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Fuel High</h2>
+              </div>
+            </div>
+          </li>  
           <li class="item">
             <div class="row">
-              <div class="col col-20 text-left">
-                Fuel High
-              </div>
               <div class="col col-80 text-right">
-                <button class="button button-positive"
-                  ng-click="autoCtrl.decreaseHighFuel()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <span ng-bind="autoCtrl.matchProperties.highFuel"></span>
-                <button class="button button-positive"
-                  ng-click="autoCtrl.increaseHighFuel()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseHighFuel5()">
+                    -5
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseHighFuel1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.highFuel"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseHighFuel1()">
+                    1
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseHighFuel5()">
+                    5
+                  </button>
               </div>
             </div>
           </li>
-
           <li class="item">
             <div class="row">
-              <div class="col col-20 text-left">
-                Fuel Low
-              </div>
-              <div class="col col-80 text-right">
-                <button class="button button-positive"
-                  ng-click="autoCtrl.decreaseLowFuel()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <span ng-bind="autoCtrl.matchProperties.lowFuel"></span>
-                <button class="button button-positive"
-                  ng-click="autoCtrl.increaseLowFuel()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
+              <div class="col col-100 text-center">
+                <h2>Fuel Low</h2>
               </div>
             </div>
-          </li>
-
-          <li class="item item-toggle">
-             Baseline
-             <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="autoCtrl.matchProperties.baseLine">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-            
+          </li> 
+          <li class="item">
+            <div class="row">
+              <div class="col col-80 text-right">
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseLowFuel5()">
+                    -5
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseLowFuel1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.lowFuel"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseLowFuel1()">
+                    1
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseLowFuel5()">
+                    5
+                  </button>
+              </div>
+            </div>
+          </li>            
             <li class="item">
             <div class="row">
               <div class="col col-70 text-left">
@@ -71,7 +87,9 @@
                   ng-click="autoCtrl.decreaseGears()">
                   <i class="icon ion-arrow-down-a"></i>
                 </button>
+                <button class="button button-light">
                 <span ng-bind="autoCtrl.matchProperties.gears"></span>
+                </button>
                 <button class="button button-positive"
                   ng-click="autoCtrl.increaseGears()">
                   <i class="icon ion-arrow-up-a"></i>
@@ -89,13 +107,24 @@
                   ng-click="autoCtrl.decreaseRotors()">
                   <i class="icon ion-arrow-down-a"></i>
                 </button>
+                <button class="button button-light">
                 <span ng-bind="autoCtrl.matchProperties.rotors"></span>
+                </button>
                 <button class="button button-positive"
                   ng-click="autoCtrl.increaseRotors()">
                   <i class="icon ion-arrow-up-a"></i>
                 </button>
               </div>
             </div>
+          </li>
+          <li class="item item-toggle">
+             Baseline
+             <label class="toggle toggle-energized">
+               <input type="checkbox" ng-model="autoCtrl.matchProperties.baseLine">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
           </li>
         <li>
           <div class="item item-button">

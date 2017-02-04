@@ -14,13 +14,14 @@
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
-        vm.submit = submit;
+		vm.submit = submit;
 
 		vm.matchParts	=	{
 			red: false,
 			yellow: false,
 			tech: false,
 			foul: false,
+			break: false,
 			outcome: {
 				value: null
 			}
@@ -29,7 +30,8 @@
 			vm.toggleYellow = toggleYellow;
 			vm.toggleTech = toggleTech;
 			vm.toggleFoul = toggleFoul;
-			vm.submit = submit;
+			vm.togglebreak = togglebreak;
+			vm.isFormValid = isFormValid;
 
 			init();
 
@@ -73,12 +75,21 @@
 				vm.matchParts.foul = !vm.matchParts.foul;
 			}
 
+			function togglebreak(){
+				vm.matchParts.break = !vm.matchParts.break;
+			}
+
+			function isFormValid() {
+				return _.isNull(vm.matchParts.outcome.value);
+			}
+
 			function submit() {
 				var finalScore = {
 					red: vm.matchParts.red,
 					yellow: vm.matchParts.yellow,
 					tech: vm.matchParts.tech,
 					foul: vm.matchParts.foul,
+					break: vm.matchParts.break,
 					outcome: vm.matchParts.outcome.value
 				};
 
@@ -90,6 +101,10 @@
 				MatchSvc.updateMatch(vm.match);
 				$state.go('app.results');
 			}
+
+			function cameronIsAwesome(){
+			$state.go('app.teleOp');
+		}
 
 	}
 })();
