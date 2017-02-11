@@ -6,10 +6,6 @@
 
 		autoCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
-		// var LOW_FUEL_CONSTANT = (1/3),
-		// 	BASELINE_CONSTANT = 5,
-		// 	ROTORS = 60;
-
 		function autoCtrl(MatchSvc, $scope, $state) {
 			$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 			    viewData.enableBack = true;

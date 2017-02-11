@@ -6,12 +6,6 @@
 
 	teleOpCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
-	// var LOW_FUEL_CONSTANT = (1/9),
-	// 	HIGH_FUEL_CONSTANT = (1/3),
-	// 	CLIMB_CONSTANT = 50,
-	// 	CLIMB = 50,
-	// 	ROTORS = 40;
-
 	function teleOpCtrl(MatchSvc, $scope, $state){
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
