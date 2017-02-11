@@ -6,9 +6,9 @@
 
 		autoCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
-		var LOW_FUEL_CONSTANT = (1/3),
-			BASELINE_CONSTANT = 5,
-			ROTORS = 60;
+		// var LOW_FUEL_CONSTANT = (1/3),
+		// 	BASELINE_CONSTANT = 5,
+		// 	ROTORS = 60;
 
 		function autoCtrl(MatchSvc, $scope, $state) {
 			$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
@@ -124,12 +124,12 @@
 					baseLine: vm.matchProperties.baseLine
 				};
 
-				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * LOW_FUEL_CONSTANT);
-				autoScore.basePoints += vm.matchProperties.baseLine ? BASELINE_CONSTANT : 0;
-				autoScore.total = autoScore.fuelPoints + autoScore.basePoints;
-				autoScore.rotorPoints = vm.matchProperties.rotors * ROTORS;
+				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * MatchSvc.constants.AUTO_LOW_FUEL_CONSTANT);
+				autoScore.basePoints += vm.matchProperties.baseLine ? MatchSvc.constants.BASELINE_CONSTANT : 0;
+				autoScore.rotorPoints = vm.matchProperties.rotors * MatchSvc.constants.AUTO_ROTORS;
 				autoScore.rotorTotal = vm.matchProperties.rotors;
 				autoScore.gearTotal = vm.matchProperties.gears;
+				autoScore.total = autoScore.fuelPoints + autoScore.basePoints + autoScore.rotorPoints;
 
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
