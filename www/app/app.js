@@ -20,6 +20,22 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    ble.isEnabled(
+      function(){
+        // Bluetooth is enabled
+      },
+      function(){
+        // Bluetooth not yet enabled so we try to enable it
+        ble.enable(
+          function(){
+            // bluetooth now enabled
+          },
+          function(err){
+            alert('Cannot enable bluetooth');
+          }
+        );
+      }
+    );
 
   // Caches
     // CacheFactory.destroyAll();
@@ -115,6 +131,32 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
         controllerAs: 'endCtrl'
       }
     }
+  })
+  .state('app.bluetooth', {
+    url: '/bluetooth',
+    views: {
+      'app-bluetooth': {
+        templateUrl: 'app/bluetooth/bluetooth.template.html'
+        // controller: 'btCtrl',
+        // controllerAs: 'btCtrl'
+      }
+    }
+  })
+  .state('app.device', {
+    url: '/device/:id',
+    templateUrl: 'app/bluetooth/device.template.html',
+    resolve: {
+      id: ['$stateParams', function($stateParams) {
+        return $stateParams.id;
+      }]
+    }
+    // views: {
+    //   'app-device': {
+    //     templateUrl: 'app/bluetooth/device.template.html'
+    //     // controller: 'deviceCtrl',
+    //     // controllerAs: 'deviceCtrl'
+    //   }
+    // }
   });
   
   // if none of the above states are matched, use this as the fallback
