@@ -37,6 +37,13 @@
     <span class="badge badge-assertive" ng-bind="resultsCtrl.rankPoints()"></span>
   </div>
 
+    <div class="item item-icon-left">
+    <i class="icon ion-bonfire"></i>
+    Breakdown?
+    <span class="badge badge-calm" ng-if="resultsCtrl.match.finalScore.broken">Yes</span>
+    <span class="badge badge-dark" ng-if="!resultsCtrl.match.finalScore.broken">No</span>
+  </div>
+
   <div class="row">
     <div class="col col-25 text-center">
       <span class="badge"

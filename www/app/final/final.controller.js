@@ -24,7 +24,7 @@
 			yellow: false,
 			tech: false,
 			foul: false,
-			break: false,
+			broken: false,
 			outcome: {
 				value: null
 			}
@@ -33,7 +33,6 @@
 			vm.toggleYellow = toggleYellow;
 			vm.toggleTech = toggleTech;
 			vm.toggleFoul = toggleFoul;
-			vm.togglebreak = togglebreak;
 			vm.isFormValid = isFormValid;
 
 			init();
@@ -78,10 +77,6 @@
 				vm.matchParts.foul = !vm.matchParts.foul;
 			}
 
-			function togglebreak(){
-				vm.matchParts.break = !vm.matchParts.break;
-			}
-
 			function isFormValid() {
 				return _.isNull(vm.matchParts.outcome.value);
 			}
@@ -92,7 +87,7 @@
 					yellow: vm.matchParts.yellow,
 					tech: vm.matchParts.tech,
 					foul: vm.matchParts.foul,
-					break: vm.matchParts.break,
+					broken: vm.matchParts.broken,
 					outcome: vm.matchParts.outcome.value
 				};
 
@@ -105,9 +100,6 @@
 				$state.go('app.results');
 			}
 
-			function cameronIsAwesome(){
-			$state.go('app.teleOp');
-		}
 
 	}
 })();

@@ -6,12 +6,6 @@
 
 	teleOpCtrl.$inject = ['MatchSvc', '$scope', '$state'];
 
-	var LOW_FUEL_CONSTANT = (1/9),
-		HIGH_FUEL_CONSTANT = (1/3),
-		CLIMB_CONSTANT = 50,
-		CLIMB = 50,
-		ROTORS = 40;
-
 	function teleOpCtrl(MatchSvc, $scope, $state){
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
@@ -25,7 +19,7 @@
 		vm.matchParts	=	{
 			highFuel: 0,
 			lowFuel: 0,
-			gears: 0,
+			gears: vm.match.autoScore.gearTotal,
 			rotors: vm.match.autoScore.rotorTotal,
 			climb: false
 		}
@@ -130,12 +124,12 @@
 					climb: vm.matchParts.climb
 				};
 
-				teleScore.fuelPoints = (vm.matchParts.highFuel * HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
-				teleScore.basePoints += vm.matchParts.climb ? CLIMB_CONSTANT : 0;
-				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * ROTORS;
+				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);
+				teleScore.basePoints += vm.matchParts.climb ? MatchSvc.constants.CLIMB_CONSTANT : 0;
+				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
 				teleScore.gearTotal = vm.matchParts.gears;
 				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
-				teleScore.total = teleScore.fuelPoints + teleScore.basePoints;
+				teleScore.total = teleScore.fuelPoints + teleScore.basePoints + teleScore.rotorPoints;
 				
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
