@@ -1,7 +1,6 @@
 match = {
 	matchNumber: '',
 	teamNumber: '',
-	alliance: '',
 	scout: '',
 	results: {
 		autoResults: {
