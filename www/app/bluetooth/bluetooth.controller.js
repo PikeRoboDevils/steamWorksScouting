@@ -33,13 +33,13 @@
             // Stopping scan failed
           }
       );
-
     }
 
     $scope.connect = function(device_id){
       ble.connect(
         device_id,
         function(res){
+          console.log(res);
           $state.go('app.device', { 'id': device_id });
         },
         function(err){

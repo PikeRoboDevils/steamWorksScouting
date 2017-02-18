@@ -28,7 +28,7 @@
           if(response == 'OK'){
             alert("Your attendance is recorded!");
             ble.disconnect($stateParams.id);
-            $state.go('home');
+            $state.go('app.end');
           }
         },
         function(err){
@@ -38,7 +38,7 @@
     }
 
     $scope.backToHome = function(){
-      $state.go('home');
+      $state.go('app.end');
       ble.disconnect($stateParams.id);
     }
 

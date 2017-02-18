@@ -144,13 +144,19 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
   })
   .state('app.device', {
     url: '/device/:id',
-    views: {
-      'app-device': {
-        templateUrl: 'app/bluetooth/device.template.html'
-        // controller: 'deviceCtrl',
-        // controllerAs: 'deviceCtrl'
-      }
+    templateUrl: 'app/bluetooth/device.template.html',
+    resolve: {
+      id: ['$stateParams', function($stateParams) {
+        return $stateParams.id;
+      }]
     }
+    // views: {
+    //   'app-device': {
+    //     templateUrl: 'app/bluetooth/device.template.html'
+    //     // controller: 'deviceCtrl',
+    //     // controllerAs: 'deviceCtrl'
+    //   }
+    // }
   });
   
   // if none of the above states are matched, use this as the fallback
