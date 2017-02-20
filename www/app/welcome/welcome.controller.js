@@ -4,9 +4,9 @@
 		.module('steamWorks')
 		.controller('welcomeCtrl', welcomeCtrl);
 
-	welcomeCtrl.$inject = ['MatchSvc', '$state'];
+	welcomeCtrl.$inject = ['deviceSvc', 'MatchSvc', '$state'];
 
-	function welcomeCtrl(MatchSvc, $state){
+	function welcomeCtrl(deviceSvc, MatchSvc, $state){
 		var vm = this;
 
 		vm.matchProperties = {
@@ -17,7 +17,6 @@
 
 		vm.isFormValid = isFormValid;
 		vm.submit = submit;
-		vm.foobar = foobar;
 
 		init();
 	
@@ -31,10 +30,6 @@
                 scoutName = _.toString(vm.matchProperties.scoutName);
                 
 			return !((matchNumber.length >= 2) && (teamNumber.length >= 2) && (scoutName.length >= 3));
-		}
-
-		function foobar() {
-			alert('foobar');
 		}
 
 		function submit() {

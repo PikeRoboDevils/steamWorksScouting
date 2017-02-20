@@ -6,6 +6,7 @@
 
   function deviceSvc(){
     var devices = [];
+
     return {
       addDevice: function(device){
         devices.push(device);
@@ -15,11 +16,16 @@
         return devices;
       },
 
-      getDevice: function(id){
-        var device_found = devices.filter(function(device){
-          return device.id == id;
+      getDevice: function(name){
+        return _.find(devices, function(d) {
+          return d.name === name;
         });
-        return device_found[0];
+
+
+        // var device_found = devices.filter(function(device){
+        //   return device.name === name;
+        // });
+        // return device_found[0];
       },
 
       reset: function(){

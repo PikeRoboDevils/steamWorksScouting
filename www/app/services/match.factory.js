@@ -54,7 +54,10 @@
 
 		function beginMatch() {
 			matchCache.remove(cacheKey);
+			CacheFactory.destroyAll();
+    		CacheFactory.clearAll();
 			match = {};
+			matchCache.put(cacheKey, match);
 		}
 
 		function updateMatch(newProperties) {

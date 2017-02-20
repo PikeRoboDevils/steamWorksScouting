@@ -4,19 +4,20 @@
 		.module('steamWorks')
 		.controller('resultsCtrl', resultsCtrl);
 
-	resultsCtrl.$inject = ['MatchSvc', '$scope', '$state'];
+	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$scope', '$state'];
 
-	function resultsCtrl(MatchSvc, $scope, $state) {
+	function resultsCtrl(deviceSvc, MatchSvc, $scope, $state) {
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
 
 		var vm = this;
+		var service_id = '12ab';
+    	var characteristic_id = '34cd';
 
 		vm.match = MatchSvc.getMatch();
 		vm.submit = submit;
-
-		// vm.foo='ONE BILLION POINTS FOR GRIFFINDOR';
+		vm.device = deviceSvc.getDevice('scoutingDatabaseApp');
 
 		vm.kpa = kpa;
 		vm.total = total;
@@ -42,7 +43,7 @@
 		}
 
 		function rankPoints(){
-			return rank1() + rank2() + rank4();
+			return rank1() + rank2() + rank3();
 		}
 
 		function rank1(){
@@ -68,12 +69,8 @@
 				return 0;
 			}
 		}
-		// function rank3{
-		// 	if(vm.match.finalScore.outcome = "tie"){
-		// 		return 1;
-		// 	}
-		// }
-		function rank4(){
+
+		function rank3(){
 			if(vm.match.teleScore.rotorTotal + vm.match.autoScore.rotorTotal === 4){
 				return 1;
 			}
@@ -84,7 +81,23 @@
 
 		function submit(){
 			MatchSvc.updateMatch(vm.match);
-			$state.go('app.end');
+			vm.match = MatchSvc.getMatch();
+			ble.write(
+		        vm.device.id,
+		        service_id,
+		        characteristic_id,
+		        btoa(JSON.stringify(vm.match)),
+		        function(response){
+		          if(response == 'OK'){
+		            alert('Match submited!');
+		            ble.disconnect(vm.device.id);
+		            $state.go('app.welcome');
+		          }
+		        },
+		        function(err){
+		          alert("Error occured while trying to record your attendance. Please try again.");
+		        }
+		      );
 		}
 	}
 })();

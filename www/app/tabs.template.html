@@ -4,6 +4,11 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+  
+  <!-- Bluetooth Tab -->
+  <ion-tab title="Bluetooth" icon-off="ion-bluetooth" icon-on="ion-bluetooth" ui-sref="app.bluetooth">
+    <ion-nav-view name="app-bluetooth"></ion-nav-view>
+  </ion-tab>
 
   <!-- Welcome Tab -->
   <ion-tab title="Welcome" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" ui-sref="app.welcome">
@@ -30,16 +35,12 @@ navigation history that also transitions its views in and out.
     <ion-nav-view name="app-results"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="End" icon-off="ion-log-in" icon-on="ion-log-out" ui-sref="app.end">
+  <!-- <ion-tab title="End" icon-off="ion-log-in" icon-on="ion-log-out" ui-sref="app.end">
     <ion-nav-view name="app-end"></ion-nav-view>
-  </ion-tab>
+  </ion-tab> -->
 
-  <ion-tab title="Bluetooth" icon-off="ion-bluetooth" icon-on="ion-bluetooth" ui-sref="app.bluetooth">
-    <ion-nav-view name="app-bluetooth"></ion-nav-view>
-  </ion-tab>
-
-  <ion-tab title="Device" icon-off="ion-ios-game-controller-a-outline" icon-on="ion-ios-game-controller-a" ui-sref="app.device({id: id})">
+  <!-- <ion-tab title="Device" icon-off="ion-ios-game-controller-a-outline" icon-on="ion-ios-game-controller-a" ui-sref="app.device({id: id})">
     <ion-nav-view></ion-nav-view>
-  </ion-tab>
+  </ion-tab> -->
 
 </ion-tabs>
