@@ -91,7 +91,7 @@
 		          if(response == 'OK'){
 		            alert('Match submited!');
 		            ble.disconnect(vm.device.id);
-		            $state.go('app.welcome');
+		            $state.go('app.welcome', {}, {reload: true});
 		          }
 		        },
 		        function(err){
