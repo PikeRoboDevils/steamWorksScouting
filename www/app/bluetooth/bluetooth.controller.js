@@ -44,17 +44,19 @@
     }
 
     function connect (device_id){
-      ble.connect(
-        device_id,
-        function(res){
-          console.log(res);
-          $state.go('app.welcome');
-          // $state.go('app.device', { 'id': device_id });
-        },
-        function(err){
-          alert('Something went wrong while trying to connect. Please try again');
-        }
-      );
+      $state.go('app.welcome');
+      
+      // ble.connect(
+      //   device_id,
+      //   function(res){
+      //     console.log(res);
+      //     $state.go('app.welcome');
+      //     // $state.go('app.device', { 'id': device_id });
+      //   },
+      //   function(err){
+      //     alert('Something went wrong while trying to connect. Please try again');
+      //   }
+      // );
     }
   }
 })();

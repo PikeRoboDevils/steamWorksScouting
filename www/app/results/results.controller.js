@@ -82,22 +82,48 @@
 		function submit(){
 			MatchSvc.updateMatch(vm.match);
 			vm.match = MatchSvc.getMatch();
-			ble.write(
-		        vm.device.id,
-		        service_id,
-		        characteristic_id,
-		        btoa(JSON.stringify(vm.match)),
-		        function(response){
-		          if(response == 'OK'){
-		            alert('Match submited!');
-		            ble.disconnect(vm.device.id);
-		            $state.go('app.welcome', {}, {reload: true});
-		          }
-		        },
-		        function(err){
-		          alert("Error occured while trying to record your attendance. Please try again.");
-		        }
-		      );
+
+			ble.connect(
+				vm.device.id,
+				function(res){
+					ble.write(
+						vm.device.id,
+						service_id,
+						characteristic_id,
+						btoa(JSON.stringify(vm.match)),
+						function(response){
+							if(response == 'OK'){
+								ble.disconnect(vm.device.id);
+								alert('Match submited!');
+								$state.go('app.welcome', {}, {reload: true});
+							}
+						},
+						function(err){
+							alert("Error occured while trying to record your match. Please try again.");
+						}
+					);
+				},
+				function(err){
+					alert('Something went wrong while trying to connect. Please try again');
+				}
+		    );
+
+			// ble.write(
+		 //        vm.device.id,
+		 //        service_id,
+		 //        characteristic_id,
+		 //        btoa(JSON.stringify(vm.match)),
+		 //        function(response){
+		 //          if(response == 'OK'){
+		 //            alert('Match submited!');
+		 //            ble.disconnect(vm.device.id);
+		 //            $state.go('app.welcome', {}, {reload: true});
+		 //          }
+		 //        },
+		 //        function(err){
+		 //          alert("Error occured while trying to record your match. Please try again.");
+		 //        }
+		 //    );
 		}
 	}
 })();
