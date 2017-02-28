@@ -21,6 +21,7 @@
 		init();
 	
 		function init() {
+			$state.reload();
 			MatchSvc.beginMatch();
 		}
 

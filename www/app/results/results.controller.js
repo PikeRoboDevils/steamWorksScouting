@@ -4,9 +4,9 @@
 		.module('steamWorks')
 		.controller('resultsCtrl', resultsCtrl);
 
-	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$scope', '$state'];
+	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$ionicHistory', '$scope', '$state'];
 
-	function resultsCtrl(deviceSvc, MatchSvc, $scope, $state) {
+	function resultsCtrl(deviceSvc, MatchSvc, $ionicHistory, $scope, $state) {
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
@@ -24,6 +24,8 @@
 		vm.rankPoints = rankPoints;
 		vm.rotor = rotor;
 		vm.gears = gears;
+		vm.isSubmitting = false;
+		vm.buttonText = 'Submit';
 		
 
 		function kpa(){
@@ -80,6 +82,8 @@
 		}
 
 		function submit(){
+			vm.isSubmitting = true;
+			vm.buttonText = 'Submitting...';
 			MatchSvc.updateMatch(vm.match);
 			vm.match = MatchSvc.getMatch();
 
@@ -95,35 +99,24 @@
 							if(response == 'OK'){
 								ble.disconnect(vm.device.id);
 								alert('Match submited!');
+								$ionicHistory.clearCache()
 								$state.go('app.welcome', {}, {reload: true});
 							}
 						},
 						function(err){
+							ble.disconnect(vm.device.id);
+							vm.isSubmitting = false;
+							vm.buttonText = 'Submit';
 							alert("Error occured while trying to record your match. Please try again.");
 						}
 					);
 				},
 				function(err){
+					vm.isSubmitting = false;
+					vm.buttonText = 'Submit';
 					alert('Something went wrong while trying to connect. Please try again');
 				}
 		    );
-
-			// ble.write(
-		 //        vm.device.id,
-		 //        service_id,
-		 //        characteristic_id,
-		 //        btoa(JSON.stringify(vm.match)),
-		 //        function(response){
-		 //          if(response == 'OK'){
-		 //            alert('Match submited!');
-		 //            ble.disconnect(vm.device.id);
-		 //            $state.go('app.welcome', {}, {reload: true});
-		 //          }
-		 //        },
-		 //        function(err){
-		 //          alert("Error occured while trying to record your match. Please try again.");
-		 //        }
-		 //    );
 		}
 	}
 })();
