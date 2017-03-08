@@ -17,6 +17,7 @@
 
 		vm.match = MatchSvc.getMatch();
 		vm.submit = submit;
+		vm.cancel = cancel;
 		vm.device = deviceSvc.getDevice('scoutingDatabaseApp');
 
 		vm.kpa = kpa;
@@ -117,6 +118,12 @@
 					alert('Something went wrong while trying to connect. Please try again');
 				}
 		    );
+		}
+
+		function cancel() {
+			ble.disconnect(vm.device.id);
+			vm.isSubmitting = false;
+			vm.buttonText = 'Submit';
 		}
 	}
 })();

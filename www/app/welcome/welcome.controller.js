@@ -34,6 +34,7 @@
 		}
 
 		function submit() {
+			MatchSvc.beginMatch();
 			MatchSvc.updateMatch(vm.matchProperties);
 			$state.go('app.auto');
 		}
