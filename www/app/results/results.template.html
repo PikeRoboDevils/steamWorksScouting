@@ -71,8 +71,11 @@
     </div>
   </div>
            <div class="text-center">
-             <button class="button button-positive" ng-click="resultsCtrl.submit()">
-               Submit
+             <button class="button button-positive" ng-click="resultsCtrl.submit()" ng-disabled="resultsCtrl.isSubmitting">
+               <span ng-bind="resultsCtrl.buttonText"></span>
+             </button>
+             <button class="button button-positive" ng-click="resultsCtrl.cancel()" ng-disabled="!resultsCtrl.isSubmitting">
+               <span>Cancel</span>
              </button>
             </div>
     </div>

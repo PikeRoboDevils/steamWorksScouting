@@ -1,13 +1,15 @@
 (function(){
   angular.module('steamWorks')
-  .controller('deviceCtrl', ['$scope', '$state', '$stateParams', 'deviceSvc', deviceCtrl]);
+  .controller('deviceCtrl', ['$scope', '$state', '$stateParams', 'deviceSvc', 'MatchSvc', deviceCtrl]);
 
-  function deviceCtrl($scope, $state, $stateParams, deviceSvc){
+  function deviceCtrl($scope, $state, $stateParams, deviceSvc, MatchSvc){
 
     var me = this;
 
     var service_id = '12ab';
     var characteristic_id = '34cd';
+
+    console.log(MatchSvc.getMatch());
 
     me.attendee = {
       firstname: '',

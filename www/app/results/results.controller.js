@@ -4,25 +4,29 @@
 		.module('steamWorks')
 		.controller('resultsCtrl', resultsCtrl);
 
-	resultsCtrl.$inject = ['MatchSvc', '$scope', '$state'];
+	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$ionicHistory', '$scope', '$state'];
 
-	function resultsCtrl(MatchSvc, $scope, $state) {
+	function resultsCtrl(deviceSvc, MatchSvc, $ionicHistory, $scope, $state) {
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
 
 		var vm = this;
+		var service_id = '12ab';
+    	var characteristic_id = '34cd';
 
 		vm.match = MatchSvc.getMatch();
 		vm.submit = submit;
-
-		// vm.foo='ONE BILLION POINTS FOR GRIFFINDOR';
+		vm.cancel = cancel;
+		vm.device = deviceSvc.getDevice('scoutingDatabaseApp');
 
 		vm.kpa = kpa;
 		vm.total = total;
 		vm.rankPoints = rankPoints;
 		vm.rotor = rotor;
 		vm.gears = gears;
+		vm.isSubmitting = false;
+		vm.buttonText = 'Submit';
 		
 
 		function kpa(){
@@ -42,7 +46,7 @@
 		}
 
 		function rankPoints(){
-			return rank1() + rank2() + rank4();
+			return rank1() + rank2() + rank3();
 		}
 
 		function rank1(){
@@ -68,12 +72,8 @@
 				return 0;
 			}
 		}
-		// function rank3{
-		// 	if(vm.match.finalScore.outcome = "tie"){
-		// 		return 1;
-		// 	}
-		// }
-		function rank4(){
+
+		function rank3(){
 			if(vm.match.teleScore.rotorTotal + vm.match.autoScore.rotorTotal === 4){
 				return 1;
 			}
@@ -83,8 +83,47 @@
 		}
 
 		function submit(){
+			vm.isSubmitting = true;
+			vm.buttonText = 'Submitting...';
 			MatchSvc.updateMatch(vm.match);
-			$state.go('app.end');
+			vm.match = MatchSvc.getMatch();
+
+			ble.connect(
+				vm.device.id,
+				function(res){
+					ble.write(
+						vm.device.id,
+						service_id,
+						characteristic_id,
+						btoa(JSON.stringify(vm.match)),
+						function(response){
+							if(response == 'OK'){
+								ble.disconnect(vm.device.id);
+								alert('Match submited!');
+								$ionicHistory.clearCache()
+								$state.go('app.welcome', {}, {reload: true});
+							}
+						},
+						function(err){
+							ble.disconnect(vm.device.id);
+							vm.isSubmitting = false;
+							vm.buttonText = 'Submit';
+							alert("Error occured while trying to record your match. Please try again.");
+						}
+					);
+				},
+				function(err){
+					vm.isSubmitting = false;
+					vm.buttonText = 'Submit';
+					alert('Something went wrong while trying to connect. Please try again');
+				}
+		    );
+		}
+
+		function cancel() {
+			ble.disconnect(vm.device.id);
+			vm.isSubmitting = false;
+			vm.buttonText = 'Submit';
 		}
 	}
 })();

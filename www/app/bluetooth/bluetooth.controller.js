@@ -1,12 +1,20 @@
 (function(){
-  angular.module('steamWorks')
-  .controller('btCtrl', ['$scope', '$state', 'deviceSvc', btCtrl]);
+  'use strict';
+  angular
+  .module('steamWorks')
+  .controller('btCtrl',  btCtrl);
+
+
+  btCtrl.$inject = ['$scope', '$state', 'deviceSvc'];
 
   function btCtrl($scope, $state, deviceSvc){
+    var vm = this;
+    vm.devices = []; // the devices listed in the page
 
-    $scope.devices = []; // the devices listed in the page
+    vm.scan = scan;
+    vm.connect = connect;
 
-    $scope.scan = function(){
+    function scan (){
 
       deviceSvc.reset();
       ble.startScan(
@@ -26,7 +34,7 @@
           1500,
           function(){
             $scope.$apply(function(){
-              $scope.devices = deviceSvc.getDevices();
+              vm.devices = deviceSvc.getDevices();
             });
           },
           function(){
@@ -35,19 +43,8 @@
       );
     }
 
-    $scope.connect = function(device_id){
-      ble.connect(
-        device_id,
-        function(res){
-          console.log(res);
-          $state.go('app.device', { 'id': device_id });
-        },
-        function(err){
-          alert('Something went wrong while trying to connect. Please try again');
-        }
-      );
+    function connect (device_id){
+      $state.go('app.welcome');
     }
-
   }
-
 })();

@@ -121,46 +121,20 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
       }
     }
   })
-
-  .state('app.end', {
-    url: '/end',
-    views: {
-      'app-end': {
-        templateUrl: 'app/end/end.template.html',
-        controller: 'endCtrl',
-        controllerAs: 'endCtrl'
-      }
-    }
-  })
+  
   .state('app.bluetooth', {
     url: '/bluetooth',
     views: {
       'app-bluetooth': {
-        templateUrl: 'app/bluetooth/bluetooth.template.html'
-        // controller: 'btCtrl',
-        // controllerAs: 'btCtrl'
+        templateUrl: 'app/bluetooth/bluetooth.template.html',
+        controller: 'btCtrl',
+        controllerAs: 'btCtrl'
       }
     }
-  })
-  .state('app.device', {
-    url: '/device/:id',
-    templateUrl: 'app/bluetooth/device.template.html',
-    resolve: {
-      id: ['$stateParams', function($stateParams) {
-        return $stateParams.id;
-      }]
-    }
-    // views: {
-    //   'app-device': {
-    //     templateUrl: 'app/bluetooth/device.template.html'
-    //     // controller: 'deviceCtrl',
-    //     // controllerAs: 'deviceCtrl'
-    //   }
-    // }
   });
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/steamWorks/welcome');
+  $urlRouterProvider.otherwise('/steamWorks/bluetooth');
 
     // Begin platform config
   $ionicConfigProvider.platform.android.tabs.position('bottom');
