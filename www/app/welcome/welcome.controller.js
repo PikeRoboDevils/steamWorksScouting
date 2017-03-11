@@ -4,9 +4,9 @@
 		.module('steamWorks')
 		.controller('welcomeCtrl', welcomeCtrl);
 
-	welcomeCtrl.$inject = ['deviceSvc', 'MatchSvc', '$state'];
+	welcomeCtrl.$inject = ['deviceSvc', 'MatchSvc', '$http', '$state'];
 
-	function welcomeCtrl(deviceSvc, MatchSvc, $state){
+	function welcomeCtrl(deviceSvc, MatchSvc, $http, $state){
 		var vm = this;
 
 		vm.matchProperties = {
@@ -15,6 +15,7 @@
             scoutName: null
 		};
 
+		vm.teams = [];
 		vm.isFormValid = isFormValid;
 		vm.submit = submit;
 
@@ -23,6 +24,9 @@
 		function init() {
 			$state.reload();
 			MatchSvc.beginMatch();
+			$http.get('teams.json').then(function(response) {
+				vm.teams = response.data;
+			});
 		}
 
 		function isFormValid() {

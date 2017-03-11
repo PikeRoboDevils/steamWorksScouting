@@ -21,8 +21,32 @@
 			lowFuel: 0,
 			gears: vm.match.autoScore.gearTotal,
 			rotors: vm.match.autoScore.rotorTotal,
-			climb: false
-		}
+			climbSuccess: false,
+			climbAttempt: false,
+			climbPosition: {
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				}
+			}
+
+		vm.climbPositions = [
+			{
+				id: 0,
+				label: 'None',
+				value: 'NONE'
+			},
+			{
+				id: 1,
+				label: 'Outside',
+				value: 'OUTSIDE'
+			},
+			{
+				id: 2,
+				label: 'Middle',
+				value: 'MIDDLE'
+			}
+		];
 
 			vm.increaseHighFuel1 = increaseHighFuel1;
 			vm.increaseHighFuel5 = increaseHighFuel5;
@@ -33,11 +57,13 @@
 			vm.increaseLowFuel20 = increaseLowFuel20;
 			vm.decreaseLowFuel1 = decreaseLowFuel1;
 			vm.decreaseLowFuel5 = decreaseLowFuel5;
-			vm.toggleClimb = toggleClimb;
+			vm.toggleclimbSuccess = toggleclimbSuccess;
 			vm.increaseGears = increaseGears;
 			vm.decreaseGears = decreaseGears;
 			vm.increaseRotors = increaseRotors;
             vm.decreaseRotors = decreaseRotors;
+            vm.toggleClimbAttempt = toggleClimbAttempt;
+            vm.didClimb = didClimb;
 
 			init();
 
@@ -113,31 +139,52 @@
                 }
             }
 
+            function hasClimbed(){
+            	return vm.matchParts.climbSuccess;
+            }
+
+            function didClimb(){
+            	if(!hasClimbed()) {
+            		vm.matchParts.climbPosition = {
+            			id: 0,
+					label: 'None',
+					value: 'NONE'
+				};
+            	}
+            }
+
 			function submit() {
 				var teleScore = {
 					fuelPoints: 0,
 					rotorPoints: 0,
 					gearTotal: 0,
 					rotorTotal: 0,
-					basePoints: 0,
+					climbPoints: 0,
 					total: 0,
-					climb: vm.matchParts.climb
+					climbSuccess: vm.matchParts.climbSuccess,
+					climbAttempt: vm.matchParts.climbAttempt,
+					climbPosition: vm.matchParts.climbPosition.value
 				};
 
 				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);
-				teleScore.basePoints += vm.matchParts.climb ? MatchSvc.constants.CLIMB_CONSTANT : 0;
+				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
 				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
 				teleScore.gearTotal = vm.matchParts.gears;
 				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
-				teleScore.total = teleScore.fuelPoints + teleScore.basePoints + teleScore.rotorPoints;
+				teleScore.total = teleScore.fuelPoints + teleScore.climbPoints + teleScore.rotorPoints;
 				
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
 				$state.go('app.final');
 			}
 
-			function toggleClimb(){
-				vm.matchParts.climb = !vm.matchParts.climb;
+			function toggleclimbSuccess(){
+				vm.matchParts.climbSuccess = !vm.matchParts.climbSuccess;
+				didClimb();
+			}
+
+			function toggleClimbAttempt(){
+				vm.matchParts.climbAttempt = !vm.matchParts.climbAttempt;
 			}
 
 	}

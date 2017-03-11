@@ -115,18 +115,41 @@
           </li>
 
           <li class="item item-toggle">
-             Climb
+             Climb Attempt
              <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.climb">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.climbAttempt">
                <div class="track">
                  <div class="handle"></div>
                </div>
              </label>
           </li>
-            
+
+            <li class="item item-toggle">
+               Climb Success
+               <label class="toggle toggle-positive">
+                 <input type="checkbox" ng-model="teleOpCtrl.matchParts.climbSuccess" ng-disabled="!teleOpCtrl.matchParts.climbAttempt" ng-change="teleOpCtrl.didClimb()">
+                 <div class="track">
+                   <div class="handle"></div>
+                 </div>
+               </label>
+            </li>
+              <li class="item">
+                <div class="row">
+                  <div class="col col-100">
+                    <label class="item item-input item-select">
+                      <div class="input-label">Climb Position</div>
+                        <select
+                          ng-model="teleOpCtrl.matchParts.climbPosition"
+                          ng-disabled="!teleOpCtrl.matchParts.climbSuccess"
+                          ng-options="climbPosition as climbPosition.label for climbPosition in teleOpCtrl.climbPositions track by climbPosition.id">
+                        </select>
+                    </label>
+                  </div>
+                </div>
+              </li>          
              <li>
             <div class="item item-button">
-				<div class="text-center">
+				  <div class="text-center">
 					<button class="button button-positive"
 							ng-click="teleOpCtrl.submit()">
 					To Final!
