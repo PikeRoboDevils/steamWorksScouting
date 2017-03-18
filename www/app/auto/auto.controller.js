@@ -22,8 +22,36 @@
 				lowFuel: 0,
 				gears: 0,
 				rotors: 0,
-				baseLine: false
+				baseLine: false,
+				placement: {
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				}
 			}
+
+			vm.gearPositions = [
+				{
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				},
+				{
+					id: 1,
+					label: 'Left',
+					value: 'LEFT'
+				},
+				{
+					id: 2,
+					label: 'Center',
+					value: 'CENTER'
+				},
+				{
+					id: 3,
+					label: 'Right',
+					value: 'RIGHT'
+				}
+			];
 
 			vm.increaseHighFuel1 = increaseHighFuel1;
 			vm.increaseHighFuel5 = increaseHighFuel5;
@@ -38,6 +66,7 @@
             vm.decreaseGears = decreaseGears;
             vm.increaseRotors = increaseRotors;
             vm.decreaseRotors = decreaseRotors;
+            vm.hasGears = hasGears;
 
             init();
 
@@ -95,6 +124,7 @@
                 if(vm.matchProperties.gears > 0){
                 vm.matchProperties.gears--;
             	}
+            	gearValueChange();
             }
 
             function increaseRotors(){
@@ -109,6 +139,20 @@
                 }
             }
 
+            function hasGears() {
+				return vm.matchProperties.gears > 0;
+			}
+
+			function gearValueChange() {
+				if(!hasGears()) {
+					vm.matchProperties.placement = {
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				};
+				}
+			}
+
 			function submit() {
 				var autoScore = {
 					fuelPoints: 0,
@@ -117,7 +161,8 @@
 					gearTotal: 0,
 					rotorTotal: 0,
 					total: 0,
-					baseLine: vm.matchProperties.baseLine
+					baseLine: vm.matchProperties.baseLine,
+					placement: vm.matchProperties.placement.value
 				};
 
 				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * MatchSvc.constants.AUTO_LOW_FUEL_CONSTANT);

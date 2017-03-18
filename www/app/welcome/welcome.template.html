@@ -13,17 +13,17 @@
 					maxlength="6"
 					placeholder="Match Number">
 			</label>
-			<label class="item item-input">
-				<input ng-model="welcomeCtrl.matchProperties.teamNumber"
-					type="tel"
-					maxlength="6"
-					placeholder="Team Number">
-			</label>
 	        <label class="item item-input">
 				<input ng-model="welcomeCtrl.matchProperties.scoutName"
 					type="text"
 					maxlength="12"
 					placeholder="Scout Person">
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">Select Team</div>
+					<select ng-model="welcomeCtrl.matchProperties.teamNumber" 
+						ng-options="team.team_number as (team.team_number + ' - ' + team.nickname) for team in welcomeCtrl.teams">
+					</select>
 			</label>
 			<label class="item item-button">
 				<div class="text-center">
