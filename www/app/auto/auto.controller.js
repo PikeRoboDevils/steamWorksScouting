@@ -67,6 +67,7 @@
             vm.increaseRotors = increaseRotors;
             vm.decreaseRotors = decreaseRotors;
             vm.hasGears = hasGears;
+            vm.validGearPos = validGearPos;
 
             init();
 
@@ -152,6 +153,18 @@
 				};
 				}
 			}
+
+			function validGearPos() {
+            	var answer = true;
+            	if(vm.matchProperties.gears >= 1){
+            		if(vm.matchProperties.placement.value === 'NONE') {
+            			answer = false;
+            		}
+            	}
+
+
+            	return answer;
+            }
 
 			function submit() {
 				var autoScore = {

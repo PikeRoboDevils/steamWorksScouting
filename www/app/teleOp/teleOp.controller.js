@@ -123,7 +123,7 @@
             }
     
             function decreaseGears(){
-                if(vm.matchParts.gears > 0){
+                if(vm.matchParts.gears > vm.match.autoScore.gearTotal){
                 	vm.matchParts.gears--;
                 }
             }
