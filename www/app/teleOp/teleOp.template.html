@@ -151,6 +151,7 @@
             <div class="item item-button">
 				  <div class="text-center">
 					<button class="button button-positive"
+              ng-disabled="!teleOpCtrl.validClimbPos()"
 							ng-click="teleOpCtrl.submit()">
 					To Final!
 				</button>

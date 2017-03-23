@@ -64,6 +64,7 @@
             vm.decreaseRotors = decreaseRotors;
             vm.toggleClimbAttempt = toggleClimbAttempt;
             vm.didClimb = didClimb;
+            vm.validClimbPos = validClimbPos;
 
 			init();
 
@@ -122,7 +123,7 @@
             }
     
             function decreaseGears(){
-                if(vm.matchParts.gears > 0){
+                if(vm.matchParts.gears > vm.match.autoScore.gearTotal){
                 	vm.matchParts.gears--;
                 }
             }
@@ -153,6 +154,18 @@
             	}
             }
 
+            function validClimbPos() {
+            	var answer = true;
+            	if(vm.matchParts.climbSuccess){
+            		if(vm.matchParts.climbPosition.value === 'NONE') {
+            			answer = false;
+            		}
+            	}
+
+
+            	return answer;
+            }
+
 			function submit() {
 				var teleScore = {
 					fuelPoints: 0,
@@ -172,7 +185,7 @@
 				teleScore.gearTotal = vm.matchParts.gears;
 				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
 				teleScore.total = teleScore.fuelPoints + teleScore.climbPoints + teleScore.rotorPoints;
-				
+
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
 				$state.go('app.final');

@@ -144,7 +144,8 @@
           <div class="item item-button">
            <div class="text-center">
              <button class="button button-positive"
-               ng-click="autoCtrl.submit()">
+                ng-disabled="!autoCtrl.validGearPos()"
+                ng-click="autoCtrl.submit()">
                To Teleop!
              </button>
             </div>
