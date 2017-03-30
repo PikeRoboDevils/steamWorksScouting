@@ -91,10 +91,7 @@
 					outcome: vm.matchParts.outcome.value
 				};
 
-				// finalScore.fuelPoints = (vm.matchParts.highFuel) + (vm.matchParts.lowFuel * LOW_FUEL_CONSTANT);
-				// finalScore.basePoints += vm.matchParts.baseLine ? BASELINE_CONSTANT : 0;
-				// finalScore.total = finalScore.fuelPoints + finalScore.basePoints;
-
+				
 				vm.match.finalScore = finalScore;
 				MatchSvc.updateMatch(vm.match);
 				$state.go('app.results');
