@@ -66,7 +66,7 @@
   },
   {
     "website": "http://muncierobotics.org",
-    "name": "Meridian Health Services / E-ON / Littler Diecast / Ball Brothers Foundation & Home School",
+    "name": "Meridian Health Services/Ball Brothers Foundation/Clancy's Car Wash/Indiana Wesleyan University&Home School",
     "locality": "Muncie",
     "rookie_year": 2006,
     "region": "Indiana",
@@ -352,7 +352,7 @@
   },
   {
     "website": "http://www.aluminosity.org",
-    "name": "Allied Automation / General Motors / NDEP / Stone Gate Arts and Education Center / D&M Tool Corporation / In-Fab Inc. / Whitney Tool Company / Kirby Risk & Aluminosity Team 5403",
+    "name": "General Motors/Baxter/DOD/Stone Gate Arts and Education Center/In-Fab Inc./C&M Conveyor/D&M Tool Corporation/Whitney Tool Company/Kirby Risk&Aluminosity Team 5403",
     "locality": "Bedford",
     "rookie_year": 2015,
     "region": "Indiana",
@@ -403,8 +403,8 @@
     "nickname": "STEAMROLLERS"
   },
   {
-    "website": null,
-    "name": "Whiteland Community High Sch",
+    "website": "https://whitelandrobotics.com",
+    "name": "NASA/Rolls Royce/Endress Hauser/Schieber Family/Sherri Hartman Bookeeping/Indiana Realty Pros/Dow Aggrosciences/AndyMark & Whiteland Community High Sch",
     "locality": "Whiteland",
     "rookie_year": 2017,
     "region": "Indiana",
@@ -413,7 +413,7 @@
     "key": "frc6451",
     "country_name": "USA",
     "motto": null,
-    "nickname": "Whiteland Community High School Robotics Team"
+    "nickname": "Wired Warriors"
   },
   {
     "website": null,

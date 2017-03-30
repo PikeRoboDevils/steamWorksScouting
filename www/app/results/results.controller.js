@@ -99,6 +99,8 @@
 						function(response){
 							if(response == 'OK'){
 								ble.disconnect(vm.device.id);
+								vm.isSubmitting = false;
+								vm.buttonText = 'Submit';
 								alert('Match submited!');
 								$ionicHistory.clearCache()
 								$state.go('app.welcome', {}, {reload: true});
