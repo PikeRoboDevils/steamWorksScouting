@@ -16,7 +16,8 @@
     vm.showSpinner = false;
 
     function scan (){
-      vm.devices = [];
+      deviceSvc.reset();
+      vm.devices = deviceSvc.getDevices();
       vm.showSpinner = true;
 
       deviceSvc.reset();
