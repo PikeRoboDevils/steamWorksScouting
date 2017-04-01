@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('steamWorks', ['ionic', 'angular-cache'])
+angular.module('steamWorks', ['ionic'])
 
-.run(function($ionicPlatform, CacheFactory) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -36,18 +36,6 @@ angular.module('steamWorks', ['ionic', 'angular-cache'])
         );
       }
     );
-
-  // Caches
-    // CacheFactory.destroyAll();
-    // CacheFactory.clearAll();
-    // var matchCache;
-    // if (!CacheFactory.get('matchCache')) {
-    //   matchCache = CacheFactory('matchCache', {
-    //     storageMode: 'localStorage',
-    //     maxAge: 60 * 60 * 1000, // 1hr
-    //     deleteOnExpire: 'aggressive'
-    //   });
-    // }
 
   });
 })

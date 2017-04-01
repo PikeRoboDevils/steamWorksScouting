@@ -22,10 +22,7 @@
         });
 
 
-        // var device_found = devices.filter(function(device){
-        //   return device.name === name;
-        // });
-        // return device_found[0];
+   
       },
 
       reset: function(){
