@@ -8,3 +8,4 @@ plugins/
 res/
 bower_components/
 .brackets.json
+npm-debug.log
