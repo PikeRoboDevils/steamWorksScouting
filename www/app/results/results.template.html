@@ -30,55 +30,14 @@
     Rotors
     <span class="badge badge-balanced" ng-bind="resultsCtrl.rotor()"></span>
   </div>
-
-  <div class="item item-icon-left">
-    <i class="icon ion-ios-speedometer-outline"></i>
-    Ranking Points
-    <span class="badge badge-assertive" ng-bind="resultsCtrl.rankPoints()"></span>
-  </div>
-
-    <div class="item item-icon-left">
-    <i class="icon ion-bonfire"></i>
-    Breakdown?
-    <span class="badge badge-calm" ng-if="resultsCtrl.match.finalScore.broken">Yes</span>
-    <span class="badge badge-dark" ng-if="!resultsCtrl.match.finalScore.broken">No</span>
-  </div>
-
-  <div class="row">
-    <div class="col col-25 text-center">
-      <span class="badge"
-            ng-class="{'badge-energized': resultsCtrl.match.finalScore.yellow, 'badge-dark': !resultsCtrl.match.finalScore.yellow}">
-            YELLOW
-      </span>
+   <div class="text-center padding">
+     <button class="button button-positive" ng-click="resultsCtrl.submit()" ng-disabled="resultsCtrl.isSubmitting">
+       <span ng-bind="resultsCtrl.buttonText"></span>
+     </button>
+     <button class="button button-positive" ng-click="resultsCtrl.cancel()" ng-disabled="!resultsCtrl.isSubmitting">
+       <span>Cancel</span>
+     </button>
     </div>
-    <div class="col col-25 text-center">
-      <span class="badge"
-            ng-class="{'badge-assertive': resultsCtrl.match.finalScore.red, 'badge-dark': !resultsCtrl.match.finalScore.red}">
-            RED
-      </span>
     </div>
-    <div class="col col-25 text-center">
-      <span class="badge"
-            ng-class="{'badge-balanced': resultsCtrl.match.finalScore.foul, 'badge-dark': !resultsCtrl.match.finalScore.foul}">
-            FOUL
-      </span>
-    </div>
-    <div class="col col-25 text-center">
-      <span class="badge"
-            ng-class="{'badge-positive': resultsCtrl.match.finalScore.tech, 'badge-dark': !resultsCtrl.match.finalScore.tech}">
-            TECH
-      </span>
-    </div>
-  </div>
-           <div class="text-center">
-             <button class="button button-positive" ng-click="resultsCtrl.submit()" ng-disabled="resultsCtrl.isSubmitting">
-               <span ng-bind="resultsCtrl.buttonText"></span>
-             </button>
-             <button class="button button-positive" ng-click="resultsCtrl.cancel()" ng-disabled="!resultsCtrl.isSubmitting">
-               <span>Cancel</span>
-             </button>
-            </div>
-    </div>
-    <div id="progressBar"></div>
 	</ion-content>
 </ion-view>

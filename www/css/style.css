@@ -5,3 +5,7 @@
   stroke: #33CD5F;
   fill: #33CD5F;
 }
+
+.blackBackground {
+	background-color: black;
+}

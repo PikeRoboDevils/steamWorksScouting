@@ -88,16 +88,16 @@ angular.module('steamWorks', ['ionic', 'ngProgress'])
     }
   })
 
-  .state('app.final', {
-    url: '/final',
-    views: {
-      'app-final': {
-        templateUrl: 'app/final/final.template.html',
-        controller: 'finalCtrl',
-        controllerAs: 'finalCtrl'
-      }
-    }
-  })
+  // .state('app.final', {
+  //   url: '/final',
+  //   views: {
+  //     'app-final': {
+  //       templateUrl: 'app/final/final.template.html',
+  //       controller: 'finalCtrl',
+  //       controllerAs: 'finalCtrl'
+  //     }
+  //   }
+  // })
 
   .state('app.results',{
     url: '/results',

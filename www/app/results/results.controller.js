@@ -22,7 +22,6 @@
 
 		vm.kpa = kpa;
 		vm.total = total;
-		vm.rankPoints = rankPoints;
 		vm.rotor = rotor;
 		vm.gears = gears;
 		vm.isSubmitting = false;
@@ -48,43 +47,6 @@
 
 		function rotor(){
 			return vm.match.autoScore.rotorTotal + vm.match.teleScore.rotorTotal;
-		}
-
-		function rankPoints(){
-			return rank1() + rank2() + rank3();
-		}
-
-		function rank1(){
-			if(vm.match.autoScore.fuelPoints + vm.match.autoScore.fuelPoints >= 40){
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		}
-
-		function rank2(){
-			if(vm.match.finalScore.outcome == "win"){
-				return 2;
-			}
-			else if(vm.match.finalScore.outcome == "tie"){
-				return 1;
-			}
-			else if(vm.match.finalScore.outcome == "lose"){
-				return 0;
-			}
-			else {
-				return 0;
-			}
-		}
-
-		function rank3(){
-			if(vm.match.teleScore.rotorTotal + vm.match.autoScore.rotorTotal === 4){
-				return 1;
-			}
-			else {
-				return 0;
-			}
 		}
 
 		function submit(){
