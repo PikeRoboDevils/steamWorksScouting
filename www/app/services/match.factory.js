@@ -27,7 +27,6 @@
 				beginMatch: beginMatch,
 				getMatch: getMatch,
 				updateMatch: updateMatch,
-				hello: hello,
 				constants: calcs
 			};
 
@@ -47,9 +46,6 @@
 		function updateMatch(newProperties) {
 			match = _.merge(match, newProperties);
 			
-		}
-
-
 		}
 	}
 })();
