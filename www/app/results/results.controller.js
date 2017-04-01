@@ -4,9 +4,9 @@
 		.module('steamWorks')
 		.controller('resultsCtrl', resultsCtrl);
 
-	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$ionicHistory', '$scope', '$state'];
+	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$ionicHistory', '$scope', '$state', 'ngProgressFactory'];
 
-	function resultsCtrl(deviceSvc, MatchSvc, $ionicHistory, $scope, $state) {
+	function resultsCtrl(deviceSvc, MatchSvc, $ionicHistory, $scope, $state, ngProgressFactory) {
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
@@ -27,7 +27,12 @@
 		vm.gears = gears;
 		vm.isSubmitting = false;
 		vm.buttonText = 'Submit';
-		
+
+
+		$scope.progressbar = ngProgressFactory.createInstance();
+		$scope.progressbar.setHeight('8px');
+		$scope.progressbar.setColor('#387ef5');
+		// $scope.progressbar.setParent(document.querySelector('#progressBar'));
 
 		function kpa(){
 			return (vm.match.autoScore.fuelPoints + vm.match.teleScore.fuelPoints).toFixed(2);
@@ -83,6 +88,7 @@
 		}
 
 		function submit(){
+			$scope.progressbar.start();
 			vm.isSubmitting = true;
 			vm.buttonText = 'Submitting...';
 			MatchSvc.updateMatch(vm.match);
@@ -101,12 +107,14 @@
 								ble.disconnect(vm.device.id);
 								vm.isSubmitting = false;
 								vm.buttonText = 'Submit';
+								$scope.progressbar.complete();
 								alert('Match submited!');
 								$ionicHistory.clearCache()
 								$state.go('app.welcome', {}, {reload: true});
 							}
 						},
 						function(err){
+							$scope.progressbar.reset();
 							ble.disconnect(vm.device.id);
 							vm.isSubmitting = false;
 							vm.buttonText = 'Submit';
@@ -115,6 +123,7 @@
 					);
 				},
 				function(err){
+					$scope.progressbar.reset();
 					vm.isSubmitting = false;
 					vm.buttonText = 'Submit';
 					alert('Something went wrong while trying to connect. Please try again');
@@ -123,9 +132,10 @@
 		}
 
 		function cancel() {
-			ble.disconnect(vm.device.id);
+			$scope.progressbar.reset();
 			vm.isSubmitting = false;
 			vm.buttonText = 'Submit';
+			ble.disconnect(vm.device.id);
 		}
 	}
 })();
