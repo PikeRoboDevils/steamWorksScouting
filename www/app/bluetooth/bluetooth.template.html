@@ -1,12 +1,16 @@
-<ion-view title="SCOUTWORKS">
+<ion-view title="SCOUTWORKS" style="background-color: black">
   <header class="bar bar-header bar-stable">
     <h1 class="title">Ionic Bluetooth Attendance</h1>
   </header>
 
   <ion-content class="has-header padding">
-    <button class="button button-positive button-full" ng-click="btCtrl.scan()">
+    <button class="button button-balanced button-full" ng-click="btCtrl.scan()">
       Scan
     </button>
+
+    <center ng-if="btCtrl.showSpinner">
+    <ion-spinner icon="ripple"></ion-spinner>
+    </center>
 
     <div class="card" ng-if="btCtrl.devices.length">
       <div class="item item-divider">
