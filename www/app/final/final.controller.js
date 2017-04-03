@@ -4,12 +4,12 @@
 	.module('steamWorks')
 	.controller('finalCtrl', finalCtrl);
 
-	finalCtrl.$inject = ['MatchSvc', '$scope', '$state'];
+	finalCtrl.$inject = ['MatchSvc', '$scope', '$state', 'ngProgressFactory'];
 
 	var LOW_FUEL_CONSTANT = (1/3),
 			BASELINE_CONSTANT = 5;
 
-	function finalCtrl(MatchSvc, $scope, $state){
+	function finalCtrl(MatchSvc, $scope, $state, ngProgressFactory){
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
@@ -36,6 +36,9 @@
 			vm.isFormValid = isFormValid;
 
 			init();
+
+			// $scope.progressbar = ngProgressFactory.createInstance();
+   //          $scope.progressbar.set(23);
 
 			function init() {
 				console.log(vm.match);

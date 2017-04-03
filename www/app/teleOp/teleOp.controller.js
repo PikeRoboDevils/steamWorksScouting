@@ -188,7 +188,7 @@
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
-				$state.go('app.final');
+				$state.go('app.results');
 			}
 
 			function toggleclimbSuccess(){
