@@ -35,7 +35,7 @@
 
       setTimeout(
           ble.stopScan,
-          1500,
+          5000,
           function(){
             $scope.$apply(function(){
               vm.showSpinner = false;

@@ -182,7 +182,7 @@
 				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
 				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
-				teleScore.gearTotal = vm.matchParts.gears;
+				teleScore.gearTotal = vm.matchParts.gears - vm.match.autoScore.gearTotal;
 				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
 				teleScore.total = teleScore.fuelPoints + teleScore.climbPoints + teleScore.rotorPoints;
 
