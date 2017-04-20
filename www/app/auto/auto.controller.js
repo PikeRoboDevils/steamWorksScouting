@@ -67,7 +67,6 @@
             vm.decreaseGears = decreaseGears;
             vm.increaseRotors = increaseRotors;
             vm.decreaseRotors = decreaseRotors;
-            vm.hasGears = hasGears;
             vm.validGearPos = validGearPos;
 
             init();
@@ -135,9 +134,7 @@
                 }
             }
 
-            function hasGears() {
-				return vm.matchProperties.gears > 0;
-			}
+            
 
 			function gearValueChange() {
 				if(!hasGears()) {

@@ -106,7 +106,7 @@
                     <div class="input-label">Gear Position</div>
                       <select
                         ng-model="autoCtrl.matchProperties.placement"
-                        ng-disabled="!autoCtrl.hasGears()"
+                        ng-disabled="!autoCtrl.matchProperties.gearSuccess"
                         ng-options="position as position.label for position in autoCtrl.gearPositions track by position.id">
                       </select>
                   </label>
