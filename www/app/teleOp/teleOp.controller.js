@@ -29,9 +29,9 @@
 					value: 'NONE'
 				},
 			playStyle: {
-					id: 0,
-					label: 'None',
-					value: 'NONE'
+				id: 1,
+				label: 'Offensive',
+				value: 'OFFENSIVE'
 				}
 			}
 
@@ -54,11 +54,6 @@
 		];
 
 		vm.playStyles = [
-			{
-				id: 0,
-				label: 'None',
-				value: 'NONE'
-			},
 			{
 				id: 1,
 				label: 'Offensive',
