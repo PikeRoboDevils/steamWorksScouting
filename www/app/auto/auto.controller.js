@@ -23,6 +23,7 @@
 				gears: 0,
 				rotors: 0,
 				baseLine: false,
+				gearAttempt: false,
 				placement: {
 					id: 0,
 					label: 'None',
@@ -172,6 +173,7 @@
 					rotorPoints: 0,
 					basePoints: 0,
 					gearTotal: 0,
+					gearAttempt: vm.matchProperties.gearAttempt,
 					rotorTotal: 0,
 					total: 0,
 					baseLine: vm.matchProperties.baseLine,
