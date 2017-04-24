@@ -27,6 +27,11 @@
 					id: 0,
 					label: 'None',
 					value: 'NONE'
+				},
+			playStyle: {
+				id: 1,
+				label: 'Offensive',
+				value: 'OFFENSIVE'
 				}
 			}
 
@@ -45,6 +50,19 @@
 				id: 2,
 				label: 'Middle',
 				value: 'MIDDLE'
+			}
+		];
+
+		vm.playStyles = [
+			{
+				id: 1,
+				label: 'Offensive',
+				value: 'OFFENSIVE'
+			},
+			{
+				id: 2,
+				label: 'Defensive',
+				value: 'DEFENSIVE'
 			}
 		];
 
@@ -176,7 +194,8 @@
 					total: 0,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
-					climbPosition: vm.matchParts.climbPosition.value
+					climbPosition: vm.matchParts.climbPosition.value,
+					playStyle: vm.matchParts.playStyle.value
 				};
 
 				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);

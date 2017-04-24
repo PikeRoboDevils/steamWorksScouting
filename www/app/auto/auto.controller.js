@@ -23,6 +23,8 @@
 				gears: 0,
 				rotors: 0,
 				baseLine: false,
+				gearAttempt: false,
+				gearSuccess: false,
 				placement: {
 					id: 0,
 					label: 'None',
@@ -62,11 +64,9 @@
 			vm.decreaseLowFuel1 = decreaseLowFuel1;
 			vm.decreaseLowFuel5 = decreaseLowFuel5;
 			vm.toggleBaseline = toggleBaseline;
-            vm.increaseGears= increaseGears;
             vm.decreaseGears = decreaseGears;
             vm.increaseRotors = increaseRotors;
             vm.decreaseRotors = decreaseRotors;
-            vm.hasGears = hasGears;
             vm.validGearPos = validGearPos;
 
             init();
@@ -114,12 +114,6 @@
 			function increaseLowFuel5() {
 				vm.matchProperties.lowFuel += 5;
 			}
-
-            function increaseGears(){
-                if(vm.matchProperties.gears < 12){
-                	vm.matchProperties.gears++;
-                }
-            }
     
             function decreaseGears(){
                 if(vm.matchProperties.gears > 0){
@@ -140,9 +134,7 @@
                 }
             }
 
-            function hasGears() {
-				return vm.matchProperties.gears > 0;
-			}
+            
 
 			function gearValueChange() {
 				if(!hasGears()) {
@@ -172,6 +164,7 @@
 					rotorPoints: 0,
 					basePoints: 0,
 					gearTotal: 0,
+					gearAttempt: vm.matchProperties.gearAttempt,
 					rotorTotal: 0,
 					total: 0,
 					baseLine: vm.matchProperties.baseLine,
@@ -182,7 +175,7 @@
 				autoScore.basePoints += vm.matchProperties.baseLine ? MatchSvc.constants.BASELINE_CONSTANT : 0;
 				autoScore.rotorPoints = vm.matchProperties.rotors * MatchSvc.constants.AUTO_ROTORS;
 				autoScore.rotorTotal = vm.matchProperties.rotors;
-				autoScore.gearTotal = vm.matchProperties.gears;
+				autoScore.gearTotal = vm.matchProperties.gearSuccess ? 1 : 0;
 				autoScore.total = autoScore.fuelPoints + autoScore.basePoints + autoScore.rotorPoints;
 
 				vm.match.autoScore = autoScore;
