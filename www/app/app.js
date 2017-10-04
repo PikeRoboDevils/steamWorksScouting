@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('steamWorks', ['ionic'])
+angular.module('steamWorks', ['ionic', 'ngProgress'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -88,16 +88,16 @@ angular.module('steamWorks', ['ionic'])
     }
   })
 
-  .state('app.final', {
-    url: '/final',
-    views: {
-      'app-final': {
-        templateUrl: 'app/final/final.template.html',
-        controller: 'finalCtrl',
-        controllerAs: 'finalCtrl'
-      }
-    }
-  })
+  // .state('app.final', {
+  //   url: '/final',
+  //   views: {
+  //     'app-final': {
+  //       templateUrl: 'app/final/final.template.html',
+  //       controller: 'finalCtrl',
+  //       controllerAs: 'finalCtrl'
+  //     }
+  //   }
+  // })
 
   .state('app.results',{
     url: '/results',

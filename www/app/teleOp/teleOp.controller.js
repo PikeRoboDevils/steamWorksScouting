@@ -27,6 +27,11 @@
 					id: 0,
 					label: 'None',
 					value: 'NONE'
+				},
+			playStyle: {
+				id: 1,
+				label: 'Offensive',
+				value: 'OFFENSIVE'
 				}
 			}
 
@@ -45,6 +50,19 @@
 				id: 2,
 				label: 'Middle',
 				value: 'MIDDLE'
+			}
+		];
+
+		vm.playStyles = [
+			{
+				id: 1,
+				label: 'Offensive',
+				value: 'OFFENSIVE'
+			},
+			{
+				id: 2,
+				label: 'Defensive',
+				value: 'DEFENSIVE'
 			}
 		];
 
@@ -176,19 +194,20 @@
 					total: 0,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
-					climbPosition: vm.matchParts.climbPosition.value
+					climbPosition: vm.matchParts.climbPosition.value,
+					playStyle: vm.matchParts.playStyle.value
 				};
 
 				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
 				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
-				teleScore.gearTotal = vm.matchParts.gears;
+				teleScore.gearTotal = vm.matchParts.gears - vm.match.autoScore.gearTotal;
 				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
 				teleScore.total = teleScore.fuelPoints + teleScore.climbPoints + teleScore.rotorPoints;
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
-				$state.go('app.final');
+				$state.go('app.results');
 			}
 
 			function toggleclimbSuccess(){

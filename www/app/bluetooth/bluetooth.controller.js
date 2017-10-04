@@ -13,8 +13,12 @@
 
     vm.scan = scan;
     vm.connect = connect;
+    vm.showSpinner = false;
 
     function scan (){
+      deviceSvc.reset();
+      vm.devices = deviceSvc.getDevices();
+      vm.showSpinner = true;
 
       deviceSvc.reset();
       ble.startScan(
@@ -31,9 +35,10 @@
 
       setTimeout(
           ble.stopScan,
-          1500,
+          5000,
           function(){
             $scope.$apply(function(){
+              vm.showSpinner = false;
               vm.devices = deviceSvc.getDevices();
             });
           },

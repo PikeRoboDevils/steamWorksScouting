@@ -146,14 +146,27 @@
                     </label>
                   </div>
                 </div>
-              </li>          
+              </li>
+              <li class="item">
+                <div class="row">
+                  <div class="col col-100">
+                    <label class="item item-input item-select">
+                      <div class="input-label">Play Style</div>
+                        <select
+                          ng-model="teleOpCtrl.matchParts.playStyle"
+                          ng-options="playStyle as playStyle.label for playStyle in teleOpCtrl.playStyles track by playStyle.id">
+                        </select>
+                    </label>
+                  </div>
+                </div>
+              </li>       
              <li>
             <div class="item item-button">
 				  <div class="text-center">
 					<button class="button button-positive"
               ng-disabled="!teleOpCtrl.validClimbPos()"
 							ng-click="teleOpCtrl.submit()">
-					To Final!
+					To Results
 				</button>
 				</div>
 			</div>
