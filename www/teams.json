@@ -25,7 +25,7 @@
     "motto": null,
     "nickname": "Kil-A-Bytes"
   },
-  {
+  /*{
     "website": "http://www.team135.org",
     "name": "PHM Educational Foundation/Renesas & Penn High School",
     "locality": "Mishawaka",
@@ -37,7 +37,7 @@
     "country_name": "USA",
     "motto": "Blood, Sweat, and Gears",
     "nickname": "Penn Robotics"
-  },
+  }, */
   {
     "website": "http://huntingtonrobotics.org",
     "name": "UTEC/PHD, Inc./Pentair/BAE Systems/Yamaha Robotics & Huntington County 4-H Robotics",
@@ -90,7 +90,7 @@
     "motto": "Challenge Accepted!",
     "nickname": "Red Alert"
   },
-  {
+  /* {
     "website": "http://www.laspumas2197.org",
     "name": "IN-Tek IN-Kote/AEP/Qubit Networks&New Prairie High School",
     "locality": "New Carlisle",
@@ -102,7 +102,7 @@
     "country_name": "USA",
     "motto": "Sailing the FRC.",
     "nickname": "Las Pumas"
-  },
+  }, */
   {
     "website": "http://cyberblue234.com/site/",
     "name": "Allison Transmission/Rolls-Royce/Morris Machine/Our Proud Grandmas/Society of Women Engineers&Perry Meridian High School",
@@ -116,7 +116,7 @@
     "motto": "One Step Higher",
     "nickname": "Cyber Blue"
   },
-  {
+  /* {
     "website": "http://www.elklogics.com",
     "name": "Elkhart Community Schools/Elkhart Education Foundation & Elkhart Central High School & Elkhart Memorial High School",
     "locality": "Elkhart",
@@ -128,8 +128,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "ElkLogics"
-  },
-  {
+  }, */
+ /* {
     "website": "http://panthertech.western.k12.in.us/index.htm",
     "name": "The Delphi Foundation/FCA Foundation/AndyMark, Inc./GM/Monsanto Fund/Best Buy&Western High School",
     "locality": "Russiaville",
@@ -141,7 +141,7 @@
     "country_name": "USA",
     "motto": "\"We are family\"",
     "nickname": "PantherTech"
-  },
+  }, */
   {
     "website": "http://team3176purpleprecision.weebly.com/",
     "name": "Rolls-Royce Corporation/WaterJet Cutting of Indiana & Brownsburg High School",
@@ -155,7 +155,7 @@
     "motto": "One team, one home, one goal",
     "nickname": "Purple Precision"
   },
-  {
+  /*{
     "website": "http://www.firstinspires.org/",
     "name": "NHJ Educational Foundation / Rolls-Royce & Indian Creek Sr High Sch",
     "locality": "Trafalgar",
@@ -167,8 +167,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Blaise of Glory"
-  },
-  {
+  }, */
+ /* {
     "website": "http://earthquakers.wixsite.com/3487",
     "name": "Rolls-Royce/Freedom Chairs of Indiana/Allison Transmission & Plainfield High School",
     "locality": "Plainfield",
@@ -180,7 +180,7 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Red Pride Robotics"
-  },
+  }, */
   {
     "website": "http://www.thequadrangles.com/",
     "name": "The Raymond Foundation / Fastenal / DOD STEM / Science Applications International Corporation (SAIC) / Naval Surface Warfare Center Crane & Bloomington High School South",
@@ -194,7 +194,7 @@
     "motto": null,
     "nickname": "The Quadrangles"
   },
-  {
+  /*{
     "website": "http://www.jasperrobotics.com/",
     "name": "DoDSTEM/NSWC Crane Division/Kimball Electronics/Toyota&Jasper High School",
     "locality": "Jasper",
@@ -206,7 +206,7 @@
     "country_name": "USA",
     "motto": "Do It Right or Do It Again",
     "nickname": "Thundercats"
-  },
+  }, */
   {
     "website": "https://cybertooth3940.com/",
     "name": "AndyMark, Inc./FCA Foundation/Haynes International/Solidworks/Fastenal/Merrell Brothers/TGR Finishing/H&R Industrial /True Precision Technologies/FCA Transmission Plant 2/Dr. Ray Christine/Midpro Fluid Power&Northwestern Sr High Sch",
@@ -246,7 +246,7 @@
     "motto": null,
     "nickname": "Roborioles"
   },
-  {
+  /*{
     "website": "http://team4272.com",
     "name": "Purdue FIRST Programs/Small Parts Inc./Wabash National/Matrix Technologies, Inc/Lafayette Tool and Die/The Kelly Group/Meyer Plastics/Nufer Designs&Mccutcheon High School",
     "locality": "Lafayette",
@@ -258,8 +258,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Maverick Boiler Robotics"
-  },
-  {
+  }, */
+ /* {
     "website": "http://www.teamroboto.org",
     "name": "SMC Corporation of America/Madison County Community Foundation/Ivy Tech Community College/Go Electric Inc/Xtreme Alternative Defense Systems/DRN Machine&BSA Sakima District Troup 447",
     "locality": "Anderson",
@@ -271,8 +271,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Team Roboto"
-  },
-  {
+  }, */
+ /* {
     "website": "http://tribetech4485.com",
     "name": "United Technologies Corporation/NASA/Rolls-Royce/Allison Transmission/Waterjet Cutting of Indiana/Colors Inc./Duke Energy/Danville Optimist Club/Waste Management&Danville Community High Sch",
     "locality": "Danville",
@@ -284,8 +284,8 @@
     "country_name": "USA",
     "motto": "It is David's fault",
     "nickname": "Tribe Tech Robotics"
-  },
-  {
+  }, */
+ /* {
     "website": "http://www.technokats.org/",
     "name": "Delphi/AndyMark, Inc./Duke Energy/Foresite/Kokomo Education Foundation/Royal United Mortgage/1Up! Software/HMH Contractors, Inc./Howard County EMA/Indiana Wesleyan University/Kati L. Taylor/Kokomo Area Career Center Collision Repair & Construction Class/Kokomo Area Lions Club/Midwestern Engineers, Inc./Northwest Radiology Network/ProPrints & Kokomo High School",
     "locality": "Kokomo",
@@ -297,8 +297,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "TechnoKats Robotics Team"
-  },
-  {
+  }, */
+  /* {
     "website": "http://www.firstinspires.org/",
     "name": "Faurecia/Cummins Inc./Charles Geckler/Precise Mold & Plate/Elwood Staffing/Red Zone  Laser Tag/Purdue Polytechnic Institute/Valeo/Christopher Stephen Corporation/Impact Forge Group Inc/Nikkei Mc Aluminum America Inc/Ivy Tech Community College/C W Guthrie Consulting&Columbus East High School&Columbus North High School",
     "locality": "Columbus",
@@ -310,8 +310,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "GalacTech"
-  },
-  {
+  }, */
+ /* {
     "website": "http://tigerdynasty.org",
     "name": "Rolls Royce/Allison Transmission/Keihin/Clear Object/BioMicrobics/Watermark Engineered Products Sales/Roche/Fishers Tiger Stripes/Waterjet Cutting of Indiana/CloudOne/Bluelock/Walmart Neighborhood Markets/Allied Automation/Realize, Inc./Flexware Innovation/Marian/Probo Medical/Forum Credit Union/PolyLok/NetFor/AstBury&Fishers High School",
     "locality": "Fishers",
@@ -323,8 +323,8 @@
     "country_name": "USA",
     "motto": "Welcome to the Dynasty",
     "nickname": "Tiger Dynasty"
-  },
-  {
+  }, */
+  /* {
     "website": "http://classifiedrobotics.com/",
     "name": "Rose Hulman/Novelis/Waterjet Cutting of Indiana/Lawrenco/Vigo County School Corporation&Terre Haute South Vigo High Sch&Terre Haute North Vigo High Sch&West Vigo High School",
     "locality": "Terre Haute",
@@ -336,8 +336,8 @@
     "country_name": "USA",
     "motto": "It's Classified ",
     "nickname": "Area 5188 : Classified Robotics"
-  },
-  {
+  }, */
+ /* {
     "website": "http://www.firstinspires.org/",
     "name": "FCA Foundation/American Legion Post 415/AndyMark/Zeck Farms/The Andersons&Lewis Cass Jr-Sr High School",
     "locality": "Walton",
@@ -349,8 +349,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Iron Kings"
-  },
-  {
+  }, */
+ /* {
     "website": "http://www.aluminosity.org",
     "name": "General Motors/Baxter/DOD/Stone Gate Arts and Education Center/In-Fab Inc./C&M Conveyor/D&M Tool Corporation/Whitney Tool Company/Kirby Risk&Aluminosity Team 5403",
     "locality": "Bedford",
@@ -362,8 +362,8 @@
     "country_name": "USA",
     "motto": "The Future Is Bright",
     "nickname": "Aluminosity"
-  },
-  {
+  }, */
+ /* {
     "website": "http://www.team5484.com",
     "name": "Career Academy South Bend&Career Academy South Bend",
     "locality": "South Bend",
@@ -375,8 +375,8 @@
     "country_name": "USA",
     "motto": "Remember to Live",
     "nickname": "Career Academy Robotics - Memento Vitam"
-  },
-  {
+  }, */
+ /* {
     "website": "http://www.firstinspires.org/",
     "name": "Nasa / Rolls Royce / Mallory / Dow / Mrs. Sanders & Mooresville High School",
     "locality": "Mooresville",
@@ -388,8 +388,8 @@
     "country_name": "USA",
     "motto": "Be EPIC!",
     "nickname": "Robotic Pioneers"
-  },
-  {
+  }, */
+  /* {
     "website": "http://www.frc6012.org",
     "name": "Indiana University School of Informatics and Computing/Argosy Foundation/Allied Automation/Sandy & Danny Daugherty/DoD STEM/Lawrence County STEAM/The PI Labs/Turner Contracting Inc/Bedford Federal Savings Bank/INFAB/Tri-County Builders/Stimulus Engineering/Indiana Steel & Engineering Corp/Architectural Stone Fabricators/Whitney Tool Company/BowHead/Atchison Eye Care/Remax Realty/Southern Indiana Home Inspections/PYNCO/Limestone Robotics&Family/Community",
     "locality": "Bedford",
@@ -401,8 +401,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "STEAMROLLERS"
-  },
-  {
+  }, */
+ /* {
     "website": "https://whitelandrobotics.com",
     "name": "NASA/Rolls Royce/Endress Hauser/Schieber Family/Sherri Hartman Bookeeping/Indiana Realty Pros/Dow Aggrosciences/AndyMark & Whiteland Community High Sch",
     "locality": "Whiteland",
@@ -414,8 +414,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Wired Warriors"
-  },
-  {
+  }, */
+  /* {
     "website": null,
     "name": "Castle High School",
     "locality": "Newburgh",
@@ -427,8 +427,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Castle High School"
-  },
-  {
+  }, */
+  /* {
     "website": null,
     "name": "Charles a Tindley Accelerated Sch",
     "locality": "Indianapolis",
@@ -440,8 +440,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "3960 Tindley Trailblazers"
-  },
-  {
+  }, */
+  /* {
     "website": "http://www.teamhammond71.com",
     "name": "School City of Hammond/Caterpillar/City of Hammond/Bemcor International & Area Career Center",
     "locality": "Hammond",
@@ -453,8 +453,8 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Team Hammond"
-  },
-  {
+  }, */
+  /* {
     "website": "http://www.warrenrobotics.org/",
     "name": "Rolls-Royce Corporation/Colors Inc/Waterjet Cutting of Indiana/Lafayette Steel and Aluminum&Walker Career Center",
     "locality": "Indianapolis",
@@ -466,7 +466,7 @@
     "country_name": "USA",
     "motto": null,
     "nickname": "Digital Goats"
-  },
+  }, */
   {
     "website": "http://www.techhounds.com",
     "name": "Boeing/Delphi Foundation/Rolls Royce & Carmel High School",
@@ -479,5 +479,35 @@
     "country_name": "USA",
     "motto": "Invent the Future",
     "nickname": "TechHOUNDS"
-  }
+  },
+    
+{
+   "team_number": 1646, 
+    "key": "frc1646",
+     "nickname": "Precision Guessworks"
+},
+{
+   "team_number": 5125, 
+    "key": "frc5125",
+     "nickname": "Hawks on the Horizon"
+},
+{
+   "team_number": 4096, 
+    "key": "frc4096",
+     "nickname": "Ctrl-Z"
+},
+{
+   "team_number": 3844, 
+    "key": "frc3844",
+     "nickname": "WildBots"
+},
+{
+   "team_number": 2826, 
+    "key": "frc2826",
+     "nickname": "Wave Robotics"
+ },
+    
+    
+    
+
 ]
