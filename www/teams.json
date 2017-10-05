@@ -479,8 +479,8 @@
     "country_name": "USA",
     "motto": "Invent the Future",
     "nickname": "TechHOUNDS"
-  },
-{
+  }
+/*{
     "team_number": 1646,
  
     "key": "frc1646",
@@ -514,5 +514,5 @@
     "key": "frc2826",
    
     "nickname": "Wave Robotics"
-  }
+  } */
 ]
