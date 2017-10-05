@@ -479,40 +479,40 @@
     "country_name": "USA",
     "motto": "Invent the Future",
     "nickname": "TechHOUNDS"
-  },
-{
+  }
+/*{
     "team_number": 1646,
  
     "key": "frc1646",
    
-    "nickname": "Digital Goats"
+    "nickname": "Precision Guessworks"
   }, 
     {
     "team_number": 5125,
  
     "key": "frc5125",
    
-    "nickname": "Digital Goats"
+    "nickname": "Hawks on the Horizon"
   }, 
     {
     "team_number": 4096,
  
     "key": "frc4096",
    
-    "nickname": "Digital Goats"
+    "nickname": "Ctrl-Z"
   }, 
     {
     "team_number": 3844,
  
     "key": "frc3844",
    
-    "nickname": "Digital Goats"
+    "nickname": "WildBots"
   }, 
     {
     "team_number": 2826,
  
     "key": "frc2826",
    
-    "nickname": "Digital Goats"
-  }
+    "nickname": "Wave Robotics"
+  } */
 ]
