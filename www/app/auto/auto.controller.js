@@ -18,11 +18,12 @@
            
 
 			vm.matchProperties = {
-				highFuel: 0,
-				lowFuel: 0,
+				switch: 0,
+				scale: 0,
 				gears: 0,
+                vault: 0,
 				rotors: 0,
-				baseLine: false,
+				autoRun: false,
 				gearAttempt: false,
 				gearSuccess: false,
 				placement: {
@@ -55,19 +56,21 @@
 				}
 			];
 
-			vm.increaseHighFuel1 = increaseHighFuel1;
-			vm.increaseHighFuel5 = increaseHighFuel5;
-			vm.decreaseHighFuel1 = decreaseHighFuel1;
-			vm.decreaseHighFuel5 = decreaseHighFuel5;
-			vm.increaseLowFuel1 = increaseLowFuel1;
-			vm.increaseLowFuel5 = increaseLowFuel5;
-			vm.decreaseLowFuel1 = decreaseLowFuel1;
-			vm.decreaseLowFuel5 = decreaseLowFuel5;
-			vm.toggleBaseline = toggleBaseline;
+			vm.increaseSwitch1 = increaseSwitch1;
+			//vm.increaseSwitch5 = increaseSwitch5;
+			vm.decreaseSwitch1 = decreaseSwitch1;
+			//vm.decreaseSwitch5 = decreaseSwitch5;
+			vm.increaseScale1 = increaseScale1;
+			//vm.increaseScale5 = increaseScale5;
+			vm.decreaseScale1 = decreaseScale1;
+			//vm.decreaseScale5 = decreaseScale5;
+			vm.toggleAutoRun = toggleAutoRun;
             vm.decreaseGears = decreaseGears;
             vm.increaseRotors = increaseRotors;
             vm.decreaseRotors = decreaseRotors;
             vm.validGearPos = validGearPos;
+            vm.increaseVault1 = increaseVault1;
+            vm.decreaseVault1 = decreaseVault1;
 
             init();
 
@@ -75,44 +78,54 @@
 				console.log(vm.match);
 			}
 
-			function decreaseHighFuel1() {
-				if(vm.matchProperties.highFuel - 1 >= 0) {
-					vm.matchProperties.highFuel -= 1;
+			function decreaseSwitch1() {
+				if(vm.matchProperties.switch - 1 >= 0) {
+					vm.matchProperties.switch -= 1;
 				}
 			}
 
-			function decreaseHighFuel5() {
+			/*function decreaseHighFuel5() {
 				if(vm.matchProperties.highFuel - 5 >= 0) {
 					vm.matchProperties.highFuel -= 5;
 				}
+			} */
+
+			function increaseSwitch1() {
+				vm.matchProperties.switch += 1;
 			}
 
-			function increaseHighFuel1() {
-				vm.matchProperties.highFuel += 1;
-			}
-
-			function increaseHighFuel5() {
+			/*function increaseHighFuel5() {
 				vm.matchProperties.highFuel += 5;
-			}
+			} */
 
-			function decreaseLowFuel1() {
-				if(vm.matchProperties.lowFuel - 1 >= 0) {
-					vm.matchProperties.lowFuel -= 1;
+			function decreaseScale1() {
+				if(vm.matchProperties.scale - 1 >= 0) {
+					vm.matchProperties.scale -= 1;
 				}
 			}
 
-			function decreaseLowFuel5() {
+			/*function decreaseLowFuel5() {
 				if(vm.matchProperties.lowFuel - 5 >= 0) {
 					vm.matchProperties.lowFuel -= 5;
 				}
+			} */
+
+			function increaseScale1() {
+				vm.matchProperties.scale += 1;
 			}
 
-			function increaseLowFuel1() {
-				vm.matchProperties.lowFuel += 1;
-			}
-
-			function increaseLowFuel5() {
+			/* function increaseLowFuel5() {
 				vm.matchProperties.lowFuel += 5;
+			} */
+            function decreaseVault1() {
+				if(vm.matchProperties.vault - 1 >= 0) {
+					vm.matchProperties.vault -= 1;
+				}
+                
+                
+			}
+            function increaseVault1() {
+				vm.matchProperties.vault += 1;
 			}
     
             function decreaseGears(){
@@ -167,12 +180,12 @@
 					gearAttempt: vm.matchProperties.gearAttempt,
 					rotorTotal: 0,
 					total: 0,
-					baseLine: vm.matchProperties.baseLine,
+					autoRun: vm.matchProperties.autoRun,
 					placement: vm.matchProperties.placement.value
 				};
 
 				autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * MatchSvc.constants.AUTO_LOW_FUEL_CONSTANT);
-				autoScore.basePoints += vm.matchProperties.baseLine ? MatchSvc.constants.BASELINE_CONSTANT : 0;
+				autoScore.basePoints += vm.matchProperties.autoRun ? MatchSvc.constants.BASELINE_CONSTANT : 0;
 				autoScore.rotorPoints = vm.matchProperties.rotors * MatchSvc.constants.AUTO_ROTORS;
 				autoScore.rotorTotal = vm.matchProperties.rotors;
 				autoScore.gearTotal = vm.matchProperties.gearSuccess ? 1 : 0;
@@ -183,8 +196,8 @@
 				$state.go('app.teleOp');
 			}
 
-			function toggleBaseline(){
-				vm.matchProperties.baseLine = !vm.matchProperties.baseLine;
+			function toggleAutoRun(){
+				vm.matchProperties.autoRun = !vm.matchProperties.autoRun;
 			}
          	
 		}     
