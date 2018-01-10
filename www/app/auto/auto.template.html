@@ -137,7 +137,7 @@
                       <select
                         ng-model="autoCtrl.matchProperties.placement"
                        
-                        ng-options="position as position.label for position in autoCtrl.gearPositions track by position.id">
+                        ng-options="position as position.label for position in autoCtrl.startingPositions track by position.id">
                       </select>
                   </label>
                 </div>
@@ -177,7 +177,7 @@
           <div class="item item-button">
            <div class="text-center">
              <button class="button button-positive"
-                ng-disabled="!autoCtrl.validGearPos()"
+                ng-disabled="!autoCtrl.validStartingPos()"
                 ng-click="autoCtrl.submit()">
                To Teleop!
              </button>
