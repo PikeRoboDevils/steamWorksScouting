@@ -20,7 +20,7 @@
 			vm.matchProperties = {
 				switch: 0,
 				scale: 0,
-                vault: 0,
+                exchange: 0,
 				autoRun: false,
 				placement: {
 					id: 0,
@@ -64,8 +64,8 @@
            
            
             vm.validStartingPos = validStartingPos;
-            vm.increaseVault1 = increaseVault1;
-            vm.decreaseVault1 = decreaseVault1;
+            vm.increaseExchange1 = increaseExchange1;
+            vm.decreaseExchange1 = decreaseExchange1;
 
             init();
 
@@ -98,15 +98,15 @@
 				vm.matchProperties.scale += 1;
 			}
 
-            function decreaseVault1() {
-				if(vm.matchProperties.vault - 1 >= 0) {
-					vm.matchProperties.vault -= 1;
+            function decreaseExchange1() {
+				if(vm.matchProperties.exchange - 1 >= 0) {
+					vm.matchProperties.exchange-= 1;
 				}
                 
                 
 			}
-            function increaseVault1() {
-				vm.matchProperties.vault += 1;
+            function increaseExchange1() {
+				vm.matchProperties.exchange += 1;
 			}
     
           
