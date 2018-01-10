@@ -20,12 +20,8 @@
 			vm.matchProperties = {
 				switch: 0,
 				scale: 0,
-				gears: 0,
                 vault: 0,
-				//rotors: 0,
 				autoRun: false,
-				//gearAttempt: false,
-				//gearSuccess: false,
 				placement: {
 					id: 0,
 					label: 'None',
@@ -140,20 +136,13 @@
 					scalePoints: 0,
                     //basepoints
 					exchangePoints: 0,
-					
-					
-				
 					total: 0,
 					autoRunPoints: vm.matchProperties.autoRun,
 					placement: vm.matchProperties.placement.value
 				};
 
-				/* autoScore.fuelPoints = (vm.matchProperties.highFuel) + (vm.matchProperties.lowFuel * MatchSvc.constants.AUTO_LOW_FUEL_CONSTANT); */
 				autoScore.autoRunPoints += vm.matchProperties.autoRun ? MatchSvc.constants.AUTOLINE_CONSTANT : 0;
-				/*autoScore.rotorPoints = vm.matchProperties.rotors * MatchSvc.constants.AUTO_ROTORS; */
-				//autoScore.rotorTotal = vm.matchProperties.rotors;
-				//autoScore.gearTotal = vm.matchProperties.gearSuccess ? 1 : 0;
-                //autoRunPoints == basePoints
+			
 				autoScore.total = autoScore.autoRunPoints;
 
 				vm.match.autoScore = autoScore;
