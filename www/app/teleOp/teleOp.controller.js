@@ -17,8 +17,8 @@
 		vm.submit = submit;
 
 		vm.matchParts	=	{
-			highFuel: 0,
-			lowFuel: 0,
+			switchCube: 0,
+			scaleCube: 0,
 			gears: vm.match.autoScore.gearTotal,
 			rotors: vm.match.autoScore.rotorTotal,
 			climbSuccess: false,
@@ -66,15 +66,10 @@
 			}
 		];
 
-			vm.increaseHighFuel1 = increaseHighFuel1;
-			vm.increaseHighFuel5 = increaseHighFuel5;
-			vm.decreaseHighFuel1 = decreaseHighFuel1;
-			vm.decreaseHighFuel5 = decreaseHighFuel5;
-			vm.increaseLowFuel1 = increaseLowFuel1;
-			vm.increaseLowFuel5 = increaseLowFuel5;
-			vm.increaseLowFuel20 = increaseLowFuel20;
-			vm.decreaseLowFuel1 = decreaseLowFuel1;
-			vm.decreaseLowFuel5 = decreaseLowFuel5;
+			vm.increaseSwitchCube1 = increaseSwitchCube1;
+			vm.decreaseSwitchCube1 = decreaseSwitchCube1;
+			vm.increaseScaleCube1 = increaseScaleCube1;
+			vm.decreaseScaleCube1 = decreaseScaleCube1;
 			vm.toggleclimbSuccess = toggleclimbSuccess;
 			vm.increaseGears = increaseGears;
 			vm.decreaseGears = decreaseGears;
@@ -90,48 +85,24 @@
 				console.log(vm.match);
 			}
 
-			function decreaseHighFuel1() {
-				if(vm.matchParts.highFuel - 1 >= 0) {
-					vm.matchParts.highFuel -= 1;
+			function decreaseSwitchCube1() {
+				if(vm.matchParts.switchCube - 1 >= 0) {
+					vm.matchParts.switchCube -= 1;
 				}
 			}
 
-			function decreaseHighFuel5() {
-				if(vm.matchParts.highFuel - 5 >= 0) {
-					vm.matchParts.highFuel -= 5;
-				}
+			function increaseSwitchCube1() {
+				vm.matchParts.switchCube += 1;
 			}
 
-			function increaseHighFuel1() {
-				vm.matchParts.highFuel += 1;
-			}
-
-			function increaseHighFuel5() {
-				vm.matchParts.highFuel += 5;
-			}
-
-			function decreaseLowFuel1() {
-				if(vm.matchParts.lowFuel - 1 >= 0) {
+			function decreaseScaleCube1() {
+				if(vm.matchParts.scaleCube - 1 >= 0) {
 					vm.matchParts.lowFuel -= 1;
 				}
 			}
 
-			function decreaseLowFuel5() {
-				if(vm.matchParts.lowFuel - 5 >= 0) {
-					vm.matchParts.lowFuel -= 5;
-				}
-			}
-
-			function increaseLowFuel1() {
-				vm.matchParts.lowFuel += 1;
-			}
-
-			function increaseLowFuel5() {
-				vm.matchParts.lowFuel += 5;
-			}
-
-			function increaseLowFuel20() {
-				vm.matchParts.lowFuel += 20;
+			function increaseScaleCube1() {
+				vm.matchParts.scaleCube += 1;
 			}
 
 			function increaseGears(){
@@ -186,10 +157,9 @@
 
 			function submit() {
 				var teleScore = {
-					fuelPoints: 0,
-					rotorPoints: 0,
-					gearTotal: 0,
-					rotorTotal: 0,
+					switchPoints: 0,
+					scalePoints: 0,
+					vaultPoints: 0,
 					climbPoints: 0,
 					total: 0,
 					climbSuccess: vm.matchParts.climbSuccess,
@@ -198,7 +168,8 @@
 					playStyle: vm.matchParts.playStyle.value
 				};
 
-				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);
+				teleScore.switchPoints = (vm.matchParts.switchCube * MatchSvc.constants.TELE_SWITCH_CUBE_CONSTANT);
+				teleScore.scalePoints = (vm.matchParts.scaleCube * MatchSvc.constants.TELE_SCALE_CUBE_CONSTANT);
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
 				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
 				teleScore.gearTotal = vm.matchParts.gears - vm.match.autoScore.gearTotal;

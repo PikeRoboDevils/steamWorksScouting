@@ -11,7 +11,7 @@
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Fuel High</h2>
+                <h2>Cubes Delivered to Switch</h2>
               </div>
             </div>
           </li>
@@ -19,22 +19,22 @@
             <div class="row">
               <div class="col col-70 text-center">
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseHighFuel5()">
+                    ng-click="teleOpCtrl.decreaseSwitchCube5()">
                     -5
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseHighFuel1()">
+                    ng-click="teleOpCtrl.decreaseSwitchCube1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.highFuel"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.switchCube"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseHighFuel1()">
+                    ng-click="teleOpCtrl.increaseSwitchCube1()">
                     1
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseHighFuel5()">
+                    ng-click="teleOpCtrl.increaseSwitchCube5()">
                     5
                   </button>
               </div>
@@ -43,7 +43,7 @@
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Fuel Low</h2>
+                <h2>Cube Delivered to Scale</h2>
               </div>
             </div>
           </li>          
@@ -51,22 +51,54 @@
             <div class="row">
               <div class="col col-70 text-center">
                 <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseLowFuel5()">
+                    ng-click="teleOpCtrl.decreaseScaleCube5()">
                     -5
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseLowFuel1()">
+                    ng-click="teleOpCtrl.decreaseScaleCube1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.lowFuel"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.scaleCube"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseLowFuel1()">
+                    ng-click="teleOpCtrl.increaseScaleCube1()">
                     1
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseLowFuel5()">
+                    ng-click="teleOpCtrl.increaseScaleCube5()">
+                    5
+                  </button>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cube Delivered to Vault</h2>
+              </div>
+            </div>
+          </li>   
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-center">
+                <button class="button button-positive"
+                    ng-click="teleOpCtrl.decreaseScaleCube5()">
+                    -5
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.decreaseScaleCube1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.scaleCube"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseScaleCube1()">
+                    1
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseScaleCube5()">
                     5
                   </button>
               </div>
