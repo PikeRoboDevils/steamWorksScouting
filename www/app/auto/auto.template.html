@@ -12,131 +12,100 @@
         <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Fuel High</h2>
+                <h2>Cubes Delivered to Switch</h2>
               </div>
             </div>
           </li>  
           <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
+                 
                   <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseHighFuel5()">
-                    -5
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseHighFuel1()">
+                    ng-click="autoCtrl.decreaseSwitch1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.highFuel"></span>
+                    <span ng-bind="autoCtrl.matchProperties.switch"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseHighFuel1()">
+                    ng-click="autoCtrl.increaseSwitch1()">
                     1
                   </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.increaseHighFuel5()">
-                    5
-                  </button>
+            
               </div>
             </div>
           </li>
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Fuel Low</h2>
+                <h2>Cubes Delivered to Scale</h2>
               </div>
             </div>
           </li> 
           <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
+               
                   <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseLowFuel5()">
-                    -5
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseLowFuel1()">
+                    ng-click="autoCtrl.decreaseScale1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.lowFuel"></span>
+                    <span ng-bind="autoCtrl.matchProperties.scale"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseLowFuel1()">
+                    ng-click="autoCtrl.increaseScale1()">
                     1
                   </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.increaseLowFuel5()">
-                    5
-                  </button>
+                 
               </div>
             </div>
+              
+        <li class="item">     
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cubes Delivered to Exchange</h2>
+              </div>
+            </div>
+        </li>
+            <div class="col col-70 text-center">
+               
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseExchange1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.exchange"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseExchange1()">
+                    1
+                  </button>
+                 
+              </div>
+            
           </li>            
-            <li class="item">
-              <div class="row">
-                <div class="col col-70 text-left">
-                  Gear Attempt
-                </div>
-              <label class="toggle toggle-assertive">
-               <input type="checkbox" ng-model="autoCtrl.matchProperties.gearAttempt">
-                <div class="track">
-                   <div class="handle"></div>
-                </div>
-              </label>              
-             </div>
-            </li>
-            <li class="item">
-              <div class="row">
-                <div class="col col-70 text-left">
-                  Gear Success
-                </div>
-              <label class="toggle toggle-calm">
-               <input type="checkbox" ng-model="autoCtrl.matchProperties.gearSuccess" ng-disabled="!autoCtrl.matchProperties.gearAttempt">
-                <div class="track">
-                   <div class="handle"></div>
-                </div>
-              </label>              
-             </div>
-            </li>
+      
             <li class="item">
               <div class="row">
                 <div class="col col-100">
                   <label class="item item-input item-select">
-                    <div class="input-label">Gear Position</div>
+                    <div class="input-label">Starting Position</div>
                       <select
                         ng-model="autoCtrl.matchProperties.placement"
-                        ng-disabled="!autoCtrl.matchProperties.gearSuccess"
-                        ng-options="position as position.label for position in autoCtrl.gearPositions track by position.id">
+                       
+                        ng-options="position as position.label for position in autoCtrl.startingPositions track by position.id">
                       </select>
                   </label>
                 </div>
               </div>
           </li>
-          <li class="item">
-            <div class="row">
-              <div class="col col-70 text-left">
-                Rotors
-              </div>
-              <div class="col col-30 text-right">
-                <button class="button button-positive"
-                  ng-click="autoCtrl.decreaseRotors()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <button class="button button-light">
-                <span ng-bind="autoCtrl.matchProperties.rotors"></span>
-                </button>
-                <button class="button button-positive"
-                  ng-click="autoCtrl.increaseRotors()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
-              </div>
-            </div>
-          </li>
+          
+        
           <li class="item item-toggle">
-             Baseline
+             Auto-Run
              <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="autoCtrl.matchProperties.baseLine">
+               <input type="checkbox" ng-model="autoCtrl.matchProperties.autoRun">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -146,7 +115,7 @@
           <div class="item item-button">
            <div class="text-center">
              <button class="button button-positive"
-                ng-disabled="!autoCtrl.validGearPos()"
+                ng-disabled="!autoCtrl.validStartingPos()"
                 ng-click="autoCtrl.submit()">
                To Teleop!
              </button>
