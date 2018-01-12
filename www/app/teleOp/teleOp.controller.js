@@ -19,8 +19,6 @@
 		vm.matchParts	=	{
 			switchCube: 0,
 			scaleCube: 0,
-			gears: vm.match.autoScore.gearTotal,
-			rotors: vm.match.autoScore.rotorTotal,
 			climbSuccess: false,
 			climbAttempt: false,
 			climbPosition: {
@@ -97,7 +95,7 @@
 
 			function decreaseScaleCube1() {
 				if(vm.matchParts.scaleCube - 1 >= 0) {
-					vm.matchParts.lowFuel -= 1;
+					vm.matchParts.scaleCube -= 1;
 				}
 			}
 
@@ -162,6 +160,8 @@
 					vaultPoints: 0,
 					climbPoints: 0,
 					total: 0,
+					ground: vm.matchParts.ground,
+					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
 					climbPosition: vm.matchParts.climbPosition.value,
