@@ -168,7 +168,7 @@
             	}
             }
 
-            function validClimbPos() {
+          function validClimbPos() {
             	var answer = true;
             	if(vm.matchParts.climbSuccess){
             		if(vm.matchParts.climbPosition.value === 'NONE') {
@@ -178,30 +178,28 @@
 
 
             	return answer;
-            }
+            } 
 
 			function submit() {
 				var teleScore = {
-					switchPoints: 0,
-					scalePoints: 0,
 					vaultPoints: 0,
 					climbPoints: 0,
 					total: 0,
-					ground: vm.matchParts.ground,
 					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
-					climbPosition: vm.matchParts.climbPosition.value,
-					playStyle: vm.matchParts.playStyle.value
+					playStyle: vm.matchParts.playStyle.value,
+                    powerUp: vm.matchParts.powerUp.value
 				};
 
-				teleScore.switchPoints = (vm.matchParts.switchCube * MatchSvc.constants.TELE_SWITCH_CUBE_CONSTANT);
-				teleScore.scalePoints = (vm.matchParts.scaleCube * MatchSvc.constants.TELE_SCALE_CUBE_CONSTANT);
+               
+                teleScore.vaultPoints = (vm.matchParts.vaultCube * MatchSvc.constants.TELE_VAULT_CUBE_CONSTANT);
+                
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
-				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
-				teleScore.gearTotal = vm.matchParts.gears - vm.match.autoScore.gearTotal;
-				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
-				teleScore.total = teleScore.fuelPoints + teleScore.climbPoints + teleScore.rotorPoints;
+                
+				teleScore.parking = (vm.matchParts.parking * MatchSvc.constants.TELE_PARKING_CONSTANT);
+
+				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking;
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
