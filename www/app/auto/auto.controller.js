@@ -19,6 +19,7 @@
 
 			vm.matchProperties = {
 				switch: 0,
+				cubeDropped: 0,
 				scale: 0,
                 exchange: 0,
 				autoRun: false,
@@ -59,6 +60,8 @@
 			vm.increaseScale1 = increaseScale1;
 			
 			vm.decreaseScale1 = decreaseScale1;
+			vm.decreaseCubeDropped1 = decreaseCubeDropped1;
+			vm.increaseCubeDropped1 = increaseCubeDropped1;
 		
 			vm.toggleAutoRun = toggleAutoRun;
            
@@ -77,6 +80,16 @@
 				if(vm.matchProperties.switch - 1 >= 0) {
 					vm.matchProperties.switch -= 1;
 				}
+			}
+
+			function decreaseCubeDropped1() {
+				if(vm.matchProperties.cubeDropped - 1 >= 0) {
+					vm.matchProperties.cubeDropped -= 1;
+				}
+			}
+
+			function increaseCubeDropped1() {
+				vm.matchProperties.cubeDropped += 1;
 			}
 
 
