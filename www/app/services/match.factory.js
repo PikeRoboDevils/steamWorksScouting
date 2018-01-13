@@ -11,14 +11,10 @@
 	
 	   
 	    var calcs = {
-	    	AUTO_LOW_FUEL_CONSTANT: (1/3),
-	    	TELE_LOW_FUEL_CONSTANT: (1/9),
-			TELE_HIGH_FUEL_CONSTANT: (1/3),
+	    	TELE_VAULT_CUBE_CONSTANT: 5,
+	    	TELE_PARKING_CONSTANT: 5,
 			CLIMB_CONSTANT: 50,
-			CLIMB: 50,
-			TELE_ROTORS: 40,
-			BASELINE_CONSTANT: 5,
-			AUTO_ROTORS: 60
+			AUTOLINE_CONSTANT: 5
 	    }
 
 		var match = {};

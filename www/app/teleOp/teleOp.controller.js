@@ -20,6 +20,7 @@
 			switchCube: 0,
             cubeDropped: 0,
 			scaleCube: 0,
+            parking: 0,
             exchangeCube: 0,
             vaultCube: 0,
 			climbSuccess: false,
@@ -204,7 +205,11 @@
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
 					playStyle: vm.matchParts.playStyle.value,
-                    powerUp: vm.matchParts.powerUp.value
+                    powerUp: vm.matchParts.powerUp.value,
+                    switchCube: vm.matchParts.switchCube,
+                    scaleCube: vm.matchParts.scaleCube,
+                    exchangeCube: vm.matchParts.exchangeCube,
+                    vaultCube: vm.matchParts.vaultCube
 				};
 
                
@@ -215,6 +220,8 @@
 				teleScore.parking = (vm.matchParts.parking * MatchSvc.constants.TELE_PARKING_CONSTANT);
 
 				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking;
+                
+                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube;
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
