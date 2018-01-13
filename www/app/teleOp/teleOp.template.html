@@ -2,7 +2,7 @@
   <ion-content class="padding">
   <div class="row">
       <div class="col text-center">
-        <h1>Teleop</h1>
+        <h1>TeleOp</h1>
       </div>
     </div>
     <div class="row">
@@ -11,7 +11,7 @@
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Fuel High</h2>
+                <h2>Cubes Delivered to Switch</h2>
               </div>
             </div>
           </li>
@@ -19,100 +19,96 @@
             <div class="row">
               <div class="col col-70 text-center">
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseHighFuel5()">
-                    -5
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseHighFuel1()">
+                    ng-click="teleOpCtrl.decreaseSwitchCube1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.highFuel"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.switchCube"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseHighFuel1()">
+                    ng-click="teleOpCtrl.increaseSwitchCube1()">
                     1
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseHighFuel5()">
-                    5
                   </button>
               </div>
             </div>
           </li>
+            
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Fuel Low</h2>
+                <h2>Cubes Delivered to Scale</h2>
               </div>
             </div>
           </li>          
           <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
-                <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseLowFuel5()">
-                    -5
-                  </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseLowFuel1()">
+                    ng-click="teleOpCtrl.decreaseScaleCube1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.lowFuel"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.scaleCube"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseLowFuel1()">
+                    ng-click="teleOpCtrl.increaseScaleCube1()">
                     1
                   </button>
+              </div>
+            </div>
+          </li>
+            
+            <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cubes Delivered to Exchange</h2>
+              </div>
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-center">
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseLowFuel5()">
-                    5
+                    ng-click="teleOpCtrl.decreaseExchangeCube1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.exchangeCube"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseExchangeCube1()">
+                    1
+                  </button>
+              </div>
+            </div>
+          </li>  
+            
+            <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cubes Delivered to Vault</h2>
+              </div>
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-center">
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.decreaseVaultCube1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.vaultCube"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseVaultCube1()">
+                    1
                   </button>
               </div>
             </div>
           </li>
-          <li class="item">
-            <div class="row">
-              <div class="col col-70 text-left">
-                Gears
-              </div>
-              <div class="col col-30 text-right">
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.decreaseGears()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <button class="button button-light">
-                  <span ng-bind="teleOpCtrl.matchParts.gears"></span>
-                </button>
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.increaseGears()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
-              </div>
-            </div>
-          </li>
+      
 
-          <li class="item">
-            <div class="row">
-              <div class="col col-70 text-left">
-                Rotors
-              </div>
-              <div class="col col-30 text-right">
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.decreaseRotors()">
-                  <i class="icon ion-arrow-down-a"></i>
-                </button>
-                <button class="button button-light">
-                  <span ng-bind="teleOpCtrl.matchParts.rotors"></span>
-                </button>
-                <button class="button button-positive"
-                  ng-click="teleOpCtrl.increaseRotors()">
-                  <i class="icon ion-arrow-up-a"></i>
-                </button>
-              </div>
-            </div>
-          </li>
 
           <li class="item item-toggle">
              Climb Attempt
@@ -122,7 +118,7 @@
                  <div class="handle"></div>
                </div>
              </label>
-          </li>
+          </li> 
 
             <li class="item item-toggle">
                Climb Success
@@ -133,20 +129,25 @@
                  </div>
                </label>
             </li>
-              <li class="item">
-                <div class="row">
-                  <div class="col col-100">
-                    <label class="item item-input item-select">
-                      <div class="input-label">Climb Position</div>
-                        <select
-                          ng-model="teleOpCtrl.matchParts.climbPosition"
-                          ng-disabled="!teleOpCtrl.matchParts.climbSuccess"
-                          ng-options="climbPosition as climbPosition.label for climbPosition in teleOpCtrl.climbPositions track by climbPosition.id">
-                        </select>
-                    </label>
-                  </div>
-                </div>
-              </li>
+             
+            <li class="item item-toggle">
+             Parking
+             <label class="toggle toggle-energized">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.parking">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+        <li class="item item-toggle">
+             Ground
+             <label class="toggle toggle-energized">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.ground">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
               <li class="item">
                 <div class="row">
                   <div class="col col-100">
@@ -159,14 +160,28 @@
                     </label>
                   </div>
                 </div>
-              </li>       
+              </li>   
+            
+              <li class="item">
+                <div class="row">
+                  <div class="col col-100">
+                    <label class="item item-input item-select">
+                      <div class="input-label">PowerUp</div>
+                        <select
+                          ng-model="teleOpCtrl.matchParts.powerUp"
+                          ng-options="powerUp as powerUp.label for powerUp in teleOpCtrl.powerUps track by powerUp.id">
+                        </select>
+                    </label>
+                  </div>
+                </div>
+              </li> 
+            
              <li>
             <div class="item item-button">
 				  <div class="text-center">
 					<button class="button button-positive"
-              ng-disabled="!teleOpCtrl.validClimbPos()"
-							ng-click="teleOpCtrl.submit()">
-					To Results
+                    ng-click="teleOpCtrl.submit()">
+					To Results!
 				</button>
 				</div>
 			</div>

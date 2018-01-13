@@ -17,12 +17,13 @@
 		vm.submit = submit;
 
 		vm.matchParts	=	{
-			highFuel: 0,
-			lowFuel: 0,
-			gears: vm.match.autoScore.gearTotal,
-			rotors: vm.match.autoScore.rotorTotal,
+			switchCube: 0,
+			scaleCube: 0,
+            exchangeCube: 0,
+            vaultCube: 0,
 			climbSuccess: false,
 			climbAttempt: false,
+            
 			climbPosition: {
 					id: 0,
 					label: 'None',
@@ -32,7 +33,13 @@
 				id: 1,
 				label: 'Offensive',
 				value: 'OFFENSIVE'
-				}
+				},
+            powerUp: {
+                id: 2,
+                lable: 'None',
+                value: 'NONE'
+            }
+            
 			}
 
 		vm.climbPositions = [
@@ -53,6 +60,23 @@
 			}
 		];
 
+        vm.powerUps = [
+            {
+                id: 2,
+                label: 'Boost',
+                value: 'BOOST'
+            },
+            {
+                id: 3,
+                label: 'Force',
+                value: 'FORCE'
+            },
+            {
+                id: 4,
+                label: 'Levitate',
+                value: 'LEVITATE'
+            }
+        ];
 		vm.playStyles = [
 			{
 				id: 1,
@@ -66,20 +90,15 @@
 			}
 		];
 
-			vm.increaseHighFuel1 = increaseHighFuel1;
-			vm.increaseHighFuel5 = increaseHighFuel5;
-			vm.decreaseHighFuel1 = decreaseHighFuel1;
-			vm.decreaseHighFuel5 = decreaseHighFuel5;
-			vm.increaseLowFuel1 = increaseLowFuel1;
-			vm.increaseLowFuel5 = increaseLowFuel5;
-			vm.increaseLowFuel20 = increaseLowFuel20;
-			vm.decreaseLowFuel1 = decreaseLowFuel1;
-			vm.decreaseLowFuel5 = decreaseLowFuel5;
+			vm.increaseSwitchCube1 = increaseSwitchCube1;
+			vm.decreaseSwitchCube1 = decreaseSwitchCube1;
+			vm.increaseScaleCube1 = increaseScaleCube1;
+			vm.decreaseScaleCube1 = decreaseScaleCube1;
 			vm.toggleclimbSuccess = toggleclimbSuccess;
-			vm.increaseGears = increaseGears;
-			vm.decreaseGears = decreaseGears;
-			vm.increaseRotors = increaseRotors;
-            vm.decreaseRotors = decreaseRotors;
+			vm.increaseExchangeCube1 = increaseExchangeCube1;
+			vm.decreaseExchangeCube1 = decreaseExchangeCube1;
+			vm.increaseVaultCube1 = increaseVaultCube1;
+            vm.decreaseVaultCube1 = decreaseVaultCube1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
             vm.didClimb = didClimb;
             vm.validClimbPos = validClimbPos;
@@ -90,73 +109,50 @@
 				console.log(vm.match);
 			}
 
-			function decreaseHighFuel1() {
-				if(vm.matchParts.highFuel - 1 >= 0) {
-					vm.matchParts.highFuel -= 1;
+			function decreaseSwitchCube1() {
+				if(vm.matchParts.switchCube - 1 >= 0) {
+					vm.matchParts.switchCube -= 1;
 				}
 			}
 
-			function decreaseHighFuel5() {
-				if(vm.matchParts.highFuel - 5 >= 0) {
-					vm.matchParts.highFuel -= 5;
+			function increaseSwitchCube1() {
+				vm.matchParts.switchCube += 1;
+			}
+        
+            function decreaseExchangeCube1() {
+				if(vm.matchParts.exchangeCube - 1 >= 0) {
+					vm.matchParts.exchangeCube -= 1;
+				}
+			}
+        
+            function increaseExchangeCube1() {
+				vm.matchParts.exchangeCube += 1;
+			}
+            
+        //makes sure that user can't exceed past 9 cubes delivered to the vault
+			function increaseVaultCube1() {
+                if (vm.matchParts.vaultCube - 8 <= 0) {
+				vm.matchParts.vaultCube += 1;
+                }
+			}
+        
+            function decreaseVaultCube1() {
+				if(vm.matchParts.vaultCube - 1 >= 0) {
+					vm.matchParts.vaultCube -= 1;
 				}
 			}
 
-			function increaseHighFuel1() {
-				vm.matchParts.highFuel += 1;
-			}
-
-			function increaseHighFuel5() {
-				vm.matchParts.highFuel += 5;
-			}
-
-			function decreaseLowFuel1() {
-				if(vm.matchParts.lowFuel - 1 >= 0) {
-					vm.matchParts.lowFuel -= 1;
+			function decreaseScaleCube1() {
+				if(vm.matchParts.scaleCube - 1 >= 0) {
+					vm.matchParts.scaleCube -= 1;
 				}
 			}
 
-			function decreaseLowFuel5() {
-				if(vm.matchParts.lowFuel - 5 >= 0) {
-					vm.matchParts.lowFuel -= 5;
-				}
+			function increaseScaleCube1() {
+				vm.matchParts.scaleCube += 1;
 			}
 
-			function increaseLowFuel1() {
-				vm.matchParts.lowFuel += 1;
-			}
-
-			function increaseLowFuel5() {
-				vm.matchParts.lowFuel += 5;
-			}
-
-			function increaseLowFuel20() {
-				vm.matchParts.lowFuel += 20;
-			}
-
-			function increaseGears(){
-                if(vm.matchParts.gears < 12){
-                	vm.matchParts.gears++;
-                }
-            }
-    
-            function decreaseGears(){
-                if(vm.matchParts.gears > vm.match.autoScore.gearTotal){
-                	vm.matchParts.gears--;
-                }
-            }
-
-			function increaseRotors(){
-                if(vm.matchParts.rotors < 4){
-                	vm.matchParts.rotors++;
-                }
-            }
-    
-            function decreaseRotors(){
-                if(vm.matchParts.rotors > vm.match.autoScore.rotorTotal){
-                	vm.matchParts.rotors--;
-                }
-            }
+		
 
             function hasClimbed(){
             	return vm.matchParts.climbSuccess;
@@ -172,7 +168,7 @@
             	}
             }
 
-            function validClimbPos() {
+          function validClimbPos() {
             	var answer = true;
             	if(vm.matchParts.climbSuccess){
             		if(vm.matchParts.climbPosition.value === 'NONE') {
@@ -182,28 +178,28 @@
 
 
             	return answer;
-            }
+            } 
 
 			function submit() {
 				var teleScore = {
-					fuelPoints: 0,
-					rotorPoints: 0,
-					gearTotal: 0,
-					rotorTotal: 0,
+					vaultPoints: 0,
 					climbPoints: 0,
 					total: 0,
+					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
-					climbPosition: vm.matchParts.climbPosition.value,
-					playStyle: vm.matchParts.playStyle.value
+					playStyle: vm.matchParts.playStyle.value,
+                    powerUp: vm.matchParts.powerUp.value
 				};
 
-				teleScore.fuelPoints = (vm.matchParts.highFuel * MatchSvc.constants.TELE_HIGH_FUEL_CONSTANT) + (vm.matchParts.lowFuel * MatchSvc.constants.TELE_LOW_FUEL_CONSTANT);
+               
+                teleScore.vaultPoints = (vm.matchParts.vaultCube * MatchSvc.constants.TELE_VAULT_CUBE_CONSTANT);
+                
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
-				teleScore.rotorPoints = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal) * MatchSvc.constants.TELE_ROTORS;
-				teleScore.gearTotal = vm.matchParts.gears - vm.match.autoScore.gearTotal;
-				teleScore.rotorTotal = (vm.matchParts.rotors - vm.match.autoScore.rotorTotal);
-				teleScore.total = teleScore.fuelPoints + teleScore.climbPoints + teleScore.rotorPoints;
+                
+				teleScore.parking = (vm.matchParts.parking * MatchSvc.constants.TELE_PARKING_CONSTANT);
+
+				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking;
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
