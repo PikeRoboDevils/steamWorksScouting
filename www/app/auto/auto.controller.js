@@ -141,7 +141,7 @@
 					placement: vm.matchProperties.placement.value
 				};
 
-				autoScore.autoRunPoints += vm.matchProperties.autoRun ? MatchSvc.constants.AUTOLINE_CONSTANT : 0;
+				autoScore.autoRunPoints = vm.matchProperties.autoRun ? MatchSvc.constants.AUTOLINE_CONSTANT : 0;
 			
 				autoScore.total = autoScore.autoRunPoints;
             
