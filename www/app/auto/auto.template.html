@@ -84,7 +84,32 @@
                  
               </div>
             
-          </li>            
+          </li>  
+
+            <li class="item">     
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cubes Dropped</h2>
+              </div>
+            </div>
+        </li>
+            <div class="col col-70 text-center">
+               
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseCubeDropped1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.cubeDropped"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseCubeDropped1()">
+                    1
+                  </button>
+                 
+              </div>
+            
+          </li>                      
       
             <li class="item">
               <div class="row">
