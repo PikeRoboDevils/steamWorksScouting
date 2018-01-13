@@ -20,10 +20,10 @@
 		vm.cancel = cancel;
 		vm.device = deviceSvc.getDevice('scoutingDatabaseApp');
 
-		vm.kpa = kpa;
+		vm.cubes = cubes;
 		vm.total = total;
-		vm.rotor = rotor;
-		vm.gears = gears;
+		vm.climb = climb;
+		//vm.gears = gears;
 		vm.isSubmitting = false;
 		vm.buttonText = 'Submit';
 
@@ -33,21 +33,21 @@
 		$scope.progressbar.setColor('#387ef5');
 		// $scope.progressbar.setParent(document.querySelector('#progressBar'));
 
-		function kpa(){
-			return (vm.match.autoScore.fuelPoints + vm.match.teleScore.fuelPoints).toFixed(2);
+		function cubes(){
+			return (vm.match.autoScore.cubes + vm.match.teleScore.cubes);
 		}
 
-		function gears(){
-			return vm.match.autoScore.gearTotal + vm.match.teleScore.gearTotal;
+		function climb(){
+			return vm.match.teleScore.climbPoints;
 		}
 
 		function total(){
 			return (vm.match.autoScore.total + vm.match.teleScore.total).toFixed(2);
-		}
+		} 
 
-		function rotor(){
+		/*function rotor(){
 			return vm.match.autoScore.rotorTotal + vm.match.teleScore.rotorTotal;
-		}
+		} */
 
 		function submit(){
 			$scope.progressbar.start();
