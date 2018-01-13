@@ -2,5 +2,12 @@
   "name": "tabs",
   "app_id": "",
   "integrations": {},
-  "type": "ionic1"
+
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }

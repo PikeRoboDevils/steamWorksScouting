@@ -144,19 +144,21 @@
 			function submit() {
 				var autoScore = {
                     //fuelpoints
-					switchPoints: 0,
+					switchPoints: vm.matchProperties.switch,
                     //rotorpoints
-					scalePoints: 0,
+					scalePoints: vm.matchProperties.scale,
                     //basepoints
-					exchangePoints: 0,
+					exchangePoints: vm.matchProperties.exchange,
 					total: 0,
 					autoRunPoints: vm.matchProperties.autoRun,
 					placement: vm.matchProperties.placement.value
 				};
 
-				autoScore.autoRunPoints += vm.matchProperties.autoRun ? MatchSvc.constants.AUTOLINE_CONSTANT : 0;
+				autoScore.autoRunPoints = vm.matchProperties.autoRun ? MatchSvc.constants.AUTOLINE_CONSTANT : 0;
 			
 				autoScore.total = autoScore.autoRunPoints;
+            
+                autoScore.cubes = autoScore.switchPoints + autoScore.scalePoints + autoScore.exchangePoints;
 
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
