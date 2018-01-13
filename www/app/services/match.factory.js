@@ -13,10 +13,8 @@
 	    var calcs = {
 	    	TELE_VAULT_CUBE_CONSTANT: 5,
 	    	TELE_PARKING_CONSTANT: 5,
-			//TELE_HIGH_FUEL_CONSTANT: (1/3),
 			CLIMB_CONSTANT: 50,
-			//CLIMB: 50,
-			AUTOLINE_CONSTANT: 5,
+			AUTOLINE_CONSTANT: 5
 	    }
 
 		var match = {};

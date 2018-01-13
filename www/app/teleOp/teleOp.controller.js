@@ -19,6 +19,7 @@
 		vm.matchParts	=	{
 			switchCube: 0,
 			scaleCube: 0,
+            parking: 0,
             exchangeCube: 0,
             vaultCube: 0,
 			climbSuccess: false,

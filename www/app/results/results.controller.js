@@ -41,7 +41,7 @@
 		}
 
 		function total(){
-			return (vm.match.autoScore.total + vm.match.teleScore.total).toFixed(2);
+			return (vm.match.autoScore.total + vm.match.teleScore.total);
 		} 
 
 
