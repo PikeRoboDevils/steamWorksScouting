@@ -149,6 +149,7 @@
 					scalePoints: vm.matchProperties.scale,
                     //basepoints
 					exchangePoints: vm.matchProperties.exchange,
+                    dropped: vm.matchProperties.cubeDropped,
 					total: 0,
 					autoRunPoints: vm.matchProperties.autoRun,
 					placement: vm.matchProperties.placement.value
@@ -158,7 +159,7 @@
 			
 				autoScore.total = autoScore.autoRunPoints;
             
-                autoScore.cubes = autoScore.switchPoints + autoScore.scalePoints + autoScore.exchangePoints;
+                autoScore.cubes = autoScore.switchPoints + autoScore.scalePoints + autoScore.exchangePoints + autoScore.dropped;
 
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);

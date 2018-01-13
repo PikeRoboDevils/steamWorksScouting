@@ -201,6 +201,7 @@
 					vaultPoints: 0,
 					climbPoints: 0,
 					total: 0,
+                    dropped: vm.matchParts.cubeDropped,
 					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
@@ -221,7 +222,7 @@
 
 				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking;
                 
-                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube;
+                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube + teleScore.dropped;
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
