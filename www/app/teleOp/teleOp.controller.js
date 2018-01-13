@@ -18,6 +18,7 @@
 
 		vm.matchParts	=	{
 			switchCube: 0,
+            cubeDropped: 0,
 			scaleCube: 0,
             exchangeCube: 0,
             vaultCube: 0,
@@ -95,6 +96,8 @@
 			vm.increaseScaleCube1 = increaseScaleCube1;
 			vm.decreaseScaleCube1 = decreaseScaleCube1;
 			vm.toggleclimbSuccess = toggleclimbSuccess;
+            vm.decreaseCubeDropped1 = decreaseCubeDropped1;
+            vm.increaseCubeDropped1 = increaseCubeDropped1;
 			vm.increaseExchangeCube1 = increaseExchangeCube1;
 			vm.decreaseExchangeCube1 = decreaseExchangeCube1;
 			vm.increaseVaultCube1 = increaseVaultCube1;
@@ -114,10 +117,22 @@
 					vm.matchParts.switchCube -= 1;
 				}
 			}
+        
+            	function decreaseCubeDropped1() {
+				if(vm.matchParts.cubeDropped - 1 >= 0) {
+					vm.matchParts.cubeDropped -= 1;
+				}
+			}
+        
+            function increaseCubeDropped1() {
+				vm.matchParts.cubeDropped += 1;
+			}
+        
 
 			function increaseSwitchCube1() {
 				vm.matchParts.switchCube += 1;
 			}
+        
         
             function decreaseExchangeCube1() {
 				if(vm.matchParts.exchangeCube - 1 >= 0) {
