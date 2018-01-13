@@ -23,7 +23,6 @@
 		vm.cubes = cubes;
 		vm.total = total;
 		vm.climb = climb;
-		//vm.gears = gears;
 		vm.isSubmitting = false;
 		vm.buttonText = 'Submit';
 
@@ -45,9 +44,6 @@
 			return (vm.match.autoScore.total + vm.match.teleScore.total).toFixed(2);
 		} 
 
-		/*function rotor(){
-			return vm.match.autoScore.rotorTotal + vm.match.teleScore.rotorTotal;
-		} */
 
 		function submit(){
 			$scope.progressbar.start();
