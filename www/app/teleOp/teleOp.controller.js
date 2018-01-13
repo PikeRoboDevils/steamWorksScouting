@@ -19,8 +19,11 @@
 		vm.matchParts	=	{
 			switchCube: 0,
 			scaleCube: 0,
+            exchangeCube: 0,
+            vaultCube: 0,
 			climbSuccess: false,
 			climbAttempt: false,
+            
 			climbPosition: {
 					id: 0,
 					label: 'None',
@@ -30,7 +33,13 @@
 				id: 1,
 				label: 'Offensive',
 				value: 'OFFENSIVE'
-				}
+				},
+            powerUp: {
+                id: 2,
+                lable: 'None',
+                value: 'NONE'
+            }
+            
 			}
 
 		vm.climbPositions = [
@@ -51,6 +60,23 @@
 			}
 		];
 
+        vm.powerUps = [
+            {
+                id: 2,
+                label: 'Boost',
+                value: 'BOOST'
+            },
+            {
+                id: 3,
+                label: 'Force',
+                value: 'FORCE'
+            },
+            {
+                id: 4,
+                label: 'Levitate',
+                value: 'LEVITATE'
+            }
+        ];
 		vm.playStyles = [
 			{
 				id: 1,
@@ -69,10 +95,10 @@
 			vm.increaseScaleCube1 = increaseScaleCube1;
 			vm.decreaseScaleCube1 = decreaseScaleCube1;
 			vm.toggleclimbSuccess = toggleclimbSuccess;
-			vm.increaseGears = increaseGears;
-			vm.decreaseGears = decreaseGears;
-			vm.increaseRotors = increaseRotors;
-            vm.decreaseRotors = decreaseRotors;
+			vm.increaseExchangeCube1 = increaseExchangeCube1;
+			vm.decreaseExchangeCube1 = decreaseExchangeCube1;
+			vm.increaseVaultCube1 = increaseVaultCube1;
+            vm.decreaseVaultCube1 = decreaseVaultCube1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
             vm.didClimb = didClimb;
             vm.validClimbPos = validClimbPos;
@@ -92,6 +118,29 @@
 			function increaseSwitchCube1() {
 				vm.matchParts.switchCube += 1;
 			}
+        
+            function decreaseExchangeCube1() {
+				if(vm.matchParts.exchangeCube - 1 >= 0) {
+					vm.matchParts.exchangeCube -= 1;
+				}
+			}
+        
+            function increaseExchangeCube1() {
+				vm.matchParts.exchangeCube += 1;
+			}
+            
+        //makes sure that user can't exceed past 9 cubes delivered to the vault
+			function increaseVaultCube1() {
+                if (vm.matchParts.vaultCube - 8 <= 0) {
+				vm.matchParts.vaultCube += 1;
+                }
+			}
+        
+            function decreaseVaultCube1() {
+				if(vm.matchParts.vaultCube - 1 >= 0) {
+					vm.matchParts.vaultCube -= 1;
+				}
+			}
 
 			function decreaseScaleCube1() {
 				if(vm.matchParts.scaleCube - 1 >= 0) {
@@ -103,29 +152,7 @@
 				vm.matchParts.scaleCube += 1;
 			}
 
-			function increaseGears(){
-                if(vm.matchParts.gears < 12){
-                	vm.matchParts.gears++;
-                }
-            }
-    
-            function decreaseGears(){
-                if(vm.matchParts.gears > vm.match.autoScore.gearTotal){
-                	vm.matchParts.gears--;
-                }
-            }
-
-			function increaseRotors(){
-                if(vm.matchParts.rotors < 4){
-                	vm.matchParts.rotors++;
-                }
-            }
-    
-            function decreaseRotors(){
-                if(vm.matchParts.rotors > vm.match.autoScore.rotorTotal){
-                	vm.matchParts.rotors--;
-                }
-            }
+		
 
             function hasClimbed(){
             	return vm.matchParts.climbSuccess;

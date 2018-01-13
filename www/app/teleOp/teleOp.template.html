@@ -32,10 +32,11 @@
               </div>
             </div>
           </li>
+            
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Cube Delivered to Scale</h2>
+                <h2>Cubes Delivered to Scale</h2>
               </div>
             </div>
           </li>          
@@ -56,10 +57,11 @@
               </div>
             </div>
           </li>
-<li class="item">
+            
+            <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Cube Delivered to Exchange</h2>
+                <h2>Cubes Delivered to Exchange</h2>
               </div>
             </div>
           </li>          
@@ -67,23 +69,24 @@
             <div class="row">
               <div class="col col-70 text-center">
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseScaleCube1()">
+                    ng-click="teleOpCtrl.decreaseExchangeCube1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.scaleCube"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.exchangeCube"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseScaleCube1()">
+                    ng-click="teleOpCtrl.increaseExchangeCube1()">
                     1
                   </button>
               </div>
             </div>
           </li>  
-<li class="item">
+            
+            <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Cube Delivered to Vault</h2>
+                <h2>Cubes Delivered to Vault</h2>
               </div>
             </div>
           </li>          
@@ -91,14 +94,14 @@
             <div class="row">
               <div class="col col-70 text-center">
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.decreaseScaleCube1()">
+                    ng-click="teleOpCtrl.decreaseVaultCube1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.scaleCube"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.vaultCube"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseScaleCube1()">
+                    ng-click="teleOpCtrl.increaseVaultCube1()">
                     1
                   </button>
               </div>
@@ -126,20 +129,7 @@
                  </div>
                </label>
             </li>
-              <li class="item">
-                <div class="row">
-                  <div class="col col-100">
-                    <label class="item item-input item-select">
-                      <div class="input-label">Climb Position</div>
-                        <select
-                          ng-model="teleOpCtrl.matchParts.climbPosition"
-                          ng-disabled="!teleOpCtrl.matchParts.climbSuccess"
-                          ng-options="climbPosition as climbPosition.label for climbPosition in teleOpCtrl.climbPositions track by climbPosition.id">
-                        </select>
-                    </label>
-                  </div>
-                </div>
-              </li>
+             
             <li class="item item-toggle">
              Parking
              <label class="toggle toggle-energized">
@@ -170,7 +160,21 @@
                     </label>
                   </div>
                 </div>
-              </li>       
+              </li>   
+            
+              <li class="item">
+                <div class="row">
+                  <div class="col col-100">
+                    <label class="item item-input item-select">
+                      <div class="input-label">PowerUp</div>
+                        <select
+                          ng-model="teleOpCtrl.matchParts.powerUp"
+                          ng-options="powerUp as powerUp.label for powerUp in teleOpCtrl.powerUps track by powerUp.id">
+                        </select>
+                    </label>
+                  </div>
+                </div>
+              </li> 
              <li>
             <div class="item item-button">
 				  <div class="text-center">
