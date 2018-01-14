@@ -97,10 +97,11 @@
 			vm.toggleAutoRun = toggleAutoRun;
 
 
-            vm.validStartingPos = validStartingPos;
-            vm.increaseExchange1 = increaseExchange1;
-            vm.decreaseExchange1 = decreaseExchange1;
-						vm.pickedUp = pickedUp;
+    	vm.validStartingPos = validStartingPos;
+      vm.increaseExchange1 = increaseExchange1;
+      vm.decreaseExchange1 = decreaseExchange1;
+			vm.pickedUp = pickedUp;
+			vm.pickedUpDecrease = pickedUpDecrease;
 
             init();
 
@@ -115,34 +116,49 @@
 			* create a new cube in our array (use cubeNumber -1 so that we start at the 0 index)
 			***********************************************************/
 			function pickedUp(){
+				//increment the amount of Cubes we have by 1
 				cubeNumber++;
-				cubes[cubeNumber-1] = new cube(1,0,0,0,"");
-				console.log(cubes[0]);
+				//create a new cube, use cubeNumber -1 because we start with index 0
+				cubes[cubeNumber-1] = new cube(cubeNumber,Date.now(),0,0,"");
+				console.log(cubes[cubeNumber-1]);
 			}
+
+			/**************************************
+			*this is for scout error if they did not met to add a cube we can delete the last cube added
+			***************************************/
+			function pickedUpDecrease(){
+
+			// //we first check to make sure that cubeNumber is greater than 0, if so we delete
+			if(cubeNumber >0){
+				delete cubes[cubeNumber-1];
+				cubeNumber--;
+			}
+}
+
+
+
 
 			function decreaseSwitch1() {
 				if(vm.matchProperties.switch - 1 >= 0) {
 					vm.matchProperties.switch -= 1;
 				}
-				console.log(cubes[0])
+			}
+
+			function increaseSwitch1() {
+				vm.matchProperties.switch += 1;
 			}
 
 			function decreaseCubeDropped1() {
 				if(vm.matchProperties.cubeDropped - 1 >= 0) {
 					vm.matchProperties.cubeDropped -= 1;
 				}
+
+
 			}
 
 			function increaseCubeDropped1() {
 				vm.matchProperties.cubeDropped += 1;
 			}
-
-
-			function increaseSwitch1() {
-				vm.matchProperties.switch += 1;
-			}
-
-
 
 			function decreaseScale1() {
 				if(vm.matchProperties.scale - 1 >= 0) {
