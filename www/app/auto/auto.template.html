@@ -6,20 +6,20 @@
       </div>
     </div>
 
-    <div class="row">
+		<div class="row">
       <div class="col col-100">
         <ul class="list">
         <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Switch</h2>
+                <h2>Cubes Picked Up</h2>
               </div>
             </div>
-          </li>  
+          </li>
           <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
-                 
+
                   <button class="button button-positive"
                     ng-click="autoCtrl.decreaseSwitch1()">
                     -1
@@ -31,7 +31,33 @@
                     ng-click="autoCtrl.increaseSwitch1()">
                     1
                   </button>
-            
+
+    <div class="row">
+      <div class="col col-100">
+        <ul class="list">
+        <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cubes Delivered to Switch</h2>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-center">
+
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.decreaseSwitch1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.switch"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseSwitch1()">
+                    1
+                  </button>
+
               </div>
             </div>
           </li>
@@ -41,11 +67,11 @@
                 <h2>Cubes Delivered to Scale</h2>
               </div>
             </div>
-          </li> 
+          </li>
           <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
-               
+
                   <button class="button button-positive"
                     ng-click="autoCtrl.decreaseScale1()">
                     -1
@@ -57,11 +83,11 @@
                     ng-click="autoCtrl.increaseScale1()">
                     1
                   </button>
-                 
+
               </div>
             </div>
-              
-        <li class="item">     
+
+        <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
                 <h2>Cubes Delivered to Exchange</h2>
@@ -69,7 +95,7 @@
             </div>
         </li>
             <div class="col col-70 text-center">
-               
+
                   <button class="button button-positive"
                     ng-click="autoCtrl.decreaseExchange1()">
                     -1
@@ -81,12 +107,12 @@
                     ng-click="autoCtrl.increaseExchange1()">
                     1
                   </button>
-                 
-              </div>
-            
-          </li>  
 
-            <li class="item">     
+              </div>
+
+          </li>
+
+            <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
                 <h2>Cubes Dropped</h2>
@@ -94,7 +120,7 @@
             </div>
         </li>
             <div class="col col-70 text-center">
-               
+
                   <button class="button button-positive"
                     ng-click="autoCtrl.decreaseCubeDropped1()">
                     -1
@@ -106,11 +132,11 @@
                     ng-click="autoCtrl.increaseCubeDropped1()">
                     1
                   </button>
-                 
+
               </div>
-            
-          </li>                      
-      
+
+          </li>
+
             <li class="item">
               <div class="row">
                 <div class="col col-100">
@@ -118,15 +144,15 @@
                     <div class="input-label">Starting Position</div>
                       <select
                         ng-model="autoCtrl.matchProperties.placement"
-                       
+
                         ng-options="position as position.label for position in autoCtrl.startingPositions track by position.id">
                       </select>
                   </label>
                 </div>
               </div>
           </li>
-          
-        
+
+
           <li class="item item-toggle">
              Auto-Run
              <label class="toggle toggle-energized">
@@ -145,7 +171,7 @@
                To Teleop!
              </button>
             </div>
-          </div>            
+          </div>
         </li>
         </ul>
       </div>
