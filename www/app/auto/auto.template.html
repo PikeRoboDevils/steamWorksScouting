@@ -16,12 +16,13 @@
               </div>
             </div>
           </li>
-          <li class="item">
+
+				  <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
 
                   <button class="button button-positive"
-                    ng-click="autoCtrl.pickedUpDecrease()">
+                    ng-click="autoCtrl.pickedUpDecrease()" [disabled] = {{pickedUpDecreaseEnable}}>
                     -1
                   </button>
                   <button class="button button-light">
