@@ -16,18 +16,28 @@
 
 
 			/*
-			cube object that holds an int for the number that corresponds for the number that it was picked up
+			cube constructor that holds an int for the number that corresponds for the number that it was picked up
 			a time for when it was picked up
 			a time for when it was delivered or Dropped
 			a time difference between the pick up and delivered times
+			and a delivered string which we will tell what kind of delivery happened
 			*/
-			var cube = {
-				cubeNumber: 0,
-				timePickedUp: now.getTime(),
-				timeDelivered: now.getTime(),
-				timeDifference: 0
-
+			function cube(cubeNumber, timePickedUp, timeDelivered, timeDifference, delivered){
+				this.cubeNumber = cubeNumber,
+				this.timePickedUp = timePickedUp,
+				this.timeDelivered = timeDelivered,
+				this.timeDifference = timeDifference,
+				this.delivered = delivered
 			}
+
+			//array that will hold cubes
+			var cubes = [];
+
+			//vm.cubes[1].cubeNumber = 1;
+
+
+			//keeps track of the amount of cubes we have
+			var cubeNumber = 0;
 
 
 
@@ -90,17 +100,31 @@
             vm.validStartingPos = validStartingPos;
             vm.increaseExchange1 = increaseExchange1;
             vm.decreaseExchange1 = decreaseExchange1;
+						vm.pickedUp = pickedUp;
 
             init();
 
 			function init() {
-				console.log(vm.match);
+				//console.log(vm.cubes);
+			}
+
+			/***********************************************************
+			* Picked up method
+			*we increment our cubeNumber by 1
+			* we take a snapshot of the timestamp
+			* create a new cube in our array (use cubeNumber -1 so that we start at the 0 index)
+			***********************************************************/
+			function pickedUp(){
+				cubeNumber++;
+				cubes[cubeNumber-1] = new cube(1,0,0,0,"");
+				console.log(cubes[0]);
 			}
 
 			function decreaseSwitch1() {
 				if(vm.matchProperties.switch - 1 >= 0) {
 					vm.matchProperties.switch -= 1;
 				}
+				console.log(cubes[0])
 			}
 
 			function decreaseCubeDropped1() {
