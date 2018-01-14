@@ -13,6 +13,8 @@
 
 			var vm = this;
 			const now = new Date();
+			var pickedUpDecreaseEnable = true;
+			$scope.pickedUpDecreaseEnable = pickedUpDecreaseEnable;
 
 
 			/*
@@ -116,6 +118,8 @@
 			* create a new cube in our array (use cubeNumber -1 so that we start at the 0 index)
 			***********************************************************/
 			function pickedUp(){
+				console.log(pickedUpDecreaseEnable);
+				pickedUpDecreaseEnable = false;
 				//increment the amount of Cubes we have by 1
 				cubeNumber++;
 				//create a new cube, use cubeNumber -1 because we start with index 0
@@ -128,6 +132,8 @@
 			***************************************/
 			function pickedUpDecrease(){
 
+
+				console.log("hey");
 			// //we first check to make sure that cubeNumber is greater than 0, if so we delete
 			if(cubeNumber >0){
 				delete cubes[cubeNumber-1];
@@ -139,11 +145,16 @@
 
 
 			function decreaseSwitch1() {
+				console.log(pickedUpDecreaseEnable);
 				if(vm.matchProperties.switch - 1 >= 0) {
 					vm.matchProperties.switch -= 1;
 				}
 			}
 
+			/********************************
+			*if the increase Switch is toggled we know that a cube was delivered
+			* we take a new time stamp, and then subtract the time stamp from when the cube was delivered
+			*/
 			function increaseSwitch1() {
 				vm.matchProperties.switch += 1;
 			}
