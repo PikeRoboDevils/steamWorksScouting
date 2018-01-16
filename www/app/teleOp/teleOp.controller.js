@@ -38,11 +38,17 @@
 				},
             powerUp: {
                 id: 2,
-                lable: 'None',
+                label: 'None',
+                value: 'NONE'
+            },
+
+            foul: {
+            	id: 3,
+                label: 'None',
                 value: 'NONE'
             }
             
-			}
+			};
 
 		vm.climbPositions = [
 			{
@@ -61,24 +67,6 @@
 				value: 'MIDDLE'
 			}
 		];
-
-        vm.powerUps = [
-            {
-                id: 2,
-                label: 'Boost',
-                value: 'BOOST'
-            },
-            {
-                id: 3,
-                label: 'Force',
-                value: 'FORCE'
-            },
-            {
-                id: 4,
-                label: 'Levitate',
-                value: 'LEVITATE'
-            }
-        ];
 		vm.playStyles = [
 			{
 				id: 1,
@@ -89,6 +77,28 @@
 				id: 2,
 				label: 'Defensive',
 				value: 'DEFENSIVE'
+			}
+		];
+		vm.fouls = [
+			{
+				id: 1,
+				label: 'Foul',
+				value: 'foul'
+			},
+			{
+				id: 2,
+				label: 'Technical Foul',
+				value: 'Tech'
+			},
+			{
+				id: 3,
+				label: 'Yellow Card',
+				value: 'Yellow'
+			},
+			{
+				id: 4,
+				label: 'Red Card',
+				value: 'Red'
 			}
 		];
 

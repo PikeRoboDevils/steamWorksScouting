@@ -154,6 +154,16 @@
                  </div>
                </label>
             </li>
+
+            <li class="item item-toggle">
+             Levitate
+             <label class="toggle toggle-energized">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.levitate">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li> 
              
             <li class="item item-toggle">
              Parking
@@ -186,21 +196,19 @@
                   </div>
                 </div>
               </li>   
-            
-              <li class="item">
+            <li class="item">
                 <div class="row">
                   <div class="col col-100">
                     <label class="item item-input item-select">
-                      <div class="input-label">PowerUp</div>
+                      <div class="input-label">Fouls</div>
                         <select
-                          ng-model="teleOpCtrl.matchParts.powerUp"
-                          ng-options="powerUp as powerUp.label for powerUp in teleOpCtrl.powerUps track by powerUp.id">
+                          ng-model="teleOpCtrl.matchParts.foul"
+                          ng-options="foul as foul.label for foul in teleOpCtrl.fouls track by foul.id">
                         </select>
                     </label>
                   </div>
                 </div>
               </li> 
-            
              <li>
             <div class="item item-button">
 				  <div class="text-center">
