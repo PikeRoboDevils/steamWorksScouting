@@ -23,6 +23,8 @@
             parking: 0,
             exchangeCube: 0,
             vaultCube: 0,
+            outPortal: 0,
+            outExchange: 0,
 			climbSuccess: false,
 			climbAttempt: false,
             
@@ -83,22 +85,27 @@
 			{
 				id: 1,
 				label: 'Foul',
-				value: 'foul'
+				value: 'FOUL'
 			},
 			{
 				id: 2,
 				label: 'Technical Foul',
-				value: 'Tech'
+				value: 'TECH'
 			},
 			{
 				id: 3,
 				label: 'Yellow Card',
-				value: 'Yellow'
+				value: 'YELLOW'
 			},
 			{
 				id: 4,
 				label: 'Red Card',
-				value: 'Red'
+				value: 'RED'
+			},
+			{
+				id: 5,
+				label: 'None',
+				value: 'NONE'
 			}
 		];
 
@@ -113,6 +120,10 @@
 			vm.decreaseExchangeCube1 = decreaseExchangeCube1;
 			vm.increaseVaultCube1 = increaseVaultCube1;
             vm.decreaseVaultCube1 = decreaseVaultCube1;
+            vm.increaseOutPortal1 = increaseOutPortal1;
+            vm.decreaseOutPortal1 = decreaseOutPortal1;
+            vm.increaseOutExchange1 = increaseOutExchange1;
+            vm.decreaseOutExchange1 = decreaseOutExchange1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
             vm.didClimb = didClimb;
             vm.validClimbPos = validClimbPos;
@@ -178,7 +189,25 @@
 				vm.matchParts.scaleCube += 1;
 			}
 
-		
+			function increaseOutPortal1() {
+				vm.matchParts.outPortal += 1;
+			}
+
+			function decreaseOutPortal1() {
+				if(vm.matchParts.outPortal - 1 >= 0) {
+					vm.matchParts.outPortal -= 1;
+				}
+			}
+
+			function increaseOutExchange1() {
+				vm.matchParts.outExchange += 1;
+			}
+
+			function decreaseOutExchange1() {
+				if(vm.matchParts.outExchange - 1 >= 0) {
+					vm.matchParts.outExchange -= 1;
+				}
+			}
 
             function hasClimbed(){
             	return vm.matchParts.climbSuccess;
@@ -219,7 +248,9 @@
                     switchCube: vm.matchParts.switchCube,
                     scaleCube: vm.matchParts.scaleCube,
                     exchangeCube: vm.matchParts.exchangeCube,
-                    vaultCube: vm.matchParts.vaultCube
+                    vaultCube: vm.matchParts.vaultCube,
+                    outExchange: vm.matchParts.outExchange,
+                    outPortal: vm.matchParts.outPortal
 				};
 
                
