@@ -10,15 +10,22 @@
         <ul class="list">
           <li class="item">
             <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Switch</h2>
+              <div class="col col-70 text-center">
+                <h2>Cubes &#8680; Switch</h2>
               </div>
+              <div class="col col-70 text-center">
+                <h2>Cubes &#8680; Scale</h2>
+              </div>
+              <div class="col col-70 text-center">
+                <h2>Cubes &#8680; Exchange</h2>
+              </div>
+
             </div>
           </li>
         <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
-                  <button class="button button-positive"
+                  <button class="button button-assertive"
                     ng-click="teleOpCtrl.decreaseSwitchCube1()">
                     -1
                   </button>
@@ -30,20 +37,8 @@
                     1
                   </button>
               </div>
-            </div>
-          </li>
-            
-          <li class="item">
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Scale</h2>
-              </div>
-            </div>
-          </li>          
-          <li class="item">
-            <div class="row">
               <div class="col col-70 text-center">
-                  <button class="button button-positive"
+                  <button class="button button-assertive"
                     ng-click="teleOpCtrl.decreaseScaleCube1()">
                     -1
                   </button>
@@ -55,20 +50,8 @@
                     1
                   </button>
               </div>
-            </div>
-          </li>
-            
-            <li class="item">
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Exchange</h2>
-              </div>
-            </div>
-          </li>          
-          <li class="item">
-            <div class="row">
               <div class="col col-70 text-center">
-                  <button class="button button-positive"
+                  <button class="button button-assertive"
                     ng-click="teleOpCtrl.decreaseExchangeCube1()">
                     -1
                   </button>
@@ -81,19 +64,25 @@
                   </button>
               </div>
             </div>
-          </li>  
+          </li>
             
             <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Vault</h2>
+                <h2>Cubes &#8680; Vault</h2>
+              </div>
+              <div class="col col-100 text-center">
+                <h2>Cubes Dropped</h2>
+              </div>
+              <div class="col col-100 text-center">
+                <h2>Exchange &#8680; Cube</h2>
               </div>
             </div>
           </li>          
           <li class="item">
             <div class="row">
               <div class="col col-70 text-center">
-                  <button class="button button-positive"
+                  <button class="button button-assertive"
                     ng-click="teleOpCtrl.decreaseVaultCube1()">
                     -1
                   </button>
@@ -105,20 +94,8 @@
                     1
                   </button>
               </div>
-            </div>
-          </li>
-            
-             <li class="item">
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Dropped</h2>
-              </div>
-            </div>
-          </li>          
-          <li class="item">
-            <div class="row">
               <div class="col col-70 text-center">
-                  <button class="button button-positive"
+                  <button class="button button-assertive"
                     ng-click="teleOpCtrl.decreaseCubeDropped1()">
                     -1
                   </button>
@@ -130,10 +107,45 @@
                     1
                   </button>
               </div>
+               <div class="col col-70 text-center">
+                  <button class="button button-assertive"
+                    ng-click="teleOpCtrl.decreaseOutExchange1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.outExchange"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseOutExchange1()">
+                    1
+                  </button>
+              </div>
             </div>
           </li>
-      
-
+        <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Portal &#8680; Cube</h2>
+              </div>
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-70 text-center">
+                  <button class="button button-assertive"
+                    ng-click="teleOpCtrl.decreaseOutPortal1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.outPortal"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseOutPortal1()">
+                    1
+                  </button>
+              </div>
+            </div>
+          </li>  
 
           <li class="item item-toggle">
              Climb Attempt
@@ -154,6 +166,16 @@
                  </div>
                </label>
             </li>
+
+            <li class="item item-toggle">
+             Levitate
+             <label class="toggle toggle-energized">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.levitate">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li> 
              
             <li class="item item-toggle">
              Parking
@@ -186,21 +208,19 @@
                   </div>
                 </div>
               </li>   
-            
-              <li class="item">
+            <li class="item">
                 <div class="row">
                   <div class="col col-100">
                     <label class="item item-input item-select">
-                      <div class="input-label">PowerUp</div>
+                      <div class="input-label">Fouls</div>
                         <select
-                          ng-model="teleOpCtrl.matchParts.powerUp"
-                          ng-options="powerUp as powerUp.label for powerUp in teleOpCtrl.powerUps track by powerUp.id">
+                          ng-model="teleOpCtrl.matchParts.foul"
+                          ng-options="foul as foul.label for foul in teleOpCtrl.fouls track by foul.id">
                         </select>
                     </label>
                   </div>
                 </div>
               </li> 
-            
              <li>
             <div class="item item-button">
 				  <div class="text-center">
