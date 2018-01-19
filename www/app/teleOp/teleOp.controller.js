@@ -24,6 +24,7 @@
             exchangeCube: 0,
             vaultCube: 0,
             outPortal: 0,
+            levitatePoints: 30,
             outExchange: 0,
 			climbSuccess: false,
 			climbAttempt: false,
@@ -125,6 +126,7 @@
             vm.increaseOutExchange1 = increaseOutExchange1;
             vm.decreaseOutExchange1 = decreaseOutExchange1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
+            vm.toggleLevitatePoints = toggleLevitatePoints;
             vm.didClimb = didClimb;
             vm.validClimbPos = validClimbPos;
 
@@ -250,7 +252,8 @@
                     exchangeCube: vm.matchParts.exchangeCube,
                     vaultCube: vm.matchParts.vaultCube,
                     outExchange: vm.matchParts.outExchange,
-                    outPortal: vm.matchParts.outPortal
+                    outPortal: vm.matchParts.outPortal,
+                    levitatePoints: vm.matchParts.levitatePoints
 				};
 
                
@@ -259,10 +262,12 @@
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
                 
 				teleScore.parking = (vm.matchParts.parking * MatchSvc.constants.TELE_PARKING_CONSTANT);
-
-				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking;
                 
-                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube;
+                teleScore.levitatePoints = vm.matchParts.levitatePoints;
+
+				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitatePoints;
+                
+                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube + teleScore.outPortal + teleScore.outExchange;
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
@@ -277,6 +282,11 @@
 			function toggleClimbAttempt(){
 				vm.matchParts.climbAttempt = !vm.matchParts.climbAttempt;
 			}
+        
+            function toggleLevitatePoints(){
+                vm.matchParts.levitatePoints = 30;
+                
+            }
 
 	}
 })();
