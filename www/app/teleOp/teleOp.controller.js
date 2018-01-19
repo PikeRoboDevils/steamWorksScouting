@@ -96,12 +96,12 @@
 			{
 				id: 3,
 				label: 'Yellow Card',
-				value: 'YELLOW'
+				value: 'YELLOW CARD'
 			},
 			{
 				id: 4,
 				label: 'Red Card',
-				value: 'RED'
+				value: 'RED CARD'
 			},
 			{
 				id: 5,
@@ -246,6 +246,7 @@
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
 					playStyle: vm.matchParts.playStyle.value,
+                    foul: vm.matchParts.foul.value,
                     powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
                     scaleCube: vm.matchParts.scaleCube,
@@ -266,6 +267,8 @@
                 teleScore.levitatePoints = vm.matchParts.levitatePoints;
 
 				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitatePoints;
+                
+                teleScore.fouls = teleScore.foul;
                 
                 teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube + teleScore.outPortal + teleScore.outExchange;
 
