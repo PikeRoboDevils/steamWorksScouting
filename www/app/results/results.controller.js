@@ -23,6 +23,7 @@
 		vm.cubes = cubes;
 		vm.total = total;
 		vm.climb = climb;
+        vm.fouls = fouls;
 		vm.isSubmitting = false;
 		vm.buttonText = 'Submit';
 
@@ -43,6 +44,10 @@
 		function total(){
 			return (vm.match.autoScore.total + vm.match.teleScore.total);
 		} 
+        
+        function fouls() {
+            return (vm.match.teleScore.fouls);
+        }
 
 
 		function submit(){
