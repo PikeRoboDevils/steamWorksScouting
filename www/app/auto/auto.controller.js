@@ -164,6 +164,7 @@
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
 				$state.go('app.teleOp');
+                //console.log(vm.match);
 			}
 
 			function toggleAutoRun(){

@@ -20,6 +20,7 @@
 		vm.cancel = cancel;
 		vm.device = deviceSvc.getDevice('scoutingDatabaseApp');
 
+        console.log(MatchSvc.getMatch());
 		vm.cubes = cubes;
 		vm.total = total;
 		vm.climb = climb;
@@ -34,16 +35,16 @@
 		// $scope.progressbar.setParent(document.querySelector('#progressBar'));
 
 		function cubes(){
-			return (vm.match.autoScore.cubes + vm.match.teleScore.cubes);
+			return vm.match.autoScore.cubes + vm.match.teleScore.cubes;
 		}
 
 		function climb(){
 			return vm.match.teleScore.climbPoints;
-		}
+		} 
 
 		function total(){
-			return (vm.match.autoScore.total + vm.match.teleScore.total);
-		} 
+			return vm.match.autoScore.total + vm.match.teleScore.total;
+		}
         
         function fouls() {
             return (vm.match.teleScore.fouls);
@@ -56,6 +57,7 @@
 			vm.buttonText = 'Submitting...';
 			MatchSvc.updateMatch(vm.match);
 			vm.match = MatchSvc.getMatch();
+            console.log(vm.match);
 
 			ble.connect(
 				vm.device.id,

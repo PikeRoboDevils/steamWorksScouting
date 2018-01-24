@@ -14,12 +14,16 @@
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
+        
 		vm.submit = submit;
 
 		vm.matchParts	=	{
 			switchCube: 0,
             cubeDropped: 0,
 			scaleCube: 0,
+            total: 0,
+            vaultPoints: 0,
+            climbPoints: 0,
             parking: 0,
             exchangeCube: 0,
             vaultCube: 0,
@@ -239,22 +243,22 @@
 
 			function submit() {
 				var teleScore = {
-					vaultPoints: 0,
-					climbPoints: 0,
-					total: 0,
+					vaultPoints: vm.matchParts.vaultPoints,
+					climbPoints: vm.matchParts.climbPoints,
+					total: vm.matchParts.total,
 					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
 					playStyle: vm.matchParts.playStyle.value,
                     foul: vm.matchParts.foul.value,
-                    powerUp: vm.matchParts.powerUp.value,
+                    //powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
                     scaleCube: vm.matchParts.scaleCube,
                     exchangeCube: vm.matchParts.exchangeCube,
                     vaultCube: vm.matchParts.vaultCube,
                     outExchange: vm.matchParts.outExchange,
                     outPortal: vm.matchParts.outPortal,
-                    levitatePoints: vm.matchParts.levitatePoints
+                    levitation: vm.matchParts.levitatePoints
 				};
 
                
@@ -264,17 +268,21 @@
                 
 				teleScore.parking = (vm.matchParts.parking * MatchSvc.constants.TELE_PARKING_CONSTANT);
                 
-                teleScore.levitatePoints = vm.matchParts.levitatePoints;
+                teleScore.levitation = vm.matchParts.levitatePoints;
 
-				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitatePoints;
+				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitation;
                 
                 teleScore.fouls = teleScore.foul;
                 
-                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube + teleScore.outPortal + teleScore.outExchange;
+                teleScore.cubes = (teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube + teleScore.outPortal + teleScore.outExchange);
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
+                console.log(vm.match.teleScore);
 				$state.go('app.results');
+               // console.log(teleScore.total);
+               // console.log("telescore vault points: " + teleScore.vaultPoints);
+                
 			}
 
 			function toggleclimbSuccess(){

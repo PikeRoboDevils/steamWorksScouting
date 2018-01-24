@@ -15,7 +15,7 @@
 		});
 
 		var vm = this;
-
+        console.log(MatchSvc);
 		vm.match = MatchSvc.getMatch();
 		vm.submit = submit;
 
