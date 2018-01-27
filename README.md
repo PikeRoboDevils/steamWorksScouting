@@ -31,7 +31,7 @@ Scouting app for the steamworks frc game. Our application is built using the Ion
 
 > Eject the flash-drive from the pi
 
-> Make sure to have android file transfer on computer
+> *Make sure to have android file transfer on computer*
 
 > Plug flashdrive into computer 
 
@@ -41,7 +41,7 @@ Scouting app for the steamworks frc game. Our application is built using the Ion
 
 > Copy the data.csv
 
-> open downloads folder on device and data.csv
+> Open downloads folder on device and data.csv
 
 ## Putting app on Android
 > Enable USB debugging on device
