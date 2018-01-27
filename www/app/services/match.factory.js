@@ -26,7 +26,7 @@
 				constants: calcs
 			};
 
-	
+		return matchSvc;
 
 		function getMatch() {
 
