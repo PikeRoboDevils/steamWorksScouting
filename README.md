@@ -35,7 +35,7 @@ Scouting app for the steamworks frc game. Our application is built using the Ion
 
 > Plug flashdrive into computer 
 
-*TO VIEW DATA ON DEVICE:
+TO VIEW DATA ON DEVICE:
 
 > Open data.csv
 
