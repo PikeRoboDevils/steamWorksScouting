@@ -26,10 +26,9 @@
 				constants: calcs
 			};
 
-		return matchSvc;
+	
 
 		function getMatch() {
-		console.log("get match", match);	
 
 			return match;
 		}
@@ -41,7 +40,6 @@
 
 		function updateMatch(newProperties) {
 			match = _.merge(match, newProperties);
-			console.log( "updoot match",match);
 		}
 	}
 })();
