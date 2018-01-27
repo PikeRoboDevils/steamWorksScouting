@@ -24,20 +24,22 @@ Scouting app for the steamworks frc game. Our application is built using the Ion
 
 > sudo node index.js
 
-## Exporting Data from the pi
+## Exporting Data from the Pi
 > cd steamWorksScoutingDB
 
 > sh export.sh
 
-> eject the flash-drive from the pi
+> Eject the flash-drive from the pi
 
-> android file transfer
+> Make sure to have android file transfer on computer
 
-> flashdrive plugged into computer 
+> Plug flashdrive into computer 
 
-> open data.csv
+*TO VIEW DATA ON DEVICE:
 
-> copy the data.csv
+> Open data.csv
+
+> Copy the data.csv
 
 > open downloads folder on device and data.csv
 
