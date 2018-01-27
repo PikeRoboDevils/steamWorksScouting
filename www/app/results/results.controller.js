@@ -20,7 +20,6 @@
 		vm.cancel = cancel;
 		vm.device = deviceSvc.getDevice('scoutingDatabaseApp');
 
-        console.log(MatchSvc.getMatch());
 		vm.cubes = cubes;
 		vm.total = total;
 		vm.climb = climb;
@@ -57,7 +56,7 @@
 			vm.buttonText = 'Submitting...';
 			MatchSvc.updateMatch(vm.match);
 			vm.match = MatchSvc.getMatch();
-            console.log(vm.match);
+           
 
 			ble.connect(
 				vm.device.id,
