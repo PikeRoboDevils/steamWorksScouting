@@ -84,6 +84,7 @@
 							vm.buttonText = 'Submit';
 							alert("Error occured while trying to record your match. Please try again.");
 						}
+                    
 					);
 				},
 				function(err){
@@ -91,10 +92,13 @@
 					vm.isSubmitting = false;
 					vm.buttonText = 'Submit';
 					alert('Something went wrong while trying to connect. Please try again');
+                    
 				}
+              
 		    );
 		}
-
+        
+        
 		function cancel() {
 			$scope.progressbar.reset();
 			vm.isSubmitting = false;
