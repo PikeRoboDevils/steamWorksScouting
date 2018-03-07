@@ -1,8 +1,9 @@
 {
   "name": "tabs",
   "app_id": "",
-  "integrations": {},
-
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
