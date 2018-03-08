@@ -28,7 +28,7 @@
             exchangeCube: 0,
             vaultCube: 0,
             outPortal: 0,
-            levitatePoints: 30,
+            levitatePoints: 0,
             outExchange: 0,
 			climbSuccess: false,
 			climbAttempt: false,
