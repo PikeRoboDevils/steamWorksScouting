@@ -30,6 +30,7 @@
             outPortal: 0,
             levitatePoints: 0,
             outExchange: 0,
+            breakdown: 0,
 			climbSuccess: false,
 			climbAttempt: false,
             
@@ -130,6 +131,7 @@
             vm.increaseOutExchange1 = increaseOutExchange1;
             vm.decreaseOutExchange1 = decreaseOutExchange1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
+            vm.toggleBreakdown = toggleBreakdown;
             vm.toggleLevitatePoints = toggleLevitatePoints;
             vm.didClimb = didClimb;
             vm.validClimbPos = validClimbPos;
@@ -297,6 +299,10 @@
             function toggleLevitatePoints(){
                 vm.matchParts.levitatePoints = 30;
                 
+            }
+        
+            function toggleBreakdown(){
+                vm.matchParts.breakdown = !vm.matchParts.breakdown;
             }
 
 	}
