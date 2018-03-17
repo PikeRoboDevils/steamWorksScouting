@@ -259,6 +259,7 @@
                     exchangeCube: vm.matchParts.exchangeCube,
                     vaultCube: vm.matchParts.vaultCube,
                     outExchange: vm.matchParts.outExchange,
+                    dropped: vm.matchParts.cubeDropped,
                     outPortal: vm.matchParts.outPortal,
                     levitation: vm.matchParts.levitatePoints
 				};
