@@ -277,7 +277,11 @@
                 
                 teleScore.fouls = teleScore.foul;
                 
-                teleScore.cubes = (teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube + teleScore.outPortal + teleScore.outExchange);
+                teleScore.cubes = (teleScore.switchCube + teleScore.scaleCube);
+                
+                teleScore.extraCubes = teleScore.exchangeCube + teleScore.vaultCube;
+                
+                //these cubes are left over, maybe put in another category?: teleScore.outPortal + teleScore.outExchange
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);

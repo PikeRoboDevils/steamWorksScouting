@@ -34,7 +34,7 @@
 		// $scope.progressbar.setParent(document.querySelector('#progressBar'));
 
 		function cubes(){
-			return vm.match.autoScore.cubes + vm.match.teleScore.cubes;
+			return vm.match.autoScore.cubes + vm.match.teleScore.cubes + vm.match.teleScore.extraCubes;
 		}
 
 		function climb(){
