@@ -253,6 +253,7 @@
 					climbAttempt: vm.matchParts.climbAttempt,
 					playStyle: vm.matchParts.playStyle.value,
                     foul: vm.matchParts.foul.value,
+                    breakdown: vm.matchParts.breakdown,
                     //powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
                     scaleCube: vm.matchParts.scaleCube,
