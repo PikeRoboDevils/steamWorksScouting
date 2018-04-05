@@ -6,11 +6,12 @@
 
 	resultsCtrl.$inject = ['deviceSvc', 'MatchSvc', '$ionicHistory', '$scope', '$state', 'ngProgressFactory'];
 
-	function resultsCtrl(deviceSvc, MatchSvc, $ionicHistory, $scope, $state, ngProgressFactory) {
+	function resultsCtrl(deviceSvc, MatchSvc, $ionicHistory, $scope, $state, ngProgressFactory, nav) {
 		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
 		    viewData.enableBack = true;
 		});
 
+		console.log('fuuuuuuu');
 		var vm = this;
 		var service_id = '12ab';
     	var characteristic_id = '34cd';
@@ -34,19 +35,22 @@
 		// $scope.progressbar.setParent(document.querySelector('#progressBar'));
 
 		function cubes(){
-			return vm.match.autoScore.cubes + vm.match.teleScore.cubes + vm.match.teleScore.extraCubes;
+			vm.match.autoScore
+			return _.get(vm, "match.autoScore.cubes", 0)
+				+ _.get(vm, "match.teleScore.cubes", 0)
+				+ _.get(vm, "match.teleScore.extraCubes", 0);
 		}
 
 		function climb(){
-			return vm.match.teleScore.climbPoints;
+			return _.get(vm, "match.teleScore.climbPoints", 0);
 		} 
 
 		function total(){
-			return vm.match.autoScore.total + vm.match.teleScore.total;
+			return _.get(vm,"match.autoScore.total") + _.get(vm, "match.teleScore.total", 0);
 		}
         
         function fouls() {
-            return (vm.match.teleScore.fouls);
+            return _.get(vm, "match.teleScore.fouls", 0);
         }
 
 
@@ -73,8 +77,8 @@
 								vm.buttonText = 'Submit';
 								$scope.progressbar.complete();
 								alert('Match submited!');
-								$ionicHistory.clearCache()
-								$state.go('app.welcome', {}, {reload: true});
+								$ionicHistory.clearCache();
+								$state.go('welcome', {}, {reload: true});
 							}
 						},
 						function(err){

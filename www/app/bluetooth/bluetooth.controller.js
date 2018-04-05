@@ -49,7 +49,7 @@
     }
 
     function connect (device_id){
-      $state.go('app.welcome');
+      $state.go('welcome');
     }
   }
 })();

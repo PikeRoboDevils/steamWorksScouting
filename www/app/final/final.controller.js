@@ -97,7 +97,7 @@
 				
 				vm.match.finalScore = finalScore;
 				MatchSvc.updateMatch(vm.match);
-				$state.go('app.results');
+				$state.go('results');
 			}
 
 

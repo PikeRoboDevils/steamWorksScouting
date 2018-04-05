@@ -163,7 +163,7 @@
 
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
-				$state.go('app.teleOp');
+				$state.go('teleOp');
                 //console.log(vm.match);
 			}
 

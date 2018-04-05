@@ -287,7 +287,7 @@
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
                 console.log(vm.match.teleScore);
-				$state.go('app.results');
+				$state.go('results');
                // console.log(teleScore.total);
                // console.log("telescore vault points: " + teleScore.vaultPoints);
                 
