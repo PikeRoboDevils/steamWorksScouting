@@ -533,7 +533,7 @@
     "postal_code": null, 
     "rookie_year": null, 
     "state_prov": "Indiana", 
-    "team_number": null, 
+    "team_number": 0, 
     "website": null
   }
 ]
