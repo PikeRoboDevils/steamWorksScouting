@@ -18,16 +18,31 @@
            
 
 			vm.matchProperties = {
-				switch: 0,
-				cubeDropped: 0,
-				scale: 0,
-                exchange: 0,
-				autoRun: false,
+				cargo: 0,
+				dropped: 0,
+				hatchPanel: 0,
+				habLine: false,
 				placement: {
 					id: 0,
 					label: 'None',
 					value: 'NONE'
-				}
+				},
+				initialLevel:  {
+					id: 0,
+					label: 'Level One',
+					value: 'level1'
+				},
+
+				preLoad:  {
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				},
+				sandStormType: {
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				},
 			}
 
 			vm.startingPositions = [
@@ -51,15 +66,85 @@
 					label: 'Right',
 					value: 'RIGHT'
 				}
-			];
 
-			vm.increaseSwitch1 = increaseSwitch1;
+			];
+			vm.initialLevel = [
+				{
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				},
+				{
+					id: 1,
+					label: 'Left',
+					value: 'LEFT'
+				},
+				{
+					id: 2,
+					label: 'Center',
+					value: 'CENTER'
+				},
+				{
+					id: 3,
+					label: 'Right',
+					value: 'RIGHT'
+				}
+				
+			];
+			vm.preLoad = [
+				{
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				},
+				{
+					id: 1,
+					label: 'Left',
+					value: 'LEFT'
+				},
+				{
+					id: 2,
+					label: 'Center',
+					value: 'CENTER'
+				},
+				{
+					id: 3,
+					label: 'Right',
+					value: 'RIGHT'
+				}
+				
+			];
+			vm. sandStormType = [
+				{
+					id: 0,
+					label: 'None',
+					value: 'NONE'
+				},
+				{
+					id: 1,
+					label: 'Left',
+					value: 'LEFT'
+				},
+				{
+					id: 2,
+					label: 'Center',
+					value: 'CENTER'
+				},
+				{
+					id: 3,
+					label: 'Right',
+					value: 'RIGHT'
+				}
+				
+			];
+			vm.increaseCargo1 = increaseCargo1;
+
 			
-			vm.decreaseSwitch1 = decreaseSwitch1;
+			vm.decreaseCargo1 = decreaseCargo1;
 		
-			vm.increaseScale1 = increaseScale1;
+			vm.increaseHatch1 = increaseHatch1;
 			
-			vm.decreaseScale1 = decreaseScale1;
+			vm.decreaseHatch1 = decreaseHatch1;
 			vm.decreaseCubeDropped1 = decreaseCubeDropped1;
 			vm.increaseCubeDropped1 = increaseCubeDropped1;
 		
@@ -99,7 +184,7 @@
 
 		
 
-			function decreaseScale1() {
+			function decreaseHatch1() {
 				if(vm.matchProperties.scale - 1 >= 0) {
 					vm.matchProperties.scale -= 1;
 				}
@@ -107,7 +192,7 @@
 
 			
 
-			function increaseScale1() {
+			function increaseHatch1() {
 				vm.matchProperties.scale += 1;
 			}
 
