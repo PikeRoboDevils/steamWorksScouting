@@ -82,6 +82,7 @@
     <th align="center"><strong style="font-size: 20px">Cargo Station</strong></th>
   
   </tr>
+  <!-- Rocket -->
   <tr>
     <td>
     <div class="row">
@@ -98,14 +99,14 @@
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="autoCtrl.decreaseCargo1()">
+                    ng-click="autoCtrl.decreaseRocketCargo1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.cargo"></span>
+                    <span ng-bind="autoCtrl.matchProperties.rocketCargo"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseCargo1()">
+                    ng-click="autoCtrl.increaseRocketCargo1()">
                     +1
                   </button>
               </div>
@@ -123,14 +124,14 @@
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="autoCtrl.decreaseHatch1()">
+                    ng-click="autoCtrl.decreaseRocketHatch1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.hatch"></span>
+                    <span ng-bind="autoCtrl.matchProperties.rocketHatch"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseHatch1()">
+                    ng-click="autoCtrl.increaseRocketHatch1()">
                     +1
                   </button>
               </div>
@@ -140,6 +141,7 @@
 </div> 
 </div>
 </td>
+<!-- Cargo Station -->
  <td>
     <div class="row">
       <div class="col">
@@ -155,14 +157,14 @@
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="autoCtrl.decreaseCargo1()">
+                    ng-click="autoCtrl.decreaseStationCargo1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.cargo"></span>
+                    <span ng-bind="autoCtrl.matchProperties.stationCargo"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseCargo1()">
+                    ng-click="autoCtrl.increaseStationCargo1()">
                     +1
                   </button>
               </div>
@@ -180,14 +182,14 @@
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="autoCtrl.decreaseHatch1()">
+                    ng-click="autoCtrl.decreaseStationHatch1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.hatch"></span>
+                    <span ng-bind="autoCtrl.matchProperties.stationHatch"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseHatch1()">
+                    ng-click="autoCtrl.increaseStationHatch1()">
                     +1
                   </button>
               </div>
