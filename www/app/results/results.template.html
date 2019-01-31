@@ -5,39 +5,38 @@
         <h1>Results</h1>
       </div>
     </div>
+    <table>
     <div class="list">
 
   <div class="item item-icon-left">
-    <i class="icon ion-clipboard"></i>
+    <i class="icon ion-planet"></i>
       
     Total Score
     <span class="badge badge-royal" ng-bind="resultsCtrl.total()"></span>
   </div>
-
+</table>
   <div class="item item-icon-left">
 
-    <i class="icon ion-cube"></i> 
-    Total Cubes
-    <span class="badge badge-calm" ng-bind="resultsCtrl.cubes()"></span>
+
+    <i class="icon ion-help-buoy"></i> 
+    Total Hatch Panels
+    <span class="badge badge-positive" ng-bind="resultsCtrl.cubes()"></span>
+  </div>
+
+   <div class="item item-icon-left">
+
+    <i class="icon ion-egg"></i> 
+    Total Cargo
+    <span class="badge badge-positive" ng-bind="resultsCtrl.cubes()"></span>
+
   </div>
 
   <div class="item item-icon-left">
-    <i class="icon ion-ios-gear-outline"></i>
+    <i class="icon ion-jet"></i>
+
     Climb
-    <span class="badge badge-energized" ng-bind="resultsCtrl.climb()"></span>
+    <span class="badge badge-positive" ng-bind="resultsCtrl.climb()"></span>
   </div>
-        
-    <div class="item item-icon-left">
-    <i class="icon ion-android-warning"></i>
-    Fouls
-    <span class="badge badge-balanced" ng-bind="resultsCtrl.fouls()"></span>
-    </div>
-
- <!-- <div class="item item-icon-left">
-    <i class="icon ion-flag"></i>
-    Rotors
-    <span class="badge badge-balanced" ng-bind="resultsCtrl.rotor()"></span>
-  </div> -->
         
    <div class="text-center padding">
      <button class="button button-positive" ng-click="resultsCtrl.submit()" ng-disabled="resultsCtrl.isSubmitting">
