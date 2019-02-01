@@ -22,6 +22,8 @@
 			rocketHatch: 0,
 			stationCargo: 0,
 			stationHatch: 0,
+			loadingCargo: 0,
+			loadingHatch: 0,
 			switchCube: 0,
             cubeDropped: 0,
 			scaleCube: 0,
@@ -128,7 +130,10 @@
 			vm.decreaseStationCargo1 = decreaseStationCargo1;
 			vm.increaseStationHatch1 = increaseStationHatch1;
 			vm.decreaseStationHatch1 = decreaseStationHatch1;
-
+			vm.increaseLoadingCargo1 = increaseLoadingCargo1;
+			vm.decreaseLoadingCargo1 = decreaseLoadingCargo1;
+			vm.increaseLoadingHatch1 = increaseLoadingHatch1;
+			vm.decreaseLoadingHatch1 = decreaseLoadingHatch1;
 
  			vm.increaseSwitchCube1 = increaseSwitchCube1;
 
@@ -158,7 +163,26 @@
 				console.log(vm.match);
 			}
 
-			
+			 function decreaseLoadingHatch1() {
+				if(vm.matchParts.loadingHatch - 1 >= 0) {
+					vm.matchParts.loadingHatch -= 1;
+				}
+			}
+        
+            function increaseLoadingHatch1() {
+				vm.matchParts.loadingHatch += 1;
+
+			}
+			 function decreaseLoadingCargo1() {
+				if(vm.matchParts.loadingCargo - 1 >= 0) {
+					vm.matchParts.loadingCargo -= 1;
+				}
+			}
+        
+            function increaseLoadingCargo1() {
+				vm.matchParts.loadingCargo += 1;
+			}
+
 			  function decreaseStationHatch1() {
 				if(vm.matchParts.stationHatch - 1 >= 0) {
 					vm.matchParts.stationHatch -= 1;
@@ -318,6 +342,8 @@
                     rocketHatch: vm.matchParts.rocketHatch,
                     stationCargo: vm.matchParts.stationCargo,
                     stationHatch: vm.matchParts.stationHatch,
+                    loadingCargo: vm.matchParts.loadingCargo,
+                   	loadingHatch: vm.matchParts.loadingHatch,
 
                     //powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
