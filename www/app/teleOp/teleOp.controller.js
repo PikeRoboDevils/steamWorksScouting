@@ -18,6 +18,10 @@
 		vm.submit = submit;
 
 		vm.matchParts	=	{
+			rocketCargo: 0,
+			rocketHatch: 0,
+			stationCargo: 0,
+			stationHatch: 0,
 			switchCube: 0,
             cubeDropped: 0,
 			scaleCube: 0,
@@ -115,7 +119,19 @@
 			}
 		];
 
-			vm.increaseSwitchCube1 = increaseSwitchCube1;
+
+			vm.increaseRocketCargo1 = increaseRocketCargo1;
+			vm.decreaseRocketCargo1 = decreaseRocketCargo1;
+			vm.increaseRocketHatch1 = increaseRocketHatch1;
+			vm.decreaseRocketHatch1 = decreaseRocketHatch1;
+			vm.increaseStationCargo1 = increaseStationCargo1;
+			vm.decreaseStationCargo1 = decreaseStationCargo1;
+			vm.increaseStationHatch1 = increaseStationHatch1;
+			vm.decreaseStationHatch1 = decreaseStationHatch1;
+
+
+ 			vm.increaseSwitchCube1 = increaseSwitchCube1;
+
 			vm.decreaseSwitchCube1 = decreaseSwitchCube1;
 			vm.increaseScaleCube1 = increaseScaleCube1;
 			vm.decreaseScaleCube1 = decreaseScaleCube1;
@@ -141,6 +157,50 @@
 			function init() {
 				console.log(vm.match);
 			}
+
+			
+			  function decreaseStationHatch1() {
+				if(vm.matchParts.stationHatch - 1 >= 0) {
+					vm.matchParts.stationHatch -= 1;
+				}
+			}
+        
+            function increaseStationHatch1() {
+				vm.matchParts.stationHatch += 1;
+			}
+
+
+			 function decreaseStationCargo1() {
+				if(vm.matchParts.stationCargo - 1 >= 0) {
+					vm.matchParts.stationCargo -= 1;
+				}
+			}
+        
+            function increaseStationCargo1() {
+				vm.matchParts.stationCargo += 1;
+			}
+
+
+			 function decreaseRocketCargo1() {
+				if(vm.matchParts.rocketCargo - 1 >= 0) {
+					vm.matchParts.rocketCargo -= 1;
+				}
+			}
+        
+            function increaseRocketCargo1() {
+				vm.matchParts.rocketCargo += 1;
+			}
+
+			function decreaseRocketHatch1() {
+				if(vm.matchParts.rocketHatch - 1 >= 0) {
+					vm.matchParts.rocketHatch -= 1;
+				}
+			}
+        
+            function increaseRocketHatch1() {
+				vm.matchParts.rocketHatch += 1;
+			}
+
 
 			function decreaseSwitchCube1() {
 				if(vm.matchParts.switchCube - 1 >= 0) {
@@ -254,6 +314,11 @@
 					playStyle: vm.matchParts.playStyle.value,
                     foul: vm.matchParts.foul.value,
                     breakdown: vm.matchParts.breakdown,
+                    rocketCargo: vm.matchParts.rocketCargo,
+                    rocketHatch: vm.matchParts.rocketHatch,
+                    stationCargo: vm.matchParts.stationCargo,
+                    stationHatch: vm.matchParts.stationHatch,
+
                     //powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
                     scaleCube: vm.matchParts.scaleCube,
