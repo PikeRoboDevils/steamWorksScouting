@@ -15,10 +15,16 @@
 	    	TELE_PARKING_CONSTANT: 5,
 			CLIMB_CONSTANT: 50,
 			AUTOLINE_CONSTANT: 5
-	    }
+	    };
 
-		var match = {};
-	
+	    var match = {
+
+        };
+
+		this.reset = function(){
+
+		};
+
 		var matchSvc = {
 				beginMatch: beginMatch,
 				getMatch: getMatch,
@@ -29,7 +35,6 @@
 		return matchSvc;
 
 		function getMatch() {
-			
 
 			return match;
 		}
@@ -41,7 +46,6 @@
 
 		function updateMatch(newProperties) {
 			match = _.merge(match, newProperties);
-			
 		}
 	}
 })();

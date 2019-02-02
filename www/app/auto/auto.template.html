@@ -2,115 +2,9 @@
 	<ion-content class="padding">
   <div class="row">
       <div class="col text-center">
-        <h1>Auto</h1>
+        <h1>Sandstorm</h1>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col col-100">
-        <ul class="list">
-        <li class="item">
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Switch</h2>
-              </div>
-            </div>
-          </li>  
-          <li class="item">
-            <div class="row">
-              <div class="col col-70 text-center">
-                 
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseSwitch1()">
-                    -1
-                  </button>
-                  <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.switch"></span>
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.increaseSwitch1()">
-                    1
-                  </button>
-            
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Scale</h2>
-              </div>
-            </div>
-          </li> 
-          <li class="item">
-            <div class="row">
-              <div class="col col-70 text-center">
-               
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseScale1()">
-                    -1
-                  </button>
-                  <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.scale"></span>
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.increaseScale1()">
-                    1
-                  </button>
-                 
-              </div>
-            </div>
-              
-        <li class="item">     
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Delivered to Exchange</h2>
-              </div>
-            </div>
-        </li>
-            <div class="col col-70 text-center">
-               
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseExchange1()">
-                    -1
-                  </button>
-                  <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.exchange"></span>
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.increaseExchange1()">
-                    1
-                  </button>
-                 
-              </div>
-            
-          </li>  
-
-            <li class="item">     
-            <div class="row">
-              <div class="col col-100 text-center">
-                <h2>Cubes Dropped</h2>
-              </div>
-            </div>
-        </li>
-            <div class="col col-70 text-center">
-               
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.decreaseCubeDropped1()">
-                    -1
-                  </button>
-                  <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.cubeDropped"></span>
-                  </button>
-                  <button class="button button-positive"
-                    ng-click="autoCtrl.increaseCubeDropped1()">
-                    1
-                  </button>
-                 
-              </div>
-            
-          </li>                      
-      
             <li class="item">
               <div class="row">
                 <div class="col col-100">
@@ -125,10 +19,54 @@
                 </div>
               </div>
           </li>
-          
-        
-          <li class="item item-toggle">
-             Auto-Run
+         
+          </li>
+            <li class="item">
+              <div class="row">
+                <div class="col col-100">
+                  <label class="item item-input item-select">
+                    <div class="input-label">Starting Level</div>
+                      <select
+                        ng-model="autoCtrl.matchProperties.level"
+                       
+                        ng-options="level as level.label for level in autoCtrl.startLevel track by level.id">
+                      </select>
+                  </label>
+                </div>
+              </div>
+          </li>
+            <li class="item">
+              <div class="row">
+                <div class="col col-100">
+                  <label class="item item-input item-select">
+                    <div class="input-label">Pre-load</div>
+                      <select
+                        ng-model="autoCtrl.matchProperties.preLoadType"
+                       
+                        ng-options="preload as preload.label for preload in autoCtrl.preLoadType track by preload.id">
+                      </select>
+                  </label>
+                </div>
+              </div>
+          </li>
+           </li>
+            <li class="item">
+              <div class="row">
+                <div class="col col-100">
+                  <label class="item item-input item-select">
+                    <div class="input-label">Auto or Manual</div>
+                      <select
+                        ng-model="autoCtrl.matchProperties.sandstorm"
+                       
+                        ng-options="sandstorm as sandstorm.label for sandstorm in autoCtrl.sandStormType track by sandstorm.id">
+                      </select>
+                  </label>
+                </div>
+              </div>
+              </li>
+
+         <li class="item item-toggle">
+             Cross HAB line
              <label class="toggle toggle-energized">
                <input type="checkbox" ng-model="autoCtrl.matchProperties.autoRun">
                <div class="track">
@@ -136,6 +74,197 @@
                </div>
              </label>
           </li>
+        <br />
+        <br />
+           <table width="100%">
+  <tr>
+    <th align="center"><strong style="font-size: 20px">Rocket</strong></th>
+    <th align="center"><strong style="font-size: 20px">Cargo Station</strong></th>
+  
+  </tr>
+  <!-- Rocket -->
+  <tr>
+    <td>
+    <div class="row">
+      <div class="col">
+        <ul class="list">
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cargo</h2>
+              </div>
+            </div>
+          </li>
+        <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseRocketCargo1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.rocketCargo"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseRocketCargo1()">
+                    +1
+                  </button>
+              </div>
+            </div>
+          </li>
+            
+            <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Hatch Panels</h2>
+              </div>
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseRocketHatch1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.rocketHatch"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseRocketHatch1()">
+                    +1
+                  </button>
+              </div>
+            </div>
+          </li>
+  </ul>
+</div> 
+</div>
+</td>
+<!-- Cargo Station -->
+ <td>
+    <div class="row">
+      <div class="col">
+        <ul class="list">
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cargo</h2>
+              </div>
+            </div>
+          </li>
+        <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseStationCargo1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.stationCargo"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseStationCargo1()">
+                    +1
+                  </button>
+              </div>
+            </div>
+          </li>
+            
+            <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Hatch Panels</h2>
+              </div>
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseStationHatch1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.stationHatch"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseStationHatch1()">
+                    +1
+                  </button>
+              </div>
+            </div>
+          </li>
+  </ul>
+</div> 
+</div>
+</td>
+</tr>
+</table>
+
+<h2 align="center">Items Dropped</h2>
+<div class="row">
+      <div class="col">
+        <ul class="list">
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                <h2>Cargo</h2>
+              </div>
+            </div>
+          </li>
+        <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseCargoDropped1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.cargoDropped"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseCargoDropped1()">
+                    +1
+                  </button>
+              </div>
+            </div>
+          </li>
+            
+            <li class="item">
+            <div class="row">
+              <div class = "col col-100 text-center">
+                <h2>Hatch Panels</h2>
+              </div>
+            </div>
+          </li>          
+          <li class="item">
+            <div class="row">
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseHatchDropped1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.hatchDropped"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseHatchDropped1()">
+                    +1
+                  </button>
+              </div>
+            </div>
+          </li>
+  </ul>
+</div> 
+</div>
+
+                  
+      
+          
+          
+        
+         
         <li>
           <div class="item item-button">
            <div class="text-center">

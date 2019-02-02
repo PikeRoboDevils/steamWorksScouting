@@ -14,15 +14,23 @@
 		var vm = this;
 
 		vm.match = MatchSvc.getMatch();
+        
 		vm.submit = submit;
 
 		vm.matchParts	=	{
 			switchCube: 0,
             cubeDropped: 0,
 			scaleCube: 0,
+            total: 0,
+            vaultPoints: 0,
+            climbPoints: 0,
             parking: 0,
             exchangeCube: 0,
             vaultCube: 0,
+            outPortal: 0,
+            levitatePoints: 0,
+            outExchange: 0,
+            breakdown: 0,
 			climbSuccess: false,
 			climbAttempt: false,
             
@@ -38,11 +46,17 @@
 				},
             powerUp: {
                 id: 2,
-                lable: 'None',
+                label: 'None',
+                value: 'NONE'
+            },
+
+            foul: {
+            	id: 5,
+                label: 'None',
                 value: 'NONE'
             }
             
-			}
+			};
 
 		vm.climbPositions = [
 			{
@@ -61,24 +75,6 @@
 				value: 'MIDDLE'
 			}
 		];
-
-        vm.powerUps = [
-            {
-                id: 2,
-                label: 'Boost',
-                value: 'BOOST'
-            },
-            {
-                id: 3,
-                label: 'Force',
-                value: 'FORCE'
-            },
-            {
-                id: 4,
-                label: 'Levitate',
-                value: 'LEVITATE'
-            }
-        ];
 		vm.playStyles = [
 			{
 				id: 1,
@@ -89,6 +85,33 @@
 				id: 2,
 				label: 'Defensive',
 				value: 'DEFENSIVE'
+			}
+		];
+		vm.fouls = [
+			{
+				id: 1,
+				label: 'Foul',
+				value: 'FOUL'
+			},
+			{
+				id: 2,
+				label: 'Technical Foul',
+				value: 'TECH'
+			},
+			{
+				id: 3,
+				label: 'Yellow Card',
+				value: 'YELLOW CARD'
+			},
+			{
+				id: 4,
+				label: 'Red Card',
+				value: 'RED CARD'
+			},
+			{
+				id: 5,
+				label: 'None',
+				value: 'NONE'
 			}
 		];
 
@@ -103,7 +126,13 @@
 			vm.decreaseExchangeCube1 = decreaseExchangeCube1;
 			vm.increaseVaultCube1 = increaseVaultCube1;
             vm.decreaseVaultCube1 = decreaseVaultCube1;
+            vm.increaseOutPortal1 = increaseOutPortal1;
+            vm.decreaseOutPortal1 = decreaseOutPortal1;
+            vm.increaseOutExchange1 = increaseOutExchange1;
+            vm.decreaseOutExchange1 = decreaseOutExchange1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
+            vm.toggleBreakdown = toggleBreakdown;
+            vm.toggleLevitatePoints = toggleLevitatePoints;
             vm.didClimb = didClimb;
             vm.validClimbPos = validClimbPos;
 
@@ -168,7 +197,25 @@
 				vm.matchParts.scaleCube += 1;
 			}
 
-		
+			function increaseOutPortal1() {
+				vm.matchParts.outPortal += 1;
+			}
+
+			function decreaseOutPortal1() {
+				if(vm.matchParts.outPortal - 1 >= 0) {
+					vm.matchParts.outPortal -= 1;
+				}
+			}
+
+			function increaseOutExchange1() {
+				vm.matchParts.outExchange += 1;
+			}
+
+			function decreaseOutExchange1() {
+				if(vm.matchParts.outExchange - 1 >= 0) {
+					vm.matchParts.outExchange -= 1;
+				}
+			}
 
             function hasClimbed(){
             	return vm.matchParts.climbSuccess;
@@ -198,18 +245,24 @@
 
 			function submit() {
 				var teleScore = {
-					vaultPoints: 0,
-					climbPoints: 0,
-					total: 0,
+					vaultPoints: vm.matchParts.vaultPoints,
+					climbPoints: vm.matchParts.climbPoints,
+					total: vm.matchParts.total,
 					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
 					playStyle: vm.matchParts.playStyle.value,
-                    powerUp: vm.matchParts.powerUp.value,
+                    foul: vm.matchParts.foul.value,
+                    breakdown: vm.matchParts.breakdown,
+                    //powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
                     scaleCube: vm.matchParts.scaleCube,
                     exchangeCube: vm.matchParts.exchangeCube,
-                    vaultCube: vm.matchParts.vaultCube
+                    vaultCube: vm.matchParts.vaultCube,
+                    outExchange: vm.matchParts.outExchange,
+                    dropped: vm.matchParts.cubeDropped,
+                    outPortal: vm.matchParts.outPortal,
+                    levitation: vm.matchParts.levitatePoints
 				};
 
                
@@ -218,14 +271,26 @@
 				teleScore.climbPoints += vm.matchParts.climbSuccess ? MatchSvc.constants.CLIMB_CONSTANT : 0;
                 
 				teleScore.parking = (vm.matchParts.parking * MatchSvc.constants.TELE_PARKING_CONSTANT);
-
-				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking;
                 
-                teleScore.cubes = teleScore.switchCube + teleScore.scaleCube + teleScore.exchangeCube + teleScore.vaultCube;
+                teleScore.levitation = vm.matchParts.levitatePoints;
+
+				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitation;
+                
+                teleScore.fouls = teleScore.foul;
+                
+                teleScore.cubes = (teleScore.switchCube + teleScore.scaleCube);
+                
+                teleScore.extraCubes = teleScore.exchangeCube + teleScore.vaultCube;
+                
+                //these cubes are left over, maybe put in another category?: teleScore.outPortal + teleScore.outExchange
 
 				vm.match.teleScore = teleScore;
 				MatchSvc.updateMatch(vm.match);
-				$state.go('app.results');
+                console.log(vm.match.teleScore);
+				$state.go('results');
+               // console.log(teleScore.total);
+               // console.log("telescore vault points: " + teleScore.vaultPoints);
+                
 			}
 
 			function toggleclimbSuccess(){
@@ -236,6 +301,15 @@
 			function toggleClimbAttempt(){
 				vm.matchParts.climbAttempt = !vm.matchParts.climbAttempt;
 			}
+        
+            function toggleLevitatePoints(){
+                vm.matchParts.levitatePoints = 30;
+                
+            }
+        
+            function toggleBreakdown(){
+                vm.matchParts.breakdown = !vm.matchParts.breakdown;
+            }
 
 	}
 })();

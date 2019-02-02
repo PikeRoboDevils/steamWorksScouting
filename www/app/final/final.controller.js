@@ -15,7 +15,7 @@
 		});
 
 		var vm = this;
-
+        console.log(MatchSvc);
 		vm.match = MatchSvc.getMatch();
 		vm.submit = submit;
 
@@ -97,7 +97,7 @@
 				
 				vm.match.finalScore = finalScore;
 				MatchSvc.updateMatch(vm.match);
-				$state.go('app.results');
+				$state.go('results');
 			}
 
 

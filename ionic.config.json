@@ -1,6 +1,12 @@
 {
   "name": "tabs",
+<<<<<<< HEAD
   "integrations": {},
+=======
+  "integrations": {
+    "cordova": {}
+  },
+>>>>>>> abril
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
