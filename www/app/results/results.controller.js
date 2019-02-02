@@ -51,9 +51,9 @@
 			return _.get(vm,"match.autoScore.total") + _.get(vm, "match.teleScore.total", 0);
 		}
         
-        function totalHatch() {
-            return _.get(vm, "match.autoScore.totalHatch") + _.get(vm, "match.teleScore.totalHatch", 0);
-        }
+        // function totalHatch() {
+        //     return _.get(vm, "match.autoScore.totalHatch") + _.get(vm, "match.teleScore.totalHatch", 0);
+        // }
 
         function fouls() {
             return _.get(vm, "match.teleScore.fouls", 0);
