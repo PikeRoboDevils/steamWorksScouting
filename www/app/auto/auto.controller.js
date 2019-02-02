@@ -293,6 +293,10 @@
             
                 autoScore.cubes = autoScore.switchPoints + autoScore.scalePoints + autoScore.exchangePoints + autoScore.dropped;
 
+                autoScore.cargo = (autoScore.rocketCargoPoints + autoScore.stationCargoPoints);
+
+                autoScore.hatch = (autoScore.rocketHatchPoints + autoScore.stationHatchPoints);
+
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
 				$state.go('teleOp');

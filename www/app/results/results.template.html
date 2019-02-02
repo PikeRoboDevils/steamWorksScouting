@@ -10,17 +10,32 @@
 
     <i class="icon ion-help-buoy"></i> 
     Total Hatch Panels
-    <span class="badge badge-positive" ng-bind="resultsCtrl.cubes()"></span>
+    <span class="badge badge-positive" ng-bind="resultsCtrl.hatch()"></span>
+  </div>
+    <div class="item item-icon-left">
+
+
+    <i class="icon ion-sad"></i> 
+    Total Hatch Dropped
+    <span class="badge badge-positive" ng-bind="resultsCtrl.hatch()"></span>
   </div>
 
+  <br />
    <div class="item item-icon-left">
 
     <i class="icon ion-planet"></i> 
     Total Cargo
-    <span class="badge badge-positive" ng-bind="resultsCtrl.cubes()"></span>
+    <span class="badge badge-positive" ng-bind="resultsCtrl.cargo()"></span>
 
   </div>
+   <div class="item item-icon-left">
 
+    <i class="icon ion-sad"></i> 
+    Total Cargo Dropped
+    <span class="badge badge-positive" ng-bind="resultsCtrl.cargo()"></span>
+
+  </div>
+<br />
   <div class="item item-icon-left">
     <i class="icon ion-jet"></i>
 

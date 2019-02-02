@@ -418,9 +418,9 @@
 
 				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitation;
 
-                teleScore.cargoTotal = teleScore.stationCargo + teleScore.rocketCargo;
+                teleScore.cargo = (teleScore.stationCargo + teleScore.rocketCargo);
 
-                teleScore.hatchTotal = teleScore.stationHatch + teleScore.rocketHatch;
+                teleScore.hatch = (teleScore.stationHatch + teleScore.rocketHatch);
 
                 teleScore.fouls = teleScore.foul;
                 
