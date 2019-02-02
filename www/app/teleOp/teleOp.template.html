@@ -254,7 +254,7 @@
           <li class="item item-toggle">
              Are they actively defending?
              <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.climbAttempt">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.defending">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -264,7 +264,7 @@
             <li class="item item-toggle">
              Did the robot disable?
              <label class="toggle toggle-energized">
-               <input type="checkbox" ng-model="teleOpCtrl.matchParts.levitate">
+               <input type="checkbox" ng-model="teleOpCtrl.matchParts.breakdown">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -277,8 +277,8 @@
                     <label class="item item-input item-select">
                       <div class="input-label">What level of the rocket can they reach?</div>
                         <select
-                          ng-model="teleOpCtrl.matchParts.playStyle"
-                          ng-options="playStyle as playStyle.label for playStyle in teleOpCtrl.playStyles track by playStyle.id">
+                          ng-model="teleOpCtrl.matchParts.rocketLevel"
+                          ng-options="rocketLevel as rocketLevel.label for rocketLevel in teleOpCtrl.rocketLevels track by rocketLevel.id">
                         </select>
                     </label>
                   </div>
@@ -290,8 +290,8 @@
                     <label class="item item-input item-select">
                       <div class="input-label">Climb Level</div>
                         <select
-                          ng-model="teleOpCtrl.matchParts.foul"
-                          ng-options="foul as foul.label for foul in teleOpCtrl.fouls track by foul.id">
+                          ng-model="teleOpCtrl.matchParts.climbLevel"
+                          ng-options="climbLevel as climbLevel.label for climbLevel in teleOpCtrl.climbLevels track by climbLevel.id">
                         </select>
                     </label>
                   </div>

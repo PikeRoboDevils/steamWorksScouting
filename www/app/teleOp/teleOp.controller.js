@@ -36,8 +36,9 @@
             outPortal: 0,
             levitatePoints: 0,
             outExchange: 0,
-            breakdown: 0,
+            breakdown: false,
 			climbSuccess: false,
+			defending: false,
 			climbAttempt: false,
             
 			climbPosition: {
@@ -60,8 +61,18 @@
             	id: 5,
                 label: 'None',
                 value: 'NONE'
-            }
-            
+            },
+
+            rocketLevel: {
+            	id: 1,
+                label: 'Level 1',
+                value: 'level1'
+               },
+            climbLevel: {
+            	id: 1,
+                label: 'Level 1',
+                value: 'level1'
+               }
 			};
 
 		vm.climbPositions = [
@@ -81,6 +92,42 @@
 				value: 'MIDDLE'
 			}
 		];
+
+		vm.rocketLevels = [
+			{
+				id: 1,
+				label: 'Level 1',
+				value: 'level1'
+			},
+			{
+				id: 2,
+				label: 'Level 2',
+				value: 'level2'
+			},
+			{
+				id: 3,
+				label: 'Level 3',
+				value: 'level3'
+			}
+		];
+		vm.climbLevels = [
+			{
+				id: 1,
+				label: 'Level 1',
+				value: 'level1'
+			},
+			{
+				id: 2,
+				label: 'Level 2',
+				value: 'level2'
+			},
+			{
+				id: 3,
+				label: 'Level 3',
+				value: 'level3'
+			}
+		];
+
 		vm.playStyles = [
 			{
 				id: 1,
@@ -152,6 +199,7 @@
             vm.increaseOutExchange1 = increaseOutExchange1;
             vm.decreaseOutExchange1 = decreaseOutExchange1;
             vm.toggleClimbAttempt = toggleClimbAttempt;
+            vm.toggleDefending = toggleDefending;
             vm.toggleBreakdown = toggleBreakdown;
             vm.toggleLevitatePoints = toggleLevitatePoints;
             vm.didClimb = didClimb;
@@ -335,7 +383,10 @@
 					parking: vm.matchParts.parking,
 					climbSuccess: vm.matchParts.climbSuccess,
 					climbAttempt: vm.matchParts.climbAttempt,
+					defending: vm.matchParts.defending,
 					playStyle: vm.matchParts.playStyle.value,
+					rocketLevel: vm.matchParts.rocketLevel.value,
+					climbLevel: vm.matchParts.climbLevel.value,
                     foul: vm.matchParts.foul.value,
                     breakdown: vm.matchParts.breakdown,
                     rocketCargo: vm.matchParts.rocketCargo,
@@ -366,7 +417,11 @@
                 teleScore.levitation = vm.matchParts.levitatePoints;
 
 				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitation;
-                
+
+                teleScore.cargoTotal = teleScore.stationCargo + teleScore.rocketCargo;
+
+                teleScore.hatchTotal = teleScore.stationHatch + teleScore.rocketHatch;
+
                 teleScore.fouls = teleScore.foul;
                 
                 teleScore.cubes = (teleScore.switchCube + teleScore.scaleCube);
@@ -402,5 +457,8 @@
                 vm.matchParts.breakdown = !vm.matchParts.breakdown;
             }
 
+             function toggleDefending(){
+                vm.matchParts.defending = !vm.matchParts.defending;
+            }
 	}
 })();
