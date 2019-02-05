@@ -297,6 +297,10 @@
 
                 autoScore.hatch = (autoScore.rocketHatchPoints + autoScore.stationHatchPoints);
 
+                autoScore.hatchDropped = autoScore.hatchesDropped;
+
+                autoScore.cargoDropped = autoScore.cargoesDropped;
+
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);
 				$state.go('teleOp');
