@@ -1,5 +1,5 @@
 <ion-view view-title="Team Number: {{autoCtrl.match.teamNumber}}">
-	<ion-content class="padding">
+  <ion-content class="padding">
   <div class="row">
       <div class="col text-center">
         <h1>Sandstorm</h1>
@@ -95,23 +95,68 @@
               </div>
             </div>
           </li>
+            <li class="item">
+            <div class="row">
+           <div class="col text-center">
+                <b>Level 1</b>
+            </div>
+            <div class="col text-center">
+                <b>Level 2</b>
+            </div>
+            <div class="col text-center">
+                <b>Level 3</b>
+            </div>
+          </div>
+        </li>
+
         <li class="item">
             <div class="row">
+             
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="autoCtrl.decreaseRocketCargo1()">
+                    ng-click="autoCtrl.decreaseRocketCargoOne1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.rocketCargo"></span>
+                    <span ng-bind="autoCtrl.matchProperties.rocketCargoOne"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseRocketCargo1()">
+                    ng-click="autoCtrl.increaseRocketCargoOne1()">
+                    +1
+                  </button>
+                </div>
+                  
+                  <div class="col col-100 text-center">
+                   <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseRocketCargoTwo1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.rocketCargoTwo"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseRocketCargoTwo1()">
+                    +1
+                  </button>
+                </div>
+
+                       <div class="col col-100 text-center">
+                   <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseRocketCargoThree1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.rocketCargoThree"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseRocketCargoThree1()">
                     +1
                   </button>
               </div>
             </div>
           </li>
+        <!-- </li>
+      </div> -->
             
             <li class="item">
             <div class="row">
@@ -119,24 +164,67 @@
                 <h2>Hatch Panels</h2>
               </div>
             </div>
-          </li>          
+          </li> 
+          <li class="item">
+            <div class="row">
+           <div class="col text-center">
+                <b>Level 1</b>
+              </div> 
+            <div class="col text-center">
+                <b>Level 2</b>
+              </div> 
+            <div class="col text-center">
+                <b>Level 3</b>
+              </div> 
+             </div>
+            </li> 
+
           <li class="item">
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="autoCtrl.decreaseRocketHatch1()">
+                    ng-click="autoCtrl.decreaseRocketHatchOne1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="autoCtrl.matchProperties.rocketHatch"></span>
+                    <span ng-bind="autoCtrl.matchProperties.rocketHatchOne"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="autoCtrl.increaseRocketHatch1()">
+                    ng-click="autoCtrl.increaseRocketHatchOne1()">
+                    +1
+                  </button>
+              </div>
+
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseRocketHatchTwo1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.rocketHatchTwo"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseRocketHatchTwo1()">
+                    +1
+                  </button>
+              </div>
+
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="autoCtrl.decreaseRocketHatchThree1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="autoCtrl.matchProperties.rocketHatchThree"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="autoCtrl.increaseRocketHatchThree1()">
                     +1
                   </button>
               </div>
             </div>
           </li>
+
   </ul>
 </div> 
 </div>
@@ -281,3 +369,11 @@
     </div>
 </ion-content>
 </ion-view>
+
+
+
+
+Javascript 
+
+
+
