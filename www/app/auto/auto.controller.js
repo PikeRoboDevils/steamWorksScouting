@@ -20,8 +20,12 @@
 			vm.matchProperties = {
 				hatch: 0,
 				cargo: 0,
-				rocketCargo: 0,
-				rocketHatch: 0,
+				rocketCargoTwo: 0,
+				rocketCargoOne: 0,
+				rocketCargoThree: 0,
+				rocketHatchTwo: 0,
+				rocketHatchOne: 0,
+				rocketHatchThree: 0,
 				stationCargo: 0,
 				stationHatch: 0,
 				hatchDropped: 0,
@@ -114,20 +118,28 @@
 
 
 			vm.increaseHatch1 = increaseHatch1;
-			vm.increaseRocketHatch1 = increaseRocketHatch1;
+			vm.increaseRocketHatchOne1 = increaseRocketHatchOne1;
+			vm.increaseRocketHatchTwo1 = increaseRocketHatchTwo1;
+			vm.increaseRocketHatchThree1 = increaseRocketHatchThree1;
 			vm.increaseStationHatch1 = increaseStationHatch1
 			
 			vm.decreaseHatch1 = decreaseHatch1;
-			vm.decreaseRocketHatch1 = decreaseRocketHatch1;
+			vm.decreaseRocketHatchOne1 = decreaseRocketHatchOne1;
+			vm.decreaseRocketHatchTwo1 = decreaseRocketHatchTwo1;
+			vm.decreaseRocketHatchThree1 = decreaseRocketHatchThree1;
 			vm.decreaseStationHatch1 = decreaseStationHatch1;
 		
 			vm.increaseCargo1 = increaseCargo1;
-			vm.increaseRocketCargo1 = increaseRocketCargo1;
+			vm.increaseRocketCargoOne1 = increaseRocketCargoOne1;
+			vm.increaseRocketCargoTwo1 = increaseRocketCargoTwo1;
+			vm.increaseRocketCargoThree1 = increaseRocketCargoThree1;
 			vm.increaseStationCargo1 = increaseStationCargo1;
 
 			
 			vm.decreaseCargo1 = decreaseCargo1;
-			vm.decreaseRocketCargo1 = decreaseRocketCargo1;
+			vm.decreaseRocketCargoOne1 = decreaseRocketCargoOne1;
+			vm.decreaseRocketCargoTwo1 = decreaseRocketCargoTwo1;
+			vm.decreaseRocketCargoThree1 = decreaseRocketCargoThree1;
 			vm.decreaseStationCargo1 = decreaseStationCargo1;
 
 			vm.decreaseHatchDropped1 = decreaseHatchDropped1;
@@ -157,15 +169,30 @@
 				vm.matchProperties.hatch += 1;
 			}
 
-			function decreaseRocketHatch1() {
-				if(vm.matchProperties.rocketHatch - 1 >= 0) {
-					vm.matchProperties.rocketHatch -= 1;
+			function decreaseRocketHatchOne1() {
+				if(vm.matchProperties.rocketHatchOne - 1 >= 0) {
+					vm.matchProperties.rocketHatchOne -= 1;
 				}
 			}
-			function increaseRocketHatch1() {
-				vm.matchProperties.rocketHatch += 1;
+			function decreaseRocketHatchTwo1() {
+				if(vm.matchProperties.rocketHatchTwo - 1 >= 0) {
+					vm.matchProperties.rocketHatchTwo -= 1;
+				}
 			}
-
+			function decreaseRocketHatchThree1() {
+				if(vm.matchProperties.rocketHatchThree - 1 >= 0) {
+					vm.matchProperties.rocketHatchThree -= 1;
+				}
+			}
+			function increaseRocketHatchOne1() {
+				vm.matchProperties.rocketHatchOne += 1;
+			}
+			function increaseRocketHatchTwo1() {
+				vm.matchProperties.rocketHatchTwo += 1;
+			}
+			function increaseRocketHatchThree1() {
+				vm.matchProperties.rocketHatchThree += 1;
+			}
 			function decreaseStationHatch1() {
 				if(vm.matchProperties.stationHatch - 1 >= 0) {
 					vm.matchProperties.stationHatch -= 1;
@@ -198,12 +225,29 @@
 				}
 			}
 
-			function increaseRocketCargo1() {
-				vm.matchProperties.rocketCargo += 1;
+			function increaseRocketCargoOne1() {
+				vm.matchProperties.rocketCargoOne += 1;
 			}
-			function decreaseRocketCargo1() {
-				if(vm.matchProperties.rocketCargo - 1 >= 0) {
-					vm.matchProperties.rocketCargo -= 1;
+			function increaseRocketCargoTwo1() {
+				vm.matchProperties.rocketCargoTwo += 1;
+			}
+			function increaseRocketCargoThree1() {
+				vm.matchProperties.rocketCargoThree += 1;
+			}
+
+			function decreaseRocketCargoOne1() {
+				if(vm.matchProperties.rocketCargoOne - 1 >= 0) {
+					vm.matchProperties.rocketCargoOne -= 1;
+				}
+			}
+			function decreaseRocketCargoTwo1() {
+				if(vm.matchProperties.rocketCargoTwo - 1 >= 0) {
+					vm.matchProperties.rocketCargoTwo -= 1;
+				}
+			}
+			function decreaseRocketCargoThree1() {
+				if(vm.matchProperties.rocketCargoThree - 1 >= 0) {
+					vm.matchProperties.rocketCargoThree -= 1;
 				}
 			}
 
@@ -267,12 +311,16 @@
                     //fuelpoints
 					switchPoints: vm.matchProperties.switch,
 					hatchPoints: vm.matchProperties.hatch,
-					rocketHatchPoints: vm.matchProperties.rocketHatch,
+					rocketHatchTwoPoints: vm.matchProperties.rocketHatchTwo,
+					rocketHatchOnePoints: vm.matchProperties.rocketHatchOne,
+					rocketHatchThreePoints: vm.matchProperties.rocketHatchThree,
 					stationHatchPoints: vm.matchProperties.stationHatch,
                     //rotorpoints
 					scalePoints: vm.matchProperties.scale,
 					cargoPoints: vm.matchProperties.cargo,
-					rocketCargoPoints: vm.matchProperties.rocketCargo,
+					rocketCargoTwoPoints: vm.matchProperties.rocketCargoTwo,
+					rocketCargoOnePoints: vm.matchProperties.rocketCargoOne,
+					rocketCargoThreePoints: vm.matchProperties.rocketCargoThree,
 					stationCargoPoints: vm.matchProperties.stationCargo,
                     //basepoints
 					exchangePoints: vm.matchProperties.exchange,
@@ -293,9 +341,9 @@
             
                 autoScore.cubes = autoScore.switchPoints + autoScore.scalePoints + autoScore.exchangePoints + autoScore.dropped;
 
-                autoScore.cargo = (autoScore.rocketCargoPoints + autoScore.stationCargoPoints);
+                autoScore.cargo = (autoScore.rocketCargoOnePoints + autoScore.rocketCargoTwoPoints + autoScore.rocketCargoThreePoints + autoScore.stationCargoPoints);
 
-                autoScore.hatch = (autoScore.rocketHatchPoints + autoScore.stationHatchPoints);
+                autoScore.hatch = (autoScore.rocketHatchOnePoints + autoScore.rocketHatchTwoPoints + autoScore.rocketHatchThreePoints+ autoScore.stationHatchPoints);
 
 				vm.match.autoScore = autoScore;
 				MatchSvc.updateMatch(vm.match);

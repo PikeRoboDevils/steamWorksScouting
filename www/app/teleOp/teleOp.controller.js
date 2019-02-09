@@ -19,6 +19,9 @@
 
 		vm.matchParts	=	{
 			rocketCargo: 0,
+			rocketCargoTwo: 0,
+			rocketCargoOne: 0,
+			rocketCargoThree: 0,
 			rocketHatch: 0,
 			stationCargo: 0,
 			stationHatch: 0,
