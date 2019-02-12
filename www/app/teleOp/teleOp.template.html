@@ -123,9 +123,38 @@
                   </button>
                   <button class="button button-positive"
                     ng-click="teleOpCtrl.increaseRocketHatch1()">
-                    1
+                    +1
                   </button>
               </div>
+
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="teleOpCtrl.decreaseRocketHatch1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.rocketHatch"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseRocketHatch1()">
+                    +1
+                  </button>
+              </div>
+
+              <div class="col col-100 text-center">
+                  <button class="button button-assertive"
+                    ng-click="teleOpCtrl.decreaseRocketHatch1()">
+                    -1
+                  </button>
+                  <button class="button button-light">
+                    <span ng-bind="teleOpCtrl.matchParts.rocketHatch"></span>
+                  </button>
+                  <button class="button button-positive"
+                    ng-click="teleOpCtrl.increaseRocketHatch1()">
+                    +1
+                  </button>
+              </div>
+
             </div>
           </li>
   </ul>
@@ -267,14 +296,14 @@
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="teleOpCtrl.decreaseSwitchCube1()">
+                    ng-click="teleOpCtrl.decreaseCargoDropped1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.switchCube"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.cargoDropped"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseSwitchCube1()">
+                    ng-click="teleOpCtrl.increaseCargoDropped1()">
                     1
                   </button>
               </div>
@@ -292,14 +321,14 @@
             <div class="row">
               <div class="col col-100 text-center">
                   <button class="button button-assertive"
-                    ng-click="teleOpCtrl.decreaseVaultCube1()">
+                    ng-click="teleOpCtrl.decreaseHatchDropped1()">
                     -1
                   </button>
                   <button class="button button-light">
-                    <span ng-bind="teleOpCtrl.matchParts.vaultCube"></span>
+                    <span ng-bind="teleOpCtrl.matchParts.hatchDropped"></span>
                   </button>
                   <button class="button button-positive"
-                    ng-click="teleOpCtrl.increaseVaultCube1()">
+                    ng-click="teleOpCtrl.increaseHatchDropped1()">
                     1
                   </button>
               </div>

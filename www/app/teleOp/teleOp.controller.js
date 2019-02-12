@@ -22,6 +22,8 @@
 			rocketCargoTwo: 0,
 			rocketCargoOne: 0,
 			rocketCargoThree: 0,
+			hatchDropped: 0, 
+			cargoDropped: 0,
 			rocketHatch: 0,
 			stationCargo: 0,
 			stationHatch: 0,
@@ -185,6 +187,14 @@
 			vm.increaseLoadingHatch1 = increaseLoadingHatch1;
 			vm.decreaseLoadingHatch1 = decreaseLoadingHatch1;
 
+			vm.increaseHatchDropped1 = increaseHatchDropped1;
+			vm.decreaseHatchDropped1 = decreaseHatchDropped1;
+
+			vm.increaseCargoDropped1 = increaseCargoDropped1;
+			vm.decreaseCargoDropped1 = decreaseCargoDropped1;
+
+
+
  			vm.increaseSwitchCube1 = increaseSwitchCube1;
 
 			vm.decreaseSwitchCube1 = decreaseSwitchCube1;
@@ -214,6 +224,20 @@
 				console.log(vm.match);
 			}
 
+			 
+
+ 			function decreaseCargoDropped1() {
+				if(vm.matchParts.cargoDropped - 1 >= 0) {
+					vm.matchParts.cargoDropped -= 1;
+				}
+			}
+        
+            function increaseCargoDropped1() {
+				vm.matchParts.cargoDropped += 1;
+
+			}
+
+
 			 function decreaseLoadingHatch1() {
 				if(vm.matchParts.loadingHatch - 1 >= 0) {
 					vm.matchParts.loadingHatch -= 1;
@@ -224,6 +248,19 @@
 				vm.matchParts.loadingHatch += 1;
 
 			}
+			
+
+			function decreaseHatchDropped1() {
+				if(vm.matchParts.hatchDropped - 1 >= 0) {
+					vm.matchParts.hatchDropped -= 1;
+				}
+			}
+        
+            function increaseHatchDropped1() {
+				vm.matchParts.hatchDropped += 1;
+
+			}
+
 			 function decreaseLoadingCargo1() {
 				if(vm.matchParts.loadingCargo - 1 >= 0) {
 					vm.matchParts.loadingCargo -= 1;
@@ -398,6 +435,8 @@
                     stationHatch: vm.matchParts.stationHatch,
                     loadingCargo: vm.matchParts.loadingCargo,
                    	loadingHatch: vm.matchParts.loadingHatch,
+                   	hatchesDropped: vm.matchParts.hatchDropped,
+                   	cargoesDropped: vm.matchParts.cargoDropped,
 
                     //powerUp: vm.matchParts.powerUp.value,
                     switchCube: vm.matchParts.switchCube,
@@ -431,6 +470,9 @@
                 
                 teleScore.extraCubes = teleScore.exchangeCube + teleScore.vaultCube;
                 
+                 teleScore.cargoDropped = teleScore.cargoesDropped;
+                teleScore.hatchDropped = teleScore.hatchesDropped;
+
                 //these cubes are left over, maybe put in another category?: teleScore.outPortal + teleScore.outExchange
 
 				vm.match.teleScore = teleScore;

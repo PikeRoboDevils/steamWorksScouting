@@ -24,7 +24,9 @@
 		vm.cubes = cubes;
 		vm.total = total;
 		vm.hatch = hatch;
+		vm.hatchDropped = hatchDropped;
 		vm.cargo = cargo;
+		vm.cargoDropped = cargoDropped;
 		vm.climb = climb;
         vm.fouls = fouls;
 		vm.isSubmitting = false;
@@ -44,7 +46,7 @@
 		}
 
 		function climb(){
-			return _.get(vm, "match.teleScore.climbPoints", 0);
+			return _.get(vm, "match.teleScore.climbLevel", 0);
 		} 
 
 		function total(){
@@ -55,8 +57,16 @@
             return _.get(vm, "match.autoScore.hatch") + _.get(vm, "match.teleScore.hatch", 0); 
         }
 
+        function hatchDropped() {
+            return _.get(vm, "match.autoScore.hatchDropped") + _.get(vm, "match.teleScore.hatchDropped", 0); 
+        }
+
          function cargo() {
             return _.get(vm, "match.autoScore.cargo") + _.get(vm, "match.teleScore.cargo", 0);
+        }
+
+         function cargoDropped() {
+            return _.get(vm, "match.autoScore.cargoDropped") + _.get(vm, "match.teleScore.cargoDropped", 0);
         }
 
         function fouls() {
