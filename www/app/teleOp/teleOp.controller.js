@@ -174,14 +174,30 @@
 		];
 
 
-			vm.increaseRocketCargo1 = increaseRocketCargo1;
-			vm.decreaseRocketCargo1 = decreaseRocketCargo1;
-			vm.increaseRocketHatch1 = increaseRocketHatch1;
-			vm.decreaseRocketHatch1 = decreaseRocketHatch1;
+			vm.increaseCargo1 = increaseCargo1;
+			vm.increaseRocketCargoOne1 = increaseRocketCargoOne1;
+			vm.increaseRocketCargoTwo1 = increaseRocketCargoTwo1;
+			vm.increaseRocketCargoThree1 = increaseRocketCargoThree1;
 			vm.increaseStationCargo1 = increaseStationCargo1;
+
+			vm.decreaseCargo1 = decreaseCargo1;
+			vm.decreaseRocketCargoOne1 = decreaseRocketCargoOne1;
+			vm.decreaseRocketCargoTwo1 = decreaseRocketCargoTwo1;
+			vm.decreaseRocketCargoThree1 = decreaseRocketCargoThree1;
 			vm.decreaseStationCargo1 = decreaseStationCargo1;
+
+			vm.increaseHatch1 = increaseHatch1;
+			vm.increaseRocketHatchOne1 = increaseRocketHatchOne1;
+			vm.increaseRocketHatchTwo1 = increaseRocketHatchTwo1;
+			vm.increaseRocketHatchThree1 = increaseRocketHatchThree1;
 			vm.increaseStationHatch1 = increaseStationHatch1;
+
+			vm.decreaseHatch1 = decreaseHatch1;
+			vm.decreaseRocketHatchOne1 = decreaseRocketHatchOne1;
+			vm.decreaseRocketHatchTwo1 = decreaseRocketHatchTwo1;
+			vm.decreaseRocketHatchThree1 = decreaseRocketHatchThree1;
 			vm.decreaseStationHatch1 = decreaseStationHatch1;
+
 			vm.increaseLoadingCargo1 = increaseLoadingCargo1;
 			vm.decreaseLoadingCargo1 = decreaseLoadingCargo1;
 			vm.increaseLoadingHatch1 = increaseLoadingHatch1;
@@ -189,7 +205,6 @@
 
 			vm.increaseHatchDropped1 = increaseHatchDropped1;
 			vm.decreaseHatchDropped1 = decreaseHatchDropped1;
-
 			vm.increaseCargoDropped1 = increaseCargoDropped1;
 			vm.decreaseCargoDropped1 = decreaseCargoDropped1;
 
@@ -308,11 +323,34 @@
 					vm.matchParts.rocketHatch -= 1;
 				}
 			}
+			function increaseRocketCargoOne1() {
+				vm.matchProperties.rocketCargoOne += 1;
+			}
+			function increaseRocketCargoTwo1() {
+				vm.matchProperties.rocketCargoTwo += 1;
+			}
+			function increaseRocketCargoThree1() {
+				vm.matchProperties.rocketCargoThree += 1;
+			}
         
             function increaseRocketHatch1() {
 				vm.matchParts.rocketHatch += 1;
 			}
-
+			function decreaseRocketCargoOne1() {
+				if(vm.matchProperties.rocketCargoOne - 1 >= 0) {
+					vm.matchProperties.rocketCargoOne -= 1;
+				}
+			}
+			function decreaseRocketCargoTwo1() {
+				if(vm.matchProperties.rocketCargoTwo - 1 >= 0) {
+					vm.matchProperties.rocketCargoTwo -= 1;
+				}
+			}
+			function decreaseRocketCargoThree1() {
+				if(vm.matchProperties.rocketCargoThree - 1 >= 0) {
+					vm.matchProperties.rocketCargoThree -= 1;
+				}
+			}
 
 			function decreaseSwitchCube1() {
 				if(vm.matchParts.switchCube - 1 >= 0) {
