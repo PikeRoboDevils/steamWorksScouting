@@ -18,7 +18,9 @@
 		vm.submit = submit;
 
 		vm.matchParts	=	{
-			rocketCargo: 0,
+			cargo: 0,
+			rocketCargoOne: 0,
+			rocketCargoTwo: 0,
 			hatchDropped: 0, 
 			cargoDropped: 0,
 			rocketHatch: 0,
@@ -171,8 +173,14 @@
 		];
 
 
-			vm.increaseRocketCargo1 = increaseRocketCargo1;
-			vm.decreaseRocketCargo1 = decreaseRocketCargo1;
+			vm.increaseCargo1 = increaseCargo1;
+			vm.decreaseCargo1 = decreaseCargo1;
+			vm.increaseRocketCargoOne1 = increaseRocketCargoOne1;
+			vm.increaseRocketCargoTwo1 = increaseRocketCargoTwo1;
+			
+			vm.decreaseRocketCargoOne1 = decreaseRocketCargoOne1;
+			vm.decreaseRocketCargoTwo1 = decreaseRocketCargoTwo1;
+			
 			vm.increaseRocketHatch1 = increaseRocketHatch1;
 			vm.decreaseRocketHatch1 = decreaseRocketHatch1;
 			vm.increaseStationCargo1 = increaseStationCargo1;
@@ -222,6 +230,34 @@
 			}
 
 			 
+
+ 			  function decreaseRocketCargoTwo1() {
+				if(vm.matchParts.rocketCargoTwo - 1 >= 0) {
+					vm.matchParts.rocketCargoTwo -= 1;
+				}
+			}
+        
+            function increaseRocketCargoTwo1() {
+				vm.matchParts.rocketCargoTwo += 1;
+			}
+
+
+
+
+
+ 			 function decreaseRocketCargoOne1() {
+				if(vm.matchParts.rocketCargoOne - 1 >= 0) {
+					vm.matchParts.rocketCargoOne -= 1;
+				}
+			}
+        
+            function increaseRocketCargoOne1() {
+				vm.matchParts.rocketCargoOne += 1;
+			}
+
+			
+
+
 
  			function decreaseCargoDropped1() {
 				if(vm.matchParts.cargoDropped - 1 >= 0) {
@@ -290,14 +326,14 @@
 			}
 
 
-			 function decreaseRocketCargo1() {
-				if(vm.matchParts.rocketCargo - 1 >= 0) {
-					vm.matchParts.rocketCargo -= 1;
+			 function decreaseCargo1() {
+				if(vm.matchParts.Cargo - 1 >= 0) {
+					vm.matchParts.Cargo -= 1;
 				}
 			}
         
-            function increaseRocketCargo1() {
-				vm.matchParts.rocketCargo += 1;
+            function increaseCargo1() {
+				vm.matchParts.Cargo += 1;
 			}
 
 			function decreaseRocketHatch1() {
@@ -426,7 +462,9 @@
 					climbLevel: vm.matchParts.climbLevel.value,
                     foul: vm.matchParts.foul.value,
                     breakdown: vm.matchParts.breakdown,
-                    rocketCargo: vm.matchParts.rocketCargo,
+                    cargoPoints: vm.matchParts.rocketCargo,
+                    rocketCargoOne: vm.matchParts.rocketCargoOne,
+                    rocketCargoTwo: vm.matchParts.rocketCargoTwo,
                     rocketHatch: vm.matchParts.rocketHatch,
                     stationCargo: vm.matchParts.stationCargo,
                     stationHatch: vm.matchParts.stationHatch,
@@ -457,7 +495,7 @@
 
 				teleScore.total = teleScore.vaultPoints + teleScore.climbPoints + teleScore.parking + teleScore.levitation;
 
-                teleScore.cargo = (teleScore.stationCargo + teleScore.rocketCargo);
+                teleScore.cargo = (teleScore.stationCargo + teleScore.rocketCargoOne);
 
                 teleScore.hatch = (teleScore.stationHatch + teleScore.rocketHatch);
 
