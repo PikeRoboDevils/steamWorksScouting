@@ -76,11 +76,9 @@
           </li>
         <br />
         <br />
-           <table width="100%">
+<table width="100%">
   <tr>
     <th align="center"><strong style="font-size: 20px">Rocket</strong></th>
-    <th align="center"><strong style="font-size: 20px">Cargo Station</strong></th>
-  
   </tr>
   <!-- Rocket -->
   <tr>
@@ -248,7 +246,18 @@
 </div> 
 </div>
 </td>
+</tr>
+</table>
+<br />
+<table width="100%">
+    <tr>
+   <!--  <th align="center"><strong style="font-size: 20px">Rocket</strong></td> -->
+    <th align="center"><strong style="font-size: 20px">Cargo Station</strong></th>
+    <th align="center"><strong style="font-size: 20px">Items Dropped</strong></th>
+  </tr>
+
 <!-- Cargo Station -->
+<tr>
  <td>
     <div class="row">
       <div class="col">
@@ -306,10 +315,8 @@
 </div> 
 </div>
 </td>
-</tr>
-</table>
 
-<h2 align="center">Items Dropped</h2>
+<td>
 <div class="row">
       <div class="col">
         <ul class="list">
@@ -364,18 +371,18 @@
           </li>
   </ul>
 </div> 
-</div>   
-        <li>
-          <div class="item item-button">
+</div>
+</td>
+</tr>
+</table>   
+<br />
            <div class="text-center">
              <button class="button button-positive"
                 ng-disabled="!autoCtrl.validStartingPos()"
                 ng-click="autoCtrl.submit()">
                To Teleop!
              </button>
-            </div>
           </div>            
-        </li>
         </ul>
       </div>
     </div>
