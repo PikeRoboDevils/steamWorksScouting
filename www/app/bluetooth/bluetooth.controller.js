@@ -19,7 +19,6 @@
       deviceSvc.reset();
       vm.devices = deviceSvc.getDevices();
       vm.showSpinner = true;
-      $state.go('welcome');
 
       deviceSvc.reset();
       ble.startScan(
